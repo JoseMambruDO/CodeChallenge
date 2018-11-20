@@ -66,7 +66,7 @@ def array123(nums):
     '''Given an array of ints, return True if the sequence of numbers 1, 2, 3 appears in the array somewhere.'''
     result = False
     for i in range(len(nums)):
-        if nums[i:i+3] == [1,2,3]:
+        if nums[i:i + 3] == [1, 2, 3]:
             result = True
     return result
 
@@ -75,10 +75,67 @@ def string_match(a, b):
     '''Given 2 strings, a and b, return the number of the positions where they contain
     the same length 2 substring. So "xxcaazz" and "xxbaaz" yields 3,
     since the "xx", "aa", and "az" substrings appear in the same place in both strings.'''
-    list_a =  [a[i:i+2] for i in range(len(a)-1)]
-    list_b =  [b[i:i+2] for i in range(len(b)-1)]
+    list_a = [a[i:i + 2] for i in range(len(a) - 1)]
+    list_b = [b[i:i + 2] for i in range(len(b) - 1)]
     count_match = 0
     for la in set(list_a):
         if (la in set(list_b)):
             count_match += 1
     return count_match
+
+
+def hello_name(name):
+    '''Given a string name, e.g. "Bob", return a greeting of the form "Hello Bob!".'''
+
+    return 'Hello ' + name + '!'
+
+
+def make_abba(a, b):
+    '''Given two strings, a and b, return the result of putting them together in
+    the order abba, e.g. "Hi" and "Bye" returns "HiByeByeHi".'''
+
+    return a + 2 * b + a
+
+
+def make_tags(tag, word):
+    '''The web is built with HTML strings like "<i>Yay</i>" which draws Yay as
+    italic text. In this example, the "i" tag makes <i> and </i> which surround
+    the word "Yay". Given tag and word strings, create the HTML string with tags
+    around the word, e.g. "<i>Yay</i>".'''
+
+    return "<{0}>{1}<{0}/>".format(tag, word)
+
+
+def make_out_word(out, word):
+    '''Given an "out" string length 4, such as "<<>>", and a word, return a new
+    string where the word is in the middle of the out string, e.g. "<<word>>". '''
+
+    len_out = len(out)
+    p1 = out[:len_out // 2]
+    p2 = out[len_out // 2:]
+
+    return p1 + word + p2
+
+
+def extra_end(str):
+    '''Given a string, return a new string made of 3 copies of the last 2 chars
+    of the original string. The string length will be at least 2.'''
+
+    return 3 * str[-2:]
+
+
+def first_two(str):
+    '''Given a string, return the string made of its first two chars, so the
+    String "Hello" yields "He". If the string is shorter than length 2, return
+    whatever there is, so "X" yields "X", and the empty string "" yields
+    the empty string "". '''
+
+    return str[0:2]
+
+
+def first_half(str):
+    '''Given a string of even length, return the first half. So the string "WooHoo"
+    yields "Woo".'''
+
+    len_str = len(str)
+    return str[:len_str // 2]

@@ -94,6 +94,36 @@ class Warmup2Tests(unittest.TestCase):
         self.assertEqual(first_half('HelloThere'), 'Hello')
         self.assertEqual(first_half('abcdef'), 'abc')
 
+    def test_without_end(self):
+        self.assertEqual(without_end('Hello'), 'ell')
+        self.assertEqual(without_end('java'), 'av')
+        self.assertEqual(without_end('coding'), 'odin')
+
+    def test_combo_string(self):
+        self.assertEqual(combo_string('Hello', 'hi'), 'hiHellohi')
+        self.assertEqual(combo_string('hi', 'Hello'), 'hiHellohi')
+        self.assertEqual(combo_string('aaa', 'b'), 'baaab')
+
+    def test_non_start(self):
+        self.assertEqual(non_start('Hello', 'There'), 'ellohere')
+        self.assertEqual(non_start('java', 'code'), 'avaode')
+        self.assertEqual(non_start('shotl', 'java'), 'hotlava')
+
+    def test_left2(self):
+        self.assertEqual(left2('Hello'), 'lloHe')
+        self.assertEqual(left2('java'), 'vaja')
+        self.assertEqual(left2('Hi'), 'Hi')
+
+    def test_first_last6(self):
+        self.assertEqual(first_last6([1, 2, 6]), True)
+        self.assertEqual(first_last6([6, 1, 2, 3]), True)
+        self.assertEqual(first_last6([13, 6, 1, 2, 3]), False)
+
+    def test_same_first_last(self):
+        self.assertEqual(same_first_last([1, 2, 3]), False)
+        self.assertEqual(same_first_last([1, 2, 3, 1]), True)
+        self.assertEqual(same_first_last([1, 2, 1]), True)
+
 
 if __name__ == '__main__':
     unittest.main()

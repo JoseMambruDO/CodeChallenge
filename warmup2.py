@@ -139,3 +139,47 @@ def first_half(str):
 
     len_str = len(str)
     return str[:len_str // 2]
+
+
+def without_end(str):
+    '''Given a string, return a version without the first and last char,
+    so "Hello" yields "ell". The string length will be at least 2.'''
+
+    return str[1:-1]
+
+
+def combo_string(a, b):
+    '''Given 2 strings, a and b, return a string of the form short+long+short,
+    with the shorter string on the outside and the longer string on the inside.
+    The strings will not be the same length, but they may be empty (length 0).'''
+
+    if (len(b) > len(a)):
+        a, b = b, a
+    return b + a + b
+
+
+def non_start(a, b):
+    '''Given 2 strings, return their concatenation, except omit the first char
+    of each. The strings will be at least length 1.'''
+    return a[1:] + b[1:]
+
+
+def left2(str):
+    '''Given a string, return a "rotated left 2" version where the first 2 chars
+    are moved to the end. The string length will be at least 2.'''
+    result = str
+    if (len(str) > 2):
+        result = str[2:] + str[:2]
+    return result
+
+
+def first_last6(nums):
+    '''Given an array of ints, return True if 6 appears as either the first or
+    last element in the array. The array will be length 1 or more.'''
+    return (nums[0] == 6 or nums[-1] == 6)
+
+
+def same_first_last(nums):
+    ''' Given an array of ints, return True if the array is length 1 or more,
+    and the first element and the last element are equal.'''
+    return (len(nums) >= 1 and (nums[0] == nums[-n]))

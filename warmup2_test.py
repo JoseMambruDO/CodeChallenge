@@ -124,6 +124,35 @@ class Warmup2Tests(unittest.TestCase):
         self.assertEqual(same_first_last([1, 2, 3, 1]), True)
         self.assertEqual(same_first_last([1, 2, 1]), True)
 
+    def test_make_pi(self):
+        list_make_pi = make_pi()
+        self.assertEqual(len(make_pi()),3)
+        self.assertEqual(list_make_pi[0],3)
+        self.assertEqual(list_make_pi[1],1)
+        self.assertEqual(list_make_pi[2],4)
+
+    def test_common_end(self):
+        self.assertEqual(common_end([1, 2, 3], [7, 3]) , True)
+        self.assertEqual(common_end([1, 2, 3], [7, 3, 2]) , False)
+        self.assertEqual(common_end([1, 2, 3], [1, 3]),  True)
+
+    def test_sum3(self):
+        self.assertEqual(sum3([1, 2, 3]) , 6)
+        self.assertEqual(sum3([5, 11, 2]) , 18)
+        self.assertEqual(sum3([7, 0, 0]) , 7)
+
+    def test_rotate_left3(self):
+        self.assertEqual(rotate_left3([1, 2, 3]) , [2, 3, 1])
+        self.assertEqual(rotate_left3([5, 11, 9]) ,[11, 9, 5])
+        self.assertEqual(rotate_left3([7, 0, 0]) , [0, 0, 7])
+
+    def test_reverse3(self):
+        self.assertEqual(reverse3([1, 2, 3]), [3, 2, 1])
+        self.assertEqual(reverse3([5, 11, 9]) ,[9, 11, 5])
+        self.assertEqual(reverse3([7, 0, 0]), [0, 0, 7])
+
+
+
 
 if __name__ == '__main__':
     unittest.main()

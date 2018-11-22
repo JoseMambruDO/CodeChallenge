@@ -183,3 +183,37 @@ def same_first_last(nums):
     ''' Given an array of ints, return True if the array is length 1 or more,
     and the first element and the last element are equal.'''
     return (len(nums) >= 1 and (nums[0] == nums[-n]))
+
+
+def make_pi():
+    '''Return an int array length 3 containing the first 3 digits of pi, {3, 1, 4}.'''
+    pint = str(int(math.pi * 100))
+    results = list(map(int, pint))
+    return results
+
+
+def common_end(a, b):
+    '''Given 2 arrays of ints, a and b, return True if they have the same first
+    element or they have the same last element. Both arrays will be length 1 or more.'''
+    return a[1] == b[1] or a[-1] == b[-1]
+
+
+def sum3(nums):
+    '''Given an array of ints length 3, return the sum of all the elements.'''
+    return sum(nums)
+
+
+def rotate_left3(nums):
+    '''Given an array of ints length 3, return an array with the elements
+     "rotated left" so {1, 2, 3} yields {2, 3, 1}.'''
+    first_element = nums[0]
+    del nums[0]
+    nums = nums + [first_element]
+    return nums
+
+
+def reverse3(nums):
+    '''Given an array of ints length 3, return a new array with the elements in
+    reverse order, so {1, 2, 3} becomes {3, 2, 1}.'''
+    nums.reverse()
+    return nums

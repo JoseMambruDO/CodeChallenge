@@ -3,15 +3,120 @@
 
 """ Some wonderful lines in python """
 
+from math import *
+
+
+def sleep_in(weekday, vacation):
+    ''' The parameter weekday is True if it is a weekday,
+    and the parameter vacation is True if we are on vacation.
+    We sleep in if it is not a weekday or we're on vacation. Return True if we sleep in. '''
+
+    return not weekday or vacation
+
+    # test
+    # print("sleep_in(False, False) ? True ---" + str( sleep_in(False, False)))
+    # print("sleep_in(True, False) ? False ---" + str( sleep_in(True, False)))
+    # print("sleep_in(False, True) ? True  ---" + str( sleep_in(False, True)))
+
+
+def monkey_trouble(a_smile, b_smile):
+    '''We have two monkeys, a and b, and the parameters a_smile and b_smile indicate if each is smiling.
+       We are in trouble if they are both smiling or if neither of them is smiling. Return True if we are in trouble.'''
+    return a_smile == b_smile
+
+    # test
+    # print("monkey_trouble(True, True) ? True ---" + str( monkey_trouble(True, True)))
+    # print("monkey_trouble(False, False) ? True ---" + str( monkey_trouble(False, False)))
+    # print("monkey_trouble(True, False) ? False ---" + str( monkey_trouble(True, False)))
+
+
+def sum_double(a, b):
+    ''' Given two int values, return their sum. Unless the two values are the same, then return double their sum.
+    '''
+    r = a + b
+    if a == b:
+        r = 2 * r
+    return r
+
+    # test
+    # print("sum_double(1, 2) ? 3 ---" + str( sum_double(1, 2)))
+    # print("sum_double(3, 2) ? 5 ---" + str(sum_double(1, 2)))
+    # print("sum_double(2, 2) ? 8 ---" + str(sum_double(1, 2)))
+
+
+def diff21(n):
+    '''Given an int n, return the absolute difference between n and 21,
+    except return double the absolute difference if n is over 21.
+    '''
+    r = 21 - n
+    if (n > 21):
+        r *= 2
+
+    return abs(r)
+
+
+def parrot_trouble(talking, hour):
+    '''We have a loud talking parrot. The "hour" parameter is the current hour time in the range 0..23.
+    We are in trouble if the parrot is talking and the hour is before 7 or after 20. Return True if we are in trouble.'''
+
+    return talking and (hour < 7 or hour > 20)
+
+
+def makes10(a, b):
+    '''Given 2 ints, a and b, return True if one if them is 10 or if their sum is 10.'''
+    return (a + b == 10 or a == 10 or b == 10)
+
+
+def near_hundred(n):
+    '''Given an int n, return True if it is within 10 of 100 or 200. Note: abs(num) computes the absolute value of a number.'''
+    return abs(n - 100) <= 10 or abs(n - 200) <= 10
+
+
+def pos_neg(a, b, negative):
+    '''Given 2 int values, return True if one is negative and one is positive. Except if the parameter "negative" is True, then return True only if both are negative.'''
+    r = False
+    if (negative):
+        r = (a<0 and b<0)
+    else:
+        if not (a<0 and b<0):
+            r = (a<0 or b<0)
+
+    return r
+
+def not_string(str):
+    '''Given a string, return a new string where "not " has been added to the front. However, if the string already begins with "not", return the string unchanged. '''
+    if (not str.startswith('not')):
+        str = 'not ' + str
+    return str
+
+def missing_char(str, n):
+    '''Given a non-empty string and an int n, return a new string where the char at index n has been removed. The value of n will be a valid index of a char in the original string (i.e. n will be in the range 0..len(str)-1 inclusive).'''
+    return str[0:n] + str[n+1:len(str)]
+
+def front_back(str):
+    '''Given a string, return a new string where the first and last chars have been exchanged.'''
+    if (len(str)>1):
+        str=str[len(str)-1]+ str[1:len(str)-1]+ str[0]
+    return str
+
+def front3(str):
+    '''Given a string, we'll say that the front is the first 3 chars of the string. If the string length is less than 3, the front is whatever is there. Return a new string which is 3 copies of the front.'''
+    if (len(str)>=3):
+        str = str[0:3] * 3
+    else:
+        str = str * 3
+    return str
 
 def string_times(str, n):
-    '''Given a string and a non-negative int n, return a larger string that is n copies of the original string.'''
+    '''Given a string and a non-negative int n, return a larger string that is n
+    copies of the original string.'''
     return str * n
 
 
 def front_times(str, n):
-    ''' Given a string and a non-negative int n, we'll say that the front of the string is the first 3 chars,
-     or whatever is there if the string is less than length 3. Return n copies of the front;'''
+    ''' Given a string and a non-negative int n, we'll say that the front of the
+    string is the first 3 chars, or whatever is there if the string is less than
+    length 3. Return n copies of the front;'''
     r = ''
     if len(str) < 3:
         r = n * str
@@ -22,7 +127,8 @@ def front_times(str, n):
 
 
 def string_bits(str):
-    ''' Given a string, return a new string made of every other char starting with the first, so "Hello" yields "Hlo". '''
+    ''' Given a string, return a new string made of every other char starting
+    with the first, so "Hello" yields "Hlo". '''
     l = [str[i] for i in range(0, len(str)) if i % 2 == 0]
     return "".join(l)
 
@@ -58,12 +164,14 @@ def array_count9(nums):
 
 
 def array_front9(nums):
-    '''Given an array of ints, return True if one of the first 4 elements in the array is a 9. The array length may be less than 4.'''
+    '''Given an array of ints, return True if one of the first 4 elements in the
+    array is a 9. The array length may be less than 4.'''
     return 9 in nums[:4]
 
 
 def array123(nums):
-    '''Given an array of ints, return True if the sequence of numbers 1, 2, 3 appears in the array somewhere.'''
+    '''Given an array of ints, return True if the sequence of numbers 1, 2, 3
+    appears in the array somewhere.'''
     result = False
     for i in range(len(nums)):
         if nums[i:i + 3] == [1, 2, 3]:
@@ -72,9 +180,10 @@ def array123(nums):
 
 
 def string_match(a, b):
-    '''Given 2 strings, a and b, return the number of the positions where they contain
-    the same length 2 substring. So "xxcaazz" and "xxbaaz" yields 3,
-    since the "xx", "aa", and "az" substrings appear in the same place in both strings.'''
+    '''Given 2 strings, a and b, return the number of the positions where they
+    contain the same length 2 substring. So "xxcaazz" and "xxbaaz" yields 3,
+    since the "xx", "aa", and "az" substrings appear in the same place in both
+    strings.'''
     list_a = [a[i:i + 2] for i in range(len(a) - 1)]
     list_b = [b[i:i + 2] for i in range(len(b) - 1)]
     count_match = 0
@@ -108,7 +217,8 @@ def make_tags(tag, word):
 
 def make_out_word(out, word):
     '''Given an "out" string length 4, such as "<<>>", and a word, return a new
-    string where the word is in the middle of the out string, e.g. "<<word>>". '''
+    string where the word is in the middle of the out string, e.g. "<<word>>".
+    '''
 
     len_out = len(out)
     p1 = out[:len_out // 2]
@@ -172,7 +282,7 @@ def left2(str):
         result = str[2:] + str[:2]
     return result
 
-
+## List-1
 def first_last6(nums):
     '''Given an array of ints, return True if 6 appears as either the first or
     last element in the array. The array will be length 1 or more.'''
@@ -186,7 +296,8 @@ def same_first_last(nums):
 
 
 def make_pi():
-    '''Return an int array length 3 containing the first 3 digits of pi, {3, 1, 4}.'''
+    '''Return an int array length 3 containing the first 3 digits of pi,
+    {3, 1, 4}.'''
     pint = str(int(math.pi * 100))
     results = list(map(int, pint))
     return results
@@ -194,7 +305,8 @@ def make_pi():
 
 def common_end(a, b):
     '''Given 2 arrays of ints, a and b, return True if they have the same first
-    element or they have the same last element. Both arrays will be length 1 or more.'''
+    element or they have the same last element. Both arrays will be length 1 or
+    more.'''
     return a[1] == b[1] or a[-1] == b[-1]
 
 
@@ -217,3 +329,49 @@ def reverse3(nums):
     reverse order, so {1, 2, 3} becomes {3, 2, 1}.'''
     nums.reverse()
     return nums
+
+def max_end3(nums):
+    '''Given an array of ints length 3, figure out which is larger, the first or
+    last element in the array, and set all the other elements to be that value.
+    Return the changed array.'''
+    max_e = max([nums[0],nums[-1]])
+    return 3 * [max_e]
+
+def sum2(nums):
+    '''Given an array of ints, return the sum of the first 2 elements in the
+    array. If the array length is less than 2, just sum up the elements that
+    exist, returning 0 if the array is length 0. '''
+    return sum(nums[:2])
+
+def middle_way(a,b):
+    '''Given 2 int arrays, a and b, each length 3,
+    return a new array length 2 containing their middle elements.'''
+    return [a[1],b[1]]
+
+def make_ends(nums):
+    '''Given an array of ints, return a new array length 2 containing the first
+    and last elements from the original array. The original array will be
+    length 1 or more.'''
+
+    return [nums[0],nums[-1]]
+
+def has23(nums):
+    '''Given an int array length 2, return True if it contains a 2 or a 3.'''
+    return (2 in nums) or (3 in nums)
+
+def cigar_party(cigars, is_weekend):
+  '''When squirrels get together for a party, they like to have cigars. A
+  squirrel party is successful when the number of cigars is between 40 and 60,
+  inclusive. Unless it is the weekend, in which case there is no upper bound on
+  the number of cigars. Return True if the party with the given values is
+  successful, or False otherwise.'''
+ return (not is_weekend and (cigars >= 40 and cigars<=60)) or (is_weekend and cigars >=40)
+
+def date_fashion(you, date):
+  '''You and your date are trying to get a table at a restaurant. The parameter
+  "you" is the stylishness of your clothes, in the range 0..10, and "date" is
+  the stylishness of your date's clothes. The result getting the table is encoded
+  as an int value with 0=no, 1=maybe, 2=yes. If either of you is very stylish,
+  8 or more, then the result is 2 (yes). With the exception that if either of
+  you has style of 2 or less, then the result is 0 (no). Otherwise the result
+  is 1 (maybe).'''

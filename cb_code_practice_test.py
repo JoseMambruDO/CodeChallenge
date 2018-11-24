@@ -4,7 +4,7 @@
 """ Some wonderful lines in python """
 
 import unittest
-from warmup2 import *
+from cb_code_practice import *
 
 
 class CBCodePractice(unittest.TestCase):
@@ -196,8 +196,75 @@ class CBCodePractice(unittest.TestCase):
         self.assertEqual(reverse3([5, 11, 9]) ,[9, 11, 5])
         self.assertEqual(reverse3([7, 0, 0]), [0, 0, 7])
 
+    def test_max_end3(self):
+        self.assertEqual(max_end3([1, 2, 3])  ,  [3, 3, 3])
+        self.assertEqual(max_end3([11, 5, 9]) ,  [11, 11, 11])
+        self.assertEqual(max_end3([2, 11, 3]) ,  [3, 3, 3])
 
+    def test_sums2(self):
+        self.assertEqual(sum2([1, 2, 3]) ,3)
+        self.assertEqual(sum2([1, 1]) ,2)
+        self.assertEqual(sum2([1, 1, 1, 1]) ,2)
 
+    def test_middle_way(self):
+        self.assertEqual(middle_way([1, 2, 3], [4, 5, 6]) , [2, 5])
+        self.assertEqual(middle_way([7, 7, 7], [3, 8, 0]) , [7, 8])
+        self.assertEqual(middle_way([5, 2, 9], [1, 4, 5]) , [2, 4])
+
+    def test_make_ends(self):
+        self.assertEqual(make_ends([1, 2, 3]) , [1, 3])
+        self.assertEqual(make_ends([1, 2, 3, 4]) , [1, 4])
+        self.assertEqual(make_ends([7, 4, 6, 2]) , [7, 2])
+
+    def test_has23(self):
+        self.assertEqual(has23([2, 5]) , True)
+        self.assertEqual(has23([4, 3]) , True)
+        self.assertEqual(has23([4, 5]) , False)
+
+    def test_cigar_party (self):
+        self.assertEqual(cigar_party(30, False) , False)
+        self.assertEqual(cigar_party(50, False) , True)
+        self.assertEqual(cigar_party(70, True) , True)
+
+    def test_date_fashion(self):
+        self.assertEqual(date_fashion(5, 10) , 2)
+        self.assertEqual(date_fashion(5, 2) , 0)
+        self.assertEqual(date_fashion(5, 5) , 1)
+
+    def test_squirrel_play(self):
+        self.assertEqual(squirrel_play(70, False) , True)
+        self.assertEqual(squirrel_play(95, False) , False)
+        self.assertEqual(squirrel_play(95, True) , True)
+
+    def test_caught_speeding (self):
+        self.assertEqual(caught_speeding(60, False) , 0)
+        self.assertEqual(caught_speeding(65, False) , 1)
+        self.assertEqual(caught_speeding(65, True) , 0)
+
+    def test_sorta_sum(self):
+        self.assertEqual(sorta_sum(3, 4) , 7)
+        self.assertEqual(sorta_sum(9, 4) , 20)
+        self.assertEqual(sorta_sum(10, 11) , 21)
+
+    def test_alarm_clock(self):
+        self.assertEqual(alarm_clock(1, False) , '7:00')
+        self.assertEqual(alarm_clock(5, False) , '7:00')
+        self.assertEqual(alarm_clock(0, False) , '10:00')
+
+    def test_love6(self):
+        self.assertEqual(love6(6, 4) , True)
+        self.assertEqual(love6(4, 5) , False)
+        self.assertEqual(love6(1, 5) , True)
+
+    def test_in1to10 (self):
+        self.assertEqual(in1to10(5, False) , True)
+        self.assertEqual(in1to10(11, False) , False)
+        self.assertEqual(in1to10(11, True) , True)
+
+    def test_near_ten(self):
+        self.assertEqual(near_ten(12) , True)
+        self.assertEqual(near_ten(17) , False)
+        self.assertEqual(near_ten(19) , True)
 
 if __name__ == '__main__':
     unittest.main()

@@ -76,12 +76,13 @@ def pos_neg(a, b, negative):
     '''Given 2 int values, return True if one is negative and one is positive. Except if the parameter "negative" is True, then return True only if both are negative.'''
     r = False
     if (negative):
-        r = (a<0 and b<0)
+        r = (a < 0 and b < 0)
     else:
-        if not (a<0 and b<0):
-            r = (a<0 or b<0)
+        if not (a < 0 and b < 0):
+            r = (a < 0 or b < 0)
 
     return r
+
 
 def not_string(str):
     '''Given a string, return a new string where "not " has been added to the front. However, if the string already begins with "not", return the string unchanged. '''
@@ -89,23 +90,27 @@ def not_string(str):
         str = 'not ' + str
     return str
 
+
 def missing_char(str, n):
     '''Given a non-empty string and an int n, return a new string where the char at index n has been removed. The value of n will be a valid index of a char in the original string (i.e. n will be in the range 0..len(str)-1 inclusive).'''
-    return str[0:n] + str[n+1:len(str)]
+    return str[0:n] + str[n + 1:len(str)]
+
 
 def front_back(str):
     '''Given a string, return a new string where the first and last chars have been exchanged.'''
-    if (len(str)>1):
-        str=str[len(str)-1]+ str[1:len(str)-1]+ str[0]
+    if (len(str) > 1):
+        str = str[len(str) - 1] + str[1:len(str) - 1] + str[0]
     return str
+
 
 def front3(str):
     '''Given a string, we'll say that the front is the first 3 chars of the string. If the string length is less than 3, the front is whatever is there. Return a new string which is 3 copies of the front.'''
-    if (len(str)>=3):
+    if (len(str) >= 3):
         str = str[0:3] * 3
     else:
         str = str * 3
     return str
+
 
 def string_times(str, n):
     '''Given a string and a non-negative int n, return a larger string that is n
@@ -282,7 +287,9 @@ def left2(str):
         result = str[2:] + str[:2]
     return result
 
-## List-1
+# List-1
+
+
 def first_last6(nums):
     '''Given an array of ints, return True if 6 appears as either the first or
     last element in the array. The array will be length 1 or more.'''
@@ -330,12 +337,14 @@ def reverse3(nums):
     nums.reverse()
     return nums
 
+
 def max_end3(nums):
     '''Given an array of ints length 3, figure out which is larger, the first or
     last element in the array, and set all the other elements to be that value.
     Return the changed array.'''
-    max_e = max([nums[0],nums[-1]])
+    max_e = max([nums[0], nums[-1]])
     return 3 * [max_e]
+
 
 def sum2(nums):
     '''Given an array of ints, return the sum of the first 2 elements in the
@@ -343,29 +352,34 @@ def sum2(nums):
     exist, returning 0 if the array is length 0. '''
     return sum(nums[:2])
 
-def middle_way(a,b):
+
+def middle_way(a, b):
     '''Given 2 int arrays, a and b, each length 3,
     return a new array length 2 containing their middle elements.'''
-    return [a[1],b[1]]
+    return [a[1], b[1]]
+
 
 def make_ends(nums):
     '''Given an array of ints, return a new array length 2 containing the first
     and last elements from the original array. The original array will be
     length 1 or more.'''
 
-    return [nums[0],nums[-1]]
+    return [nums[0], nums[-1]]
+
 
 def has23(nums):
     '''Given an int array length 2, return True if it contains a 2 or a 3.'''
     return (2 in nums) or (3 in nums)
 
+
 def cigar_party(cigars, is_weekend):
-  '''When squirrels get together for a party, they like to have cigars. A
-  squirrel party is successful when the number of cigars is between 40 and 60,
-  inclusive. Unless it is the weekend, in which case there is no upper bound on
-  the number of cigars. Return True if the party with the given values is
-  successful, or False otherwise.'''
- return (not is_weekend and (cigars >= 40 and cigars<=60)) or (is_weekend and cigars >=40)
+    '''When squirrels get together for a party, they like to have cigars. A
+    squirrel party is successful when the number of cigars is between 40 and 60,
+    inclusive. Unless it is the weekend, in which case there is no upper bound on
+    the number of cigars. Return True if the party with the given values is
+    successful, or False otherwise.'''
+    return (not is_weekend and (cigars >= 40 and cigars<=60)) or (is_weekend and cigars >= 40)
+
 
 def date_fashion(you, date):
   '''You and your date are trying to get a table at a restaurant. The parameter
@@ -375,3 +389,94 @@ def date_fashion(you, date):
   8 or more, then the result is 2 (yes). With the exception that if either of
   you has style of 2 or less, then the result is 0 (no). Otherwise the result
   is 1 (maybe).'''
+  result = 1
+  if (you >=8 or date >= 8):
+    result = 2
+  if (you <=2 or date <= 2):
+    result = 0
+  return result
+
+
+def squirrel_play(temp, is_summer):
+  '''The squirrels in Palo Alto spend most of the day playing. In particular,
+  they play if the temperature is between 60 and 90 (inclusive). Unless it is
+  summer, then the upper limit is 100 instead of 90. Given an int temperature
+  and a boolean is_summer, return True if the squirrels play and False
+  otherwise.'''
+  return (not is_summer and (temp >= 60 and temp <=90)) or (is_summer and (temp >= 60 and temp <=100))
+
+
+def caught_speeding(speed, is_birthday):
+ '''You are driving a little too fast, and a police officer stops you. Write
+ code to compute the result, encoded as an int value: 0=no ticket, 1=small
+ ticket, 2=big ticket. If speed is 60 or less, the result is 0. If speed is
+ between 61 and 80 inclusive, the result is 1. If speed is 81 or more, the
+ result is 2. Unless it is your birthday -- on that day, your speed can be 5
+ higher in all cases.'''
+ result_ticket = 1
+ bonus = 0
+ if (is_birthday):
+     bonus = 5
+ if (speed <= 60 + bonus):
+     result_ticket = 0
+ elif (speed >= 61 + bonus and speed <= 80 + bonus ):
+     result_ticket = 1
+ elif (speed >= 81 + bonus):
+     result_ticket = 2
+
+ return result_ticket
+
+
+def sorta_sum(a, b):
+ '''Given 2 ints, a and b, return their sum. However, sums in the range
+ 10..19 inclusive, are forbidden, so in that case just return 20.'''
+ result = a + b
+ if (result >= 10 and result <= 20):
+    result = 20
+
+ return result
+
+def alarm_clock(day, vacation):
+    '''Given a day of the week encoded as 0=Sun, 1=Mon, 2=Tue, ...6=Sat, and a
+    boolean indicating if we are on vacation, return a string of the form "7:00"
+    indicating when the alarm clock should ring. Weekdays, the alarm should be
+    "7:00" and on the weekend it should be "10:00". Unless we are on vacation
+    -- then on weekdays it should be "10:00" and weekends it should be "off".'''
+    result_alarm = "10:00"
+    if (not vacation):
+        if (day >= 1 and day<=5):
+            result_alarm = "7:00"
+    else:
+        if (day == 0 or day==6):
+            result_alarm = "off"
+    return result_alarm
+
+def love6(a, b):
+    '''The number 6 is a truly great number. Given two int values, a and b,
+    return True if either one is 6. Or if their sum or difference is 6. Note:
+    the function abs(num) computes the absolute value of a number.'''
+
+    return 6 in [a+b, a, b, abs(a-b)]
+
+def in1to10(n, outside_mode):
+    '''Given a number n, return True if n is in the range 1..10, inclusive.
+    Unless outside_mode is True, in which case return True if the number is
+    less or equal to 1, or greater or equal to 10.'''
+    result = False
+
+    if (not outside_mode):
+        if (n >=1 and n<= 10):
+            result = True
+    else:
+        if (not (n >1 and n< 10)):
+            result = True
+    return result
+
+
+def near_ten(num):
+    '''Given a non-negative number "num", return True if num is within 2 of a
+    multiple of 10. Note: (a % b) is the remainder of dividing a by b,
+    so (7 % 5) is 2.'''
+    num = abs(num)
+    md = num % 10
+    return (abs(10 - md) <=2 or md <= 2)

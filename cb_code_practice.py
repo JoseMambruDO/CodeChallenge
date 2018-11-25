@@ -378,7 +378,7 @@ def cigar_party(cigars, is_weekend):
     inclusive. Unless it is the weekend, in which case there is no upper bound on
     the number of cigars. Return True if the party with the given values is
     successful, or False otherwise.'''
-    return (not is_weekend and (cigars >= 40 and cigars<=60)) or (is_weekend and cigars >= 40)
+    return (not is_weekend and (cigars >= 40 and cigars <= 60)) or (is_weekend and cigars >= 40)
 
 
 def date_fashion(you, date):
@@ -390,9 +390,9 @@ def date_fashion(you, date):
   you has style of 2 or less, then the result is 0 (no). Otherwise the result
   is 1 (maybe).'''
   result = 1
-  if (you >=8 or date >= 8):
+  if (you >= 8 or date >= 8):
     result = 2
-  if (you <=2 or date <= 2):
+  if (you <= 2 or date <= 2):
     result = 0
   return result
 
@@ -403,7 +403,7 @@ def squirrel_play(temp, is_summer):
   summer, then the upper limit is 100 instead of 90. Given an int temperature
   and a boolean is_summer, return True if the squirrels play and False
   otherwise.'''
-  return (not is_summer and (temp >= 60 and temp <=90)) or (is_summer and (temp >= 60 and temp <=100))
+  return (not is_summer and (temp >= 60 and temp <= 90)) or (is_summer and (temp >= 60 and temp <= 100))
 
 
 def caught_speeding(speed, is_birthday):
@@ -419,7 +419,7 @@ def caught_speeding(speed, is_birthday):
      bonus = 5
  if (speed <= 60 + bonus):
      result_ticket = 0
- elif (speed >= 61 + bonus and speed <= 80 + bonus ):
+ elif (speed >= 61 + bonus and speed <= 80 + bonus):
      result_ticket = 1
  elif (speed >= 81 + bonus):
      result_ticket = 2
@@ -436,6 +436,7 @@ def sorta_sum(a, b):
 
  return result
 
+
 def alarm_clock(day, vacation):
     '''Given a day of the week encoded as 0=Sun, 1=Mon, 2=Tue, ...6=Sat, and a
     boolean indicating if we are on vacation, return a string of the form "7:00"
@@ -444,19 +445,21 @@ def alarm_clock(day, vacation):
     -- then on weekdays it should be "10:00" and weekends it should be "off".'''
     result_alarm = "10:00"
     if (not vacation):
-        if (day >= 1 and day<=5):
+        if (day >= 1 and day <= 5):
             result_alarm = "7:00"
     else:
-        if (day == 0 or day==6):
+        if (day == 0 or day == 6):
             result_alarm = "off"
     return result_alarm
+
 
 def love6(a, b):
     '''The number 6 is a truly great number. Given two int values, a and b,
     return True if either one is 6. Or if their sum or difference is 6. Note:
     the function abs(num) computes the absolute value of a number.'''
 
-    return 6 in [a+b, a, b, abs(a-b)]
+    return 6 in [a + b, a, b, abs(a - b)]
+
 
 def in1to10(n, outside_mode):
     '''Given a number n, return True if n is in the range 1..10, inclusive.
@@ -465,10 +468,10 @@ def in1to10(n, outside_mode):
     result = False
 
     if (not outside_mode):
-        if (n >=1 and n<= 10):
+        if (n >= 1 and n <= 10):
             result = True
     else:
-        if (not (n >1 and n< 10)):
+        if (not (n > 1 and n < 10)):
             result = True
     return result
 
@@ -479,4 +482,53 @@ def near_ten(num):
     so (7 % 5) is 2.'''
     num = abs(num)
     md = num % 10
-    return (abs(10 - md) <=2 or md <= 2)
+    return (abs(10 - md) <= 2 or md <= 2)
+
+
+def make_bricks(small, big, goal):
+    '''We want to make a row of bricks that is goal inches long. We have a number
+    of small bricks (1 inch each) and big bricks (5 inches each). Return True
+    if it is possible to make the goal by choosing from the given bricks.
+    This is a little harder than it looks and can be done without any loops. '''
+    result = False
+    if goal >= 5 * big:
+        rm = goal - (5 * big)
+    else:
+        rm = goal % 5
+    if (small >= rm):
+        result = True
+    return result
+
+
+def lone_sum(a, b, c):
+    '''Given 3 int values, a b c, return their sum. However, if one of the
+    values is the same as another of the values, it does not count
+    towards the sum.'''
+    list_abc = [a, b, c]
+    result = 0
+    if(list_abc.count(a) == 1):
+      result += a
+    if(list_abc.count(b) == 1):
+      result += b
+    if(list_abc.count(c) == 1):
+      result += c
+     return result
+
+def lucky_sum(a, b, c):
+    '''Given 3 int values, a b c, return their sum. However, if one of the
+    values is 13 then it does not count towards the sum and values to its right
+    do not count. So for example, if b is 13, then both b and c do not count.'''
+    list_abc = []
+    toward = True
+    if(a!=13):
+        list_abc.append(a)
+    else:
+        toward = False
+    if(b!=13 and toward):
+      list_abc.append(b)
+    else:
+        toward = False
+    if(c!=13 and toward):
+      list_abc.append(c)
+
+    return sum(list_abc)

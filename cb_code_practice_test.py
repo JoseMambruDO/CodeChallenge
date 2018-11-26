@@ -282,6 +282,10 @@ class CBCodePractice(unittest.TestCase):
         self.assertEqual(lucky_sum(1, 2, 13), 3)
         self.assertEqual(lucky_sum(1, 13, 3), 1)
 
+    def no_teen_sum(self):
+        self.assertEqual(no_teen_sum(1, 2, 3) , 6)
+        self.assertEqual(no_teen_sum(2, 13, 1) , 3)
+        self.assertEqual(no_teen_sum(2, 1, 14) , 3)
 
 if __name__ == '__main__':
     unittest.main()

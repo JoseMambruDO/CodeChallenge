@@ -564,3 +564,19 @@ def round_sum(a, b, c):
             ex = -1 * ex
         return num + ex
     return round_sum(a)+round_sum(b)+round_sum(c)
+
+def close_far(a, b, c):
+    '''Given three ints, a b c, return True if one of b or c is "close"
+    (differing from a by at most 1), while the other is "far", differing from
+    both other values by 2 or more. Note: abs(num) computes the absolute value
+    of a number.'''
+    result = False
+    a_b_diff = abs(a - b)
+    a_c_diff = abs(a - c)
+    b_c_diff = abs(b - c)
+
+    if (a_b_diff<= 1 and a_c_diff >= 2 and b_c_diff >= 2):
+        result = True
+    elif (a_c_diff <= 1 and a_b_diff >= 2 and b_c_diff >= 2):
+        result = True
+    return result

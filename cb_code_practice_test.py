@@ -277,15 +277,22 @@ class CBCodePractice(unittest.TestCase):
         self.assertEqual(lone_sum(3, 2, 3), 2)
         self.assertEqual(lone_sum(3, 3, 3), 0)
 
-    def lucky_sum(self):
+    def test_lucky_sum(self):
         self.assertEqual(lucky_sum(1, 2, 3), 6)
         self.assertEqual(lucky_sum(1, 2, 13), 3)
         self.assertEqual(lucky_sum(1, 13, 3), 1)
 
-    def no_teen_sum(self):
+    def test_no_teen_sum(self):
         self.assertEqual(no_teen_sum(1, 2, 3) , 6)
         self.assertEqual(no_teen_sum(2, 13, 1) , 3)
         self.assertEqual(no_teen_sum(2, 1, 14) , 3)
+
+    def test_close_far(self):
+        self.assertEqual(close_far(1, 2, 10) , True)
+        self.assertEqual(close_far(1, 2, 3) , False)
+        self.assertEqual(close_far(4, 1, 3) , True)
+
+
 
 if __name__ == '__main__':
     unittest.main()

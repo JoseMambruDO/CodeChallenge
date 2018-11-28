@@ -292,7 +292,10 @@ class CBCodePractice(unittest.TestCase):
         self.assertEqual(close_far(1, 2, 3) , False)
         self.assertEqual(close_far(4, 1, 3) , True)
 
-
+    def self.make_chocolate(self):
+        self.assertEqual(make_chocolate(4, 1, 9) , 4)
+        self.assertEqual(make_chocolate(4, 1, 10) , -1)
+        self.assertEqual(make_chocolate(4, 1, 7) , 2)
 
 if __name__ == '__main__':
     unittest.main()

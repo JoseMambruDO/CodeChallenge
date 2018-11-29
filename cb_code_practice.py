@@ -603,3 +603,17 @@ def double_char(str):
   '''Given a string, return a string where for every char in the original,
   there are two chars.'''
   "".join([2*l for l in str])
+
+def count_hi(str):
+  '''Return the number of times that the string "hi" appears anywhere
+  in the given string.'''
+  HI = 'hi'
+  return str.count(HI)
+
+ def cat_dog(str):
+    '''Return True if the string "cat" and "dog" appear the same number of
+    times in the given string.'''
+    result = False
+    if (str.count('cat')==str.count('dog')):
+        retult = True
+    return result

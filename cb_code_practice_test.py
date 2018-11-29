@@ -308,6 +308,11 @@ class CBCodePractice(unittest.TestCase):
         self.assertEqual(count_hi('ABChi hi') , 2)
         self.assertEqual(count_hi('hihi') , 2)
 
+    def test_cat_dog(self):
+        self.assertEqual(cat_dog('catdog') , True)
+        self.assertEqual(cat_dog('catcat') , False)
+        self.assertEqual(cat_dog('1cat1cadodog') , True)
+
 
 if __name__ == '__main__':
     unittest.main()

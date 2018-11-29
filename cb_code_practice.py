@@ -597,3 +597,9 @@ def make_chocolate(small, big, goal):
         return rm
 
     return num_bar
+
+#String-2
+def double_char(str):
+  '''Given a string, return a string where for every char in the original,
+  there are two chars.'''
+  "".join([2*l for l in str])

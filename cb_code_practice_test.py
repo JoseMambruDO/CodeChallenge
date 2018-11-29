@@ -292,10 +292,22 @@ class CBCodePractice(unittest.TestCase):
         self.assertEqual(close_far(1, 2, 3) , False)
         self.assertEqual(close_far(4, 1, 3) , True)
 
-    def self.make_chocolate(self):
+    def test_make_chocolate(self):
         self.assertEqual(make_chocolate(4, 1, 9) , 4)
         self.assertEqual(make_chocolate(4, 1, 10) , -1)
         self.assertEqual(make_chocolate(4, 1, 7) , 2)
+
+    #String-2
+    def test_double_char(self):
+        self.assertEqual(double_char('The') , 'TThhee')
+        self.assertEqual(double_char('AAbb') , 'AAAAbbbb')
+        self.assertEqual(double_char('Hi-There') , 'HHii--TThheerree')
+
+    def test_count_hi(self):
+        self.assertEqual(count_hi('abc hi ho') , 1)
+        self.assertEqual(count_hi('ABChi hi') , 2)
+        self.assertEqual(count_hi('hihi') , 2)
+
 
 if __name__ == '__main__':
     unittest.main()

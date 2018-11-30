@@ -318,5 +318,10 @@ class CBCodePractice(unittest.TestCase):
         self.assertEqual(count_code('codexxcode') , 2)
         self.assertEqual(count_code('cozexxcope') , 2)
 
+    def test_end_other(self):
+        self.assertEqual(end_other('Hiabc', 'abc')  , True)
+        self.assertEqual(end_other('AbC', 'HiaBc')  , True)
+        self.assertEqual(end_other('abc', 'abXabc') , True)
+        
 if __name__ == '__main__':
     unittest.main()

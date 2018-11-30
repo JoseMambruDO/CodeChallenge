@@ -311,8 +311,12 @@ class CBCodePractice(unittest.TestCase):
     def test_cat_dog(self):
         self.assertEqual(cat_dog('catdog') , True)
         self.assertEqual(cat_dog('catcat') , False)
-        self.assertEqual(cat_dog('1cat1cadodog') , True)
+        self.assertEqual(cat_dog('1cat1cadodog')  True)
 
+    def test_count_code(self):
+        self.assertEqual(count_code('aaacodebbb') , 1)
+        self.assertEqual(count_code('codexxcode') , 2)
+        self.assertEqual(count_code('cozexxcope') , 2)
 
 if __name__ == '__main__':
     unittest.main()

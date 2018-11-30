@@ -598,7 +598,7 @@ def make_chocolate(small, big, goal):
 
     return num_bar
 
-#String-2
+# String-2
 def double_char(str):
   '''Given a string, return a string where for every char in the original,
   there are two chars.'''
@@ -611,9 +611,20 @@ def count_hi(str):
   return str.count(HI)
 
  def cat_dog(str):
-    '''Return True if the string "cat" and "dog" appear the same number of
+     '''Return True if the string "cat" and "dog" appear the same number of
     times in the given string.'''
     result = False
     if (str.count('cat')==str.count('dog')):
         retult = True
     return result
+
+def count_code(str):
+    '''Return the number of times that the string "code" appears anywhere in
+    the given string, except we'll accept any letter for the 'd', so "cope"
+    and "cooe" count.'''
+  result = 0
+  for i in range(0,len(str)-3 ):
+    if (str[i:i+2] == 'co') and (str[i+3]=='e'):
+      result+=1
+
+  return result

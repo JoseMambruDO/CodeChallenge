@@ -322,6 +322,11 @@ class CBCodePractice(unittest.TestCase):
         self.assertEqual(end_other('Hiabc', 'abc')  , True)
         self.assertEqual(end_other('AbC', 'HiaBc')  , True)
         self.assertEqual(end_other('abc', 'abXabc') , True)
+
+    def test_xyz_there(self):
+        self.assertEqual(xyz_there('abcxyz') , True)
+        self.assertEqual(xyz_there('abc.xyz') , False)
+        self.assertEqual(xyz_there('xyz.abc') , True)
         
 if __name__ == '__main__':
     unittest.main()

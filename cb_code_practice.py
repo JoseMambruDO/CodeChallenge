@@ -634,4 +634,15 @@ def end_other(a, b):
     very end of the other string, ignoring upper/lower case differences (in other
     words, the computation should not be "case sensitive"). Note: s.lower()
     returns the lowercase version of a string.'''
-  return b.lower().endswith(a.lower())  or a.lower().endswith(b.lower()) 
+  return b.lower().endswith(a.lower())  or a.lower().endswith(b.lower())
+
+def xyz_there(str):
+    '''Return True if the given string contains an appearance of "xyz" where
+    the xyz is not directly preceeded by a period (.). So "xxyz" counts but
+    "x.xyz" does not.'''
+    f_xyz = str.find('xyz')
+    re = False
+    for i in range(len(str)):
+        if (str[i:i+3]=='xyz') and (str[i-1] !='.'):
+            re = True
+    return re

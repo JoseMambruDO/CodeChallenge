@@ -333,5 +333,10 @@ class CBCodePractice(unittest.TestCase):
         self.assertEqual(count_evens([2, 2, 0]) , 3)
         self.assertEqual(count_evens([1, 3, 5]) , 0)
 
+    def test_big_diff(self):
+        self.assertEqual(big_diff([10, 3, 5, 6]) , 7)
+        self.assertEqual(big_diff([7, 2, 10, 9]) , 8)
+        self.assertEqual(big_diff([2, 10, 7, 2]) , 8)
+
 if __name__ == '__main__':
     unittest.main()

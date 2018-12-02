@@ -327,6 +327,11 @@ class CBCodePractice(unittest.TestCase):
         self.assertEqual(xyz_there('abcxyz') , True)
         self.assertEqual(xyz_there('abc.xyz') , False)
         self.assertEqual(xyz_there('xyz.abc') , True)
-        
+
+    def test_count_evens(self):
+        self.assertEqual(count_evens([2, 1, 2, 3, 4]) , 3)
+        self.assertEqual(count_evens([2, 2, 0]) , 3)
+        self.assertEqual(count_evens([1, 3, 5]) , 0)
+
 if __name__ == '__main__':
     unittest.main()

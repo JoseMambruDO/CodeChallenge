@@ -338,5 +338,10 @@ class CBCodePractice(unittest.TestCase):
         self.assertEqual(big_diff([7, 2, 10, 9]) , 8)
         self.assertEqual(big_diff([2, 10, 7, 2]) , 8)
 
+    def test_centered_average(self):
+        self.assertEqual(centered_average([1, 2, 3, 4, 100]) , 3)
+        self.assertEqual(centered_average([1, 1, 5, 5, 10, 8, 7]) , 5)
+        self.assertEqual(centered_average([-10, -4, -2, -4, -2, 0]) , -3)
+
 if __name__ == '__main__':
     unittest.main()

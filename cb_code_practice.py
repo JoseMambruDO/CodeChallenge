@@ -661,3 +661,16 @@ def big_diff(nums):
     the largest and smallest values in the array. Note: the built-in min(v1, v2)
     and max(v1, v2) functions return the smaller or larger of two values.'''
     return abs(max(nums)-min(nums))
+
+def centered_average(nums):
+    '''Return the "centered" average of an array of ints, which we'll say is the
+    mean average of the values, except ignoring the largest and smallest values
+    in the array. If there are multiple copies of the smallest value, ignore just
+    one copy, and likewise for the largest value. Use int division to produce the
+    final average. You may assume that the array is length 3 or more.'''
+    min_val = min(nums)
+    max_val = max(nums)
+    del nums[nums.index(min_val)]
+    del nums[nums.index(max_val)]
+
+    return avg(nums)

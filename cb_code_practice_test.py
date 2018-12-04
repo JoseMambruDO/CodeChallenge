@@ -343,5 +343,11 @@ class CBCodePractice(unittest.TestCase):
         self.assertEqual(centered_average([1, 1, 5, 5, 10, 8, 7]) , 5)
         self.assertEqual(centered_average([-10, -4, -2, -4, -2, 0]) , -3)
 
+    def test_centered_average(self):
+        self.assertEqual(sum13([1, 2, 2, 1]) , 6)
+        self.assertEqual(sum13([1, 1]) , 2)
+        self.assertEqual(sum13([1, 2, 2, 1, 13]) , 6)
+
+
 if __name__ == '__main__':
     unittest.main()

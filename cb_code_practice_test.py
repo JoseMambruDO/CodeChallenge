@@ -353,6 +353,11 @@ class CBCodePractice(unittest.TestCase):
         self.assertEqual(sum67([1, 2, 2, 6, 99, 99, 7]) , 5)
         self.assertEqual(sum67([1, 1, 6, 7, 2]) , 4)
 
+    def test_has22(self):
+        self.assertEqual(has22([1, 2, 2]) , True)
+        self.assertEqual(has22([1, 2, 1, 2]) , False)
+        self.assertEqual(has22([2, 1, 2]) , False)
+
 
 if __name__ == '__main__':
     unittest.main()

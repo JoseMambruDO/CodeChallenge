@@ -710,3 +710,12 @@ def sum67(nums):
             inRange = True
 
     return reSum67
+
+
+def has22(nums):
+    '''Given an array of ints, return True if the array
+    contains a 2 next to a 2 somewhere.'''
+    for i in range(len(nums)):
+        if (nums[i]==2) and i+1<len(nums) and nums[i+1]==2:
+            return True
+    return False

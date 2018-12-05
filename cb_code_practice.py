@@ -689,3 +689,24 @@ def sum13(nums):
             re_sum13 += nums[i]
 
     return re_sum13
+
+
+def sum67(nums):
+    '''Return the sum of the numbers in the array, except ignore sections of
+    numbers starting with a 6 and extending to the next 7 (every 6 will be
+    followed by at least one 7). Return 0 for no numbers.'''
+    inRange = True
+    reSum67 = 0
+
+    for n in nums:
+        if n == 6:
+            inRange = False
+
+        if inRange:
+            reSum67 += n
+            continue
+
+        if n == 7:
+            inRange = True
+
+    return reSum67

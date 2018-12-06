@@ -28,5 +28,12 @@ def q1_twinkle():
 
     return string
 
+import platform as platf
+
+def q2_python_version():
+    '''2. Write a Python program to get the Python version you are using.'''
+    current_version = platf.version()
+    return current_version
+    
 if __name__ == '__main__':
     print('some test')

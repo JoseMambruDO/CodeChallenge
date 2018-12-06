@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
+
 """ Some wonderful lines in python """
+"""Source: codingbat.com / python"""
 
 from math import *
 

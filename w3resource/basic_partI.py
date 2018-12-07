@@ -38,6 +38,8 @@ def q2_python_version():
 from math import pi
 
 def q3_circleArea(r):
+    ''' Write a Python program which accepts the radius of a circle from the
+    user and compute the area.'''
     return (r*r) * pi
 
 if __name__ == '__main__':

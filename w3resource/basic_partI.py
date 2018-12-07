@@ -34,6 +34,11 @@ def q2_python_version():
     '''2. Write a Python program to get the Python version you are using.'''
     current_version = platf.version()
     return current_version
-    
+
+from math import pi
+
+def q3_circleArea(r):
+    return (r*r) * pi
+
 if __name__ == '__main__':
     print('some test')

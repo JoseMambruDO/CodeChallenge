@@ -31,16 +31,26 @@ def q1_twinkle():
 import platform as platf
 
 def q2_python_version():
-    '''2. Write a Python program to get the Python version you are using.'''
+    '''Write a Python program to get the Python version you are using.'''
     current_version = platf.version()
     return current_version
 
-from math import pi
+import datetime
+def q3_diplayCurrentDate():
+    '''Write a Python program to display the current date and time.'''
+    currentDate = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    return currentDate
 
-def q3_circleArea(r):
+from math import pi
+def q4_circleArea(r):
     ''' Write a Python program which accepts the radius of a circle from the
     user and compute the area.'''
     return (r*r) * pi
+
+def q5_circleArea(first,last):
+    '''Write a Python program which accepts the user's first and last name
+    and print them in reverse order with a space between them. '''
+    return  '{ } { }'.format(last,first)
 
 if __name__ == '__main__':
     print('some test')

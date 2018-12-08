@@ -52,5 +52,16 @@ def q5_circleArea(first,last):
     and print them in reverse order with a space between them. '''
     return  '{ } { }'.format(last,first)
 
+def q6_displayExtension(filename):
+    '''. Write a Python program to accept a filename from the user and
+    print the extension of that.
+    Sample filename : abc.java
+    Output : java '''
+    sp =  filename.split('.')
+    if (len(sp)>1):
+        return sp[-1]
+    return ''
+
+
 if __name__ == '__main__':
     print('some test')

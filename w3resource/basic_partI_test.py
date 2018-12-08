@@ -33,6 +33,11 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q5_reverseFirstLast('John','Doe'), 'Doe John')
         self.assertNotEqual(q5_reverseFirstLast('John','Doe'), '')
 
+    def test_q6_displayExtension(self):
+        self.assertEqual(q6_displayExtension('abc.java'),'java')
+        self.assertEqual(q6_displayExtension('somePy.py'),'py')
+        self.assertEqual(q6_displayExtension('none'),'')
+        self.assertEqual(q6_displayExtension('withDot.'),'')
 
 if __name__ == '__main__':
     unittest.main()

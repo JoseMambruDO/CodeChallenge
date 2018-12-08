@@ -50,5 +50,8 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(colors[0],"Red")
         self.assertEqual(colors[1],"Black")
 
+    def test_q9_examination_date(self):
+        self.assertEqual('11 / 12 / 2014' in q9_examination_date(), True)
+        self.assertEqual('examination' in q9_examination_date(), True)
 if __name__ == '__main__':
     unittest.main()

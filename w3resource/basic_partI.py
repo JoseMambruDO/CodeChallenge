@@ -52,7 +52,7 @@ def q5_circleArea(first,last):
     and print them in reverse order with a space between them. '''
     return  '{ } { }'.format(last,first)
 
-def q6_displayExtension(filename):
+def q7_displayExtension(filename):
     '''. Write a Python program to accept a filename from the user and
     print the extension of that.
     Sample filename : abc.java
@@ -62,6 +62,12 @@ def q6_displayExtension(filename):
         return sp[-1]
     return ''
 
-
+def q6_separe2LT(sep):
+    ''' Write a Python program which accepts a sequence of comma-separated
+    numbers from user and generate a list and a tuple with those numbers.'''
+    l = sep.split(',')
+    t = tuple(l)
+    return l,t
+    
 if __name__ == '__main__':
     print('some test')

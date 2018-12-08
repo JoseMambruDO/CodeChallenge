@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
-
 """ Some wonderful lines in python """
 """Source: https://www.w3resource.com/python-exercises/python-basic-exercises.php"""
 
@@ -68,6 +66,13 @@ def q6_separe2LT(sep):
     l = sep.split(',')
     t = tuple(l)
     return l,t
-    
+
+def q8_firstLastColor():
+    '''Write a Python program to display the first and last colors from the
+    following list. color_list = ["Red","Green","White" ,"Black"]'''
+    color_list = ["Red","Green","White" ,"Black"]
+    return color_list[0],color_list[-1]
+
+
 if __name__ == '__main__':
     print('some test')

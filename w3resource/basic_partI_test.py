@@ -33,16 +33,22 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q5_reverseFirstLast('John','Doe'), 'Doe John')
         self.assertNotEqual(q5_reverseFirstLast('John','Doe'), '')
 
+    def test_q6_separe2LT(self):
+        abc = 'a,b,c,d,e,f'
+        pair = q6_separe2LT(abc)
+        self.assertEqual(len(pair),2)
+
     def test_q7_displayExtension(self):
         self.assertEqual(q7_displayExtension('abc.java'),'java')
         self.assertEqual(q7_displayExtension('somePy.py'),'py')
         self.assertEqual(q7_displayExtension('none'),'')
         self.assertEqual(q7_displayExtension('withDot.'),'')
 
-    def test_q6_separe2LT(self):
-        abc = 'a,b,c,d,e,f'
-        pair = q6_separe2LT(abc)
-        self.assertEqual(len(pair),2)
+    def test_q8_firstLastColor(self):
+        colors = q8_firstLastColor()
+        self.assertEqual(len(colors),2)
+        self.assertEqual(colors[0],"Red")
+        self.assertEqual(colors[1],"Black")
 
 if __name__ == '__main__':
     unittest.main()

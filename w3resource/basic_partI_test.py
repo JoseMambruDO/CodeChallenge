@@ -53,5 +53,10 @@ class BasicPartITest(unittest.TestCase):
     def test_q9_examination_date(self):
         self.assertEqual('11 / 12 / 2014' in q9_examination_date(), True)
         self.assertEqual('examination' in q9_examination_date(), True)
+
+    def test_q10_pyramidN(self):
+        self.assertEqual(q10_pyramidN(1),3)
+        self.assertEqual(q10_pyramidN(5),615)
+
 if __name__ == '__main__':
     unittest.main()

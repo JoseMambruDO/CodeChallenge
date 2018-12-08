@@ -81,5 +81,10 @@ def q9_examination_date():
     exam_st_date = (11, 12, 2014)
     return 'The examination will start from : {0} / {1} / {2}'.format(exam_st_date[0],exam_st_date[1],exam_st_date[2])
 
+def q10_pyramidN(n):
+    '''Write a Python program that accepts an integer (n) and computes the value of n+nn+nnn'''
+    return n+(n*n)+(n*n*n)
+
+
 if __name__ == '__main__':
     print('some test')

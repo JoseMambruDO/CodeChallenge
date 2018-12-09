@@ -58,5 +58,12 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q10_pyramidN(1),3)
         self.assertEqual(q10_pyramidN(5),615)
 
+    def test_q11_documentsBuiltinF(self):
+        self.assertNotEqual(len(q11_documentsBuiltinF('abs')),0)
+        self.assertNotEqual(len(q11_documentsBuiltinF('min')),0)
+        self.assertNotEqual(len(q11_documentsBuiltinF('list')),0)
+
+        self.assertEqual(len(q11_documentsBuiltinF('avengers')),0)
+
 if __name__ == '__main__':
     unittest.main()

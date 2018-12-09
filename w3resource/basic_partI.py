@@ -85,6 +85,21 @@ def q10_pyramidN(n):
     '''Write a Python program that accepts an integer (n) and computes the value of n+nn+nnn'''
     return n+(n*n)+(n*n*n)
 
+def q11_documentsBuiltinF(func):
+    '''Write a Python program to print the documents (syntax, description etc.) of Python built-in function(s).
+    Sample function : abs()
+    Expected Result :
+    abs(number) -> number
+    Return the absolute value of the argument.
+    '''
+    desc = ''
+    try:
+        f = eval(func)
+        desc = f.__doc__
+    except NameError as e:
+        print('asf')
+
+    return desc
 
 if __name__ == '__main__':
     print('some test')

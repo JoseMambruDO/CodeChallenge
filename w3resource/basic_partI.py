@@ -101,5 +101,24 @@ def q11_documentsBuiltinF(func):
 
     return desc
 
+import calendar
+def q12_getMonthYear(y, m):
+    ''' '''
+    cal = ''
+    for d_a in calendar.day_abbr:
+        cal += d_a + ' '
+    cal += '\n'
+
+    for w in calendar.Calendar().monthdayscalendar(y,m):
+        for d in w:
+            std = d
+            if d == 0:
+                std = ''
+
+            cal +='{:>3} '.format(std)
+        cal += '\n'
+
+    return cal
+
 if __name__ == '__main__':
-    print('some test')
+    print("Some test")

@@ -65,5 +65,8 @@ class BasicPartITest(unittest.TestCase):
 
         self.assertEqual(len(q11_documentsBuiltinF('avengers')),0)
 
+    def test_q12_getMonthYear(self):
+        cal = q12_getMonthYear(2012,2)
+        self.assertNotEqual(len(cal),0)
 if __name__ == '__main__':
     unittest.main()

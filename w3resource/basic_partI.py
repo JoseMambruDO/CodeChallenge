@@ -103,7 +103,7 @@ def q11_documentsBuiltinF(func):
 
 import calendar
 def q12_getMonthYear(y, m):
-    ''' '''
+    '''Get month and year in calendar format.'''
     cal = ''
     for d_a in calendar.day_abbr:
         cal += d_a + ' '

@@ -120,5 +120,22 @@ def q12_getMonthYear(y, m):
 
     return cal
 
+def q13_escapeString():
+    return """
+a string that you "don't" have to escape
+This
+is a  ....... multi-line
+heredoc string --------> example
+"""
+
+import datetime
+def q14_daysBetween(td2,td1):
+    y,m,d = td2
+    d2 = datetime.date(y,m,d)
+    y,m,d = td1
+    d1 = datetime.date(y,m,d)
+    delta = d2 - d1
+    return delta.days
+
 if __name__ == '__main__':
     print("Some test")

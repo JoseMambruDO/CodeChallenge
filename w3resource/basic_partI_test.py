@@ -68,5 +68,10 @@ class BasicPartITest(unittest.TestCase):
     def test_q12_getMonthYear(self):
         cal = q12_getMonthYear(2012,2)
         self.assertNotEqual(len(cal),0)
+
+    def test_q14_daysBetween(self):
+        self.assertEqual(q14_daysBetween((2018,12,1),(2018,12,1)),0)
+        self.assertNotEqual(q14_daysBetween((2018,12,2),(2018,12,5)),1)
+
 if __name__ == '__main__':
     unittest.main()

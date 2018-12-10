@@ -130,12 +130,21 @@ heredoc string --------> example
 
 import datetime
 def q14_daysBetween(td2,td1):
+    '''Write a Python program to calculate number of days between two dates.
+Sample dates : (2014, 7, 2), (2014, 7, 11)
+Expected output : 9 days '''
     y,m,d = td2
     d2 = datetime.date(y,m,d)
     y,m,d = td1
     d1 = datetime.date(y,m,d)
     delta = d2 - d1
     return delta.days
+
+
+def q15_getVolumeSphere(radius):
+    '''Write a Python program to get the volume of a sphere with radius 6.'''
+    vol = (4/3) * pi * pow(radius,3)
+    return round(vol,2)
 
 if __name__ == '__main__':
     print("Some test")

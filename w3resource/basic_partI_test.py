@@ -73,5 +73,8 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q14_daysBetween((2018,12,1),(2018,12,1)),0)
         self.assertNotEqual(q14_daysBetween((2018,12,2),(2018,12,5)),1)
 
+    def test_q15_getVolumeSphere(self):
+        self.assertEqual(q15_getVolumeSphere(2),33.51)
+
 if __name__ == '__main__':
     unittest.main()

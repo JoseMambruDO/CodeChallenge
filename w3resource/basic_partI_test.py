@@ -76,5 +76,14 @@ class BasicPartITest(unittest.TestCase):
     def test_q15_getVolumeSphere(self):
         self.assertEqual(q15_getVolumeSphere(2),33.51)
 
+    def test_q16_near_oneOrTwoThounsand(self):
+        self.assertEqual(q16_near_oneOrTwoThounsand(2000),True)
+        self.assertTrue(q16_near_oneOrTwoThounsand(2000))
+        self.assertFalse(q16_near_oneOrTwoThounsand(1200))
+        self.assertTrue(q16_near_oneOrTwoThounsand(1000))
+        self.assertFalse(q16_near_oneOrTwoThounsand(200))
+        self.assertTrue(q16_near_oneOrTwoThounsand(1001))
+        self.assertTrue(q16_near_oneOrTwoThounsand(2012))
+
 if __name__ == '__main__':
     unittest.main()

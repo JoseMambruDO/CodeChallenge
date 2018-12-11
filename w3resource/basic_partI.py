@@ -146,5 +146,11 @@ def q15_getVolumeSphere(radius):
     vol = (4/3) * pi * pow(radius,3)
     return round(vol,2)
 
+def q16_near_oneOrTwoThounsand(num):
+    '''Write a Python program to test whether a number is
+     within 100 of 1000 or 2000.'''
+    return (abs(1000-num)<=100) or (abs(2000-num)<=100)
+
+
 if __name__ == '__main__':
     print("Some test")

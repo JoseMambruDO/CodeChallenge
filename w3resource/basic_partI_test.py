@@ -93,5 +93,13 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q17_sumOfValues(1,1,33),35)
         self.assertEqual(q17_sumOfValues(1,12,1),14)
 
+    def test_q18_startWithOrAdd(self):
+        self.assertTrue(q18_startWithOrAdd('Is','IsTV'))
+        self.assertTrue(q18_startWithOrAdd('Is','TV'))
+        self.assertTrue(q18_startWithOrAdd('Is','IsEmpty'))
+        self.assertTrue(q18_startWithOrAdd('Is','Empty'))
+        self.assertTrue(q18_startWithOrAdd('Is','IsTV'))
+
+
 if __name__ == '__main__':
     unittest.main()

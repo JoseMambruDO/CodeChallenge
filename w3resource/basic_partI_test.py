@@ -85,5 +85,13 @@ class BasicPartITest(unittest.TestCase):
         self.assertTrue(q16_near_oneOrTwoThounsand(1001))
         self.assertTrue(q16_near_oneOrTwoThounsand(2012))
 
+    def test_q17_sumOfValues(self):
+        self.assertEqual(q17_sumOfValues(1,1,1),9)
+        self.assertEqual(q17_sumOfValues(1,2,3),6)
+        self.assertEqual(q17_sumOfValues(2,2,2),18)
+        self.assertEqual(q17_sumOfValues(3,5,7),15)
+        self.assertEqual(q17_sumOfValues(1,1,33),35)
+        self.assertEqual(q17_sumOfValues(1,12,1),14)
+
 if __name__ == '__main__':
     unittest.main()

@@ -151,6 +151,15 @@ def q16_near_oneOrTwoThounsand(num):
      within 100 of 1000 or 2000.'''
     return (abs(1000-num)<=100) or (abs(2000-num)<=100)
 
+def q17_sumOfValues(a,b,c):
+    '''Write a Python program to calculate the sum of three given numbers, if
+    the values are equal then return thrice of their sum. '''
+    l = [a,b,c]
+    res  = sum(l)
+    if (len(set(l))==1):
+        res *= 3
+    return res
+
 
 if __name__ == '__main__':
     print("Some test")

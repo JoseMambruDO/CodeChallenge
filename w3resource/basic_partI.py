@@ -182,5 +182,8 @@ def q21_descriEvenOdd(num):
         msg += 'ODD'
     return msg
 
+def q22_count4(nums):
+    '''Write a Python program to count the number 4 in a given list.'''
+    return nums.count(4)
 if __name__ == '__main__':
     print("Some test")

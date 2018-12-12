@@ -118,6 +118,12 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q21_descriEvenOdd(93), '93 is ODD')
         self.assertEqual(q21_descriEvenOdd(91), '91 is ODD')
 
+    def test_q22_count4(self):
+        self.assertEqual(q22_count4([21,4,3,1,5,7,4,98]), 2)
+        self.assertEqual(q22_count4([8,4,3,1,5,7,4,98]), 2)
+        self.assertEqual(q22_count4([76,4,3,1,5,7,4,98]), 2)
+        self.assertEqual(q22_count4([9,45,32,4,5,7,4,4]), 3)
+        self.assertEqual(q22_count4([23,4,3,1,5,7,8,98]), 1)
 
 if __name__ == '__main__':
     unittest.main()

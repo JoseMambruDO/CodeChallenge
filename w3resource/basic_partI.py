@@ -146,12 +146,12 @@ def q15_getVolumeSphere(radius):
     vol = (4/3) * pi * pow(radius,3)
     return round(vol,2)
 
-def q16_near_oneOrTwoThounsand(num):
+def q17_near_oneOrTwoThounsand(num):
     '''Write a Python program to test whether a number is
      within 100 of 1000 or 2000.'''
     return (abs(1000-num)<=100) or (abs(2000-num)<=100)
 
-def q17_sumOfValues(a,b,c):
+def q18_sumOfValues(a,b,c):
     '''Write a Python program to calculate the sum of three given numbers, if
     the values are equal then return thrice of their sum. '''
     l = [a,b,c]
@@ -160,12 +160,16 @@ def q17_sumOfValues(a,b,c):
         res *= 3
     return res
 
-def q18_startWithOrAdd(start, word):
+def q19_startWithOrAdd(start, word):
     '''Write a Python program to get a new string from a given string where
     "Is" has been added to the front. If the given string already begins with
     "Is" then return the string unchanged. '''
 
     return word.startswith(start)
+
+def q20_nCopyString(str, n):
+    '''Write a Python program to get a string which is n (non-negative integer) copies of a given string.'''
+    return str * n
 
 if __name__ == '__main__':
     print("Some test")

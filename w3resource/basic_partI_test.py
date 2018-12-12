@@ -98,8 +98,12 @@ class BasicPartITest(unittest.TestCase):
         self.assertTrue(q18_startWithOrAdd('Is','TV'))
         self.assertTrue(q18_startWithOrAdd('Is','IsEmpty'))
         self.assertTrue(q18_startWithOrAdd('Is','Empty'))
-        self.assertTrue(q18_startWithOrAdd('Is','IsTV'))
 
+    def test_q20_nCopyString(self):
+        self.assertEqual(q20_nCopyString('asdf',3),"asdfasdfasdf")
+        self.assertEqual(q20_nCopyString('12345',4),"12345123451234512345")
+        self.assertEqual(q20_nCopyString('ok',0),"")
+        self.assertEqual(q20_nCopyString('ok',1),"ok")
 
 if __name__ == '__main__':
     unittest.main()

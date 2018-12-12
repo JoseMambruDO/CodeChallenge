@@ -105,5 +105,19 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q20_nCopyString('ok',0),"")
         self.assertEqual(q20_nCopyString('ok',1),"ok")
 
+    def test_q21_descriEvenOdd(self):
+        self.assertEqual(q21_descriEvenOdd(10), '10 is EVEN')
+        self.assertEqual(q21_descriEvenOdd(2), '2 is EVEN')
+        self.assertEqual(q21_descriEvenOdd(200), '200 is EVEN')
+        self.assertEqual(q21_descriEvenOdd(64), '64 is EVEN')
+        self.assertEqual(q21_descriEvenOdd(34), '34 is EVEN')
+
+        self.assertEqual(q21_descriEvenOdd(1), '1 is ODD')
+        self.assertEqual(q21_descriEvenOdd(45), '45 is ODD')
+        self.assertEqual(q21_descriEvenOdd(203), '203 is ODD')
+        self.assertEqual(q21_descriEvenOdd(93), '93 is ODD')
+        self.assertEqual(q21_descriEvenOdd(91), '91 is ODD')
+
+
 if __name__ == '__main__':
     unittest.main()

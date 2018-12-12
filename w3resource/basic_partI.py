@@ -168,8 +168,19 @@ def q19_startWithOrAdd(start, word):
     return word.startswith(start)
 
 def q20_nCopyString(str, n):
-    '''Write a Python program to get a string which is n (non-negative integer) copies of a given string.'''
+    '''Write a Python program to get a string which is n (non-negative integer)
+    copies of a given string.'''
     return str * n
+
+def q21_descriEvenOdd(num):
+    '''Write a Python program to find whether a given number (accept from the
+    user) is even or odd, print out an appropriate message to the user.'''
+    msg = str(num)+' is '
+    if num % 2 == 0:
+        msg += 'EVEN'
+    else:
+        msg += 'ODD'
+    return msg
 
 if __name__ == '__main__':
     print("Some test")

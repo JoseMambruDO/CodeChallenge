@@ -192,7 +192,7 @@ def q19_startWithOrAdd(start, word):
     "Is" then return the string unchanged. '''
 
     return word.startswith(star)
-    
+
 def q20_nCopyString(str, n):
     '''Write a Python program to get a string which is n (non-negative integer)
     copies of a given string.'''
@@ -222,6 +222,18 @@ def q23_getfirst2Ch(str):
     else:
         res=str[0:2]
     return res
+
+def q24_isVowel(l):
+    '''Write a Python program to test
+    whether a passed letter is a vowel or not.'''
+    vowel = 'aeiou'
+    l = l.lower()
+    res = False
+    if (l in vowel) and l != '':
+        res = True
+    return res
+
+
 
 
 if __name__ == '__main__':

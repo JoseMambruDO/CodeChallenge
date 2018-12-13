@@ -112,9 +112,9 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q21_descriEvenOdd(64), '64 is EVEN')
         self.assertEqual(q21_descriEvenOdd(34), '34 is EVEN')
 
+        self.assertEqual(q21_descriEvenOdd(203), '203 is ODD')
         self.assertEqual(q21_descriEvenOdd(1), '1 is ODD')
         self.assertEqual(q21_descriEvenOdd(45), '45 is ODD')
-        self.assertEqual(q21_descriEvenOdd(203), '203 is ODD')
         self.assertEqual(q21_descriEvenOdd(93), '93 is ODD')
         self.assertEqual(q21_descriEvenOdd(91), '91 is ODD')
 
@@ -129,6 +129,12 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q23_getfirst2Ch('fdaserq'),'fd')
         self.assertEqual(q23_getfirst2Ch('A'),'A')
         self.assertEqual(q23_getfirst2Ch(''),'')
+
+    def test_q24_isVowel(self):
+        self.assertEqual(q24_isVowel('A'),True)
+        self.assertEqual(q24_isVowel('o'),True)
+        self.assertEqual(q24_isVowel(''),False)
+        self.assertEqual(q24_isVowel('C'),False)
 
 if __name__ == '__main__':
     unittest.main()

@@ -233,6 +233,11 @@ def q24_isVowel(l):
         res = True
     return res
 
+def q25_eInGroup(e,g):
+    '''Write a Python program to check whether a specified value is
+    contained in a group of values.'''
+    return e in g
+
 
 
 

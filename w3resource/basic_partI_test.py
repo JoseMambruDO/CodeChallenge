@@ -136,5 +136,15 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q24_isVowel(''),False)
         self.assertEqual(q24_isVowel('C'),False)
 
+    def test_q25_eInGroup(self):
+        self.assertTrue(q25_eInGroup(1,[1,34,56,7]))
+        self.assertTrue(q25_eInGroup(56,[1,34,56,7]))
+        self.assertTrue(q25_eInGroup(8,[5,8,5,6,7]))
+
+        self.assertFalse(q25_eInGroup(7,[1,3,4,5,67]))
+        self.assertFalse(q25_eInGroup(9,[1,3,4,567]))
+        self.assertFalse(q25_eInGroup(9,[6,3,4,56,7]))
+
+
 if __name__ == '__main__':
     unittest.main()

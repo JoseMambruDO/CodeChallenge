@@ -125,5 +125,10 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q22_count4([9,45,32,4,5,7,4,4]), 3)
         self.assertEqual(q22_count4([23,4,3,1,5,7,8,98]), 1)
 
+    def test_q23_getfirst2Ch(self):
+        self.assertEqual(q23_getfirst2Ch('fdaserq'),'fd')
+        self.assertEqual(q23_getfirst2Ch('A'),'A')
+        self.assertEqual(q23_getfirst2Ch(''),'')
+
 if __name__ == '__main__':
     unittest.main()

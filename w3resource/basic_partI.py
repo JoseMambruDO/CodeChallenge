@@ -238,7 +238,15 @@ def q25_eInGroup(e,g):
     contained in a group of values.'''
     return e in g
 
-
+def q26_AscHistogram(nums):
+    '''Write a Python program to create a histogram from a given list
+    of integers.'''
+    ch = '@'
+    res = ''
+    for i in nums:
+        res += ch * i
+        res += '\n'
+    return res
 
 
 if __name__ == '__main__':

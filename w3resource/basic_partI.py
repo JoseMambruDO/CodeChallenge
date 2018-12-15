@@ -241,6 +241,7 @@ def q25_eInGroup(e,g):
 def q26_AscHistogram(nums):
     '''Write a Python program to create a histogram from a given list
     of integers.'''
+
     ch = '@'
     res = ''
     for i in nums:
@@ -248,6 +249,10 @@ def q26_AscHistogram(nums):
         res += '\n'
     return res
 
-
+def q27_concatenateAllElements(li):
+    '''Write a Python program to concatenate all elements in a list into
+    a string and return it.'''
+    list_str = list(map(str,li))
+    return ''.join(list_str)
 if __name__ == '__main__':
     print("Some test")

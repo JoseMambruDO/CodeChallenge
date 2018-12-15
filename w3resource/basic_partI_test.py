@@ -145,6 +145,11 @@ class BasicPartITest(unittest.TestCase):
         self.assertFalse(q25_eInGroup(9,[1,3,4,567]))
         self.assertFalse(q25_eInGroup(9,[6,3,4,56,7]))
 
+    def test_q27_concatenateAllElements(self):
+        self.assertEqual(q27_concatenateAllElements(['a','s','d','f']),'asdf')
+        self.assertEqual(q27_concatenateAllElements([]),'')
+        self.assertEqual(q27_concatenateAllElements([' ']),' ')
+        self.assertEqual(q27_concatenateAllElements([1,'Z']),'1Z')
 
 if __name__ == '__main__':
     unittest.main()

@@ -254,5 +254,6 @@ def q27_concatenateAllElements(li):
     a string and return it.'''
     list_str = list(map(str,li))
     return ''.join(list_str)
+
 if __name__ == '__main__':
     print("Some test")

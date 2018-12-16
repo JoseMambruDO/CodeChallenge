@@ -153,5 +153,13 @@ class BasicPartITest(unittest.TestCase):
 
     def test_q29_getUniqMemberSet(self):
         self.assertEqual(q29_getUniqMemberSet(('White','Black','Red'),('Red','Green')),['White','Black'])
+
+    def test_q30_getTriangleArea(self):
+        self.assertEqual(q30_getTriangleArea(1,2),1)
+        self.assertEqual(q30_getTriangleArea(0,2),0)
+        self.assertEqual(q30_getTriangleArea(1,0),0)
+        self.assertEqual(q30_getTriangleArea(0,0),0)
+
+
 if __name__ == '__main__':
     unittest.main()

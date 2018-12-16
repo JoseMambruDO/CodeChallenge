@@ -264,7 +264,7 @@ def q27_concatenateAllElements(li):
     return ''.join(list_str)
 
 
-def numsBeforE(nums, E):
+def q28_numsBeforE(nums, E):
     '''Write a Python program to print all even numbers from a given numbers
     list in the same order and stop the printing if any numbers that come
     after 237 in the sequence. Go to the editor'''
@@ -278,6 +278,10 @@ def q29_getUniqMemberSet(s1,s2):
     un = [i for i in s1 if i not in s2]
     return un
 
+def q30_getTriangleArea(b,h):
+    '''Write a Python program that will accept the base and
+    height of a triangle and compute the area'''
+    return 0.5 * b * h
 
 if __name__ == '__main__':
     print("Some test")

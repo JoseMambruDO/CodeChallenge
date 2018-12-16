@@ -15,11 +15,11 @@ def q1_twinkle():
      Output :
 
     Twinkle, twinkle, little star,
-    	How I wonder what you are!
-    		Up above the world so high,
-    		Like a diamond in the sky.
+        How I wonder what you are!
+                Up above the world so high,
+                Like a diamond in the sky.
     Twinkle, twinkle, little star,
-    	How I wonder what you are
+        How I wonder what you are
     '''
     string = 'Twinkle, twinkle, little star,\n\tHow I wonder what you are!\n\t\tUp above the world so high,\n\t\tLike a diamond in the sky.\nTwinkle, twinkle, little star,\n\tHow I wonder what you are'
 
@@ -193,35 +193,40 @@ def q19_startWithOrAdd(start, word):
 
     return word.startswith(star)
 
+
 def q20_nCopyString(str, n):
     '''Write a Python program to get a string which is n (non-negative integer)
     copies of a given string.'''
     return str * n
 
+
 def q21_descriEvenOdd(num):
     '''Write a Python program to find whether a given number (accept from the
     user) is even or odd, print out an appropriate message to the user.'''
-    msg=str(num) + ' is '
+    msg = str(num) + ' is '
     if num % 2 == 0:
         msg += 'EVEN'
     else:
         msg += 'ODD'
     return msg
 
+
 def q22_count4(nums):
     '''Write a Python program to count the number 4 in a given list.'''
     return nums.count(4)
+
 
 def q23_getfirst2Ch(str):
     '''Write a Python program to get the n (non-negative integer) copies of
     the first 2 characters of a given string. Return the n copies of the
     whole string if the length is less than 2'''
-    res=''
+    res = ''
     if len(str) <= 2:
-        res=str
+        res = str
     else:
-        res=str[0:2]
+        res = str[0:2]
     return res
+
 
 def q24_isVowel(l):
     '''Write a Python program to test
@@ -233,10 +238,12 @@ def q24_isVowel(l):
         res = True
     return res
 
-def q25_eInGroup(e,g):
+
+def q25_eInGroup(e, g):
     '''Write a Python program to check whether a specified value is
     contained in a group of values.'''
     return e in g
+
 
 def q26_AscHistogram(nums):
     '''Write a Python program to create a histogram from a given list
@@ -249,11 +256,21 @@ def q26_AscHistogram(nums):
         res += '\n'
     return res
 
+
 def q27_concatenateAllElements(li):
     '''Write a Python program to concatenate all elements in a list into
     a string and return it.'''
-    list_str = list(map(str,li))
+    list_str = list(map(str, li))
     return ''.join(list_str)
+
+
+def numsBeforE(nums, E):
+    '''Write a Python program to print all even numbers from a given numbers
+    list in the same order and stop the printing if any numbers that come
+    after 237 in the sequence. Go to the editor'''
+    i = nums.index(E)
+    return nums[0: i]
+
 
 if __name__ == '__main__':
     print("Some test")

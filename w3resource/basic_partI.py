@@ -272,5 +272,12 @@ def numsBeforE(nums, E):
     return nums[0: i]
 
 
+def q29_getUniqMemberSet(s1,s2):
+    '''Write a Python program to print out a set containing all the colors from
+    a list which are not present in another list '''
+    un = [i for i in s1 if i not in s2]
+    return un
+
+
 if __name__ == '__main__':
     print("Some test")

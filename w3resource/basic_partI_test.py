@@ -151,5 +151,7 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q27_concatenateAllElements([' ']),' ')
         self.assertEqual(q27_concatenateAllElements([1,'Z']),'1Z')
 
+    def test_q29_getUniqMemberSet(self):
+        self.assertEqual(q29_getUniqMemberSet(('White','Black','Red'),('Red','Green')),['White','Black'])
 if __name__ == '__main__':
     unittest.main()

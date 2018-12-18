@@ -299,4 +299,6 @@ def q31_getGCD(x, y):
 
 
 if __name__ == '__main__':
-    print("Some test")
+    print(q31_getGCD(12,4))
+    print(q31_getGCD(32,86))
+    print(q31_getGCD(44,72))

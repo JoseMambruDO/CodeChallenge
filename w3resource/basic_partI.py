@@ -283,9 +283,20 @@ def q30_getTriangleArea(b,h):
     height of a triangle and compute the area'''
     return 0.5 * b * h
 
-def q31_getGCD(a,b):
+def q31_getGCD(x, y):
     '''Write a Python program to compute the greatest common
     divisor (GCD) of two positive integers.'''
+    gcd = 1
+
+    if x % y == 0:
+        return y
+
+    for k in range(int(y / 2), 0, -1):
+        if x % k == 0 and y % k == 0:
+            gcd = k
+            break
+    return gcd
+
 
 if __name__ == '__main__':
     print("Some test")

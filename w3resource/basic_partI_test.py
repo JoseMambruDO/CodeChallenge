@@ -165,7 +165,5 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q31_getGCD(86,32),2)
         self.assertEqual(q31_getGCD(44,72),4)
 
-
-
 if __name__ == '__main__':
     unittest.main()

@@ -160,10 +160,14 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q30_getTriangleArea(1,0),0)
         self.assertEqual(q30_getTriangleArea(0,0),0)
 
-    print test_q31_getGCD(self):
+    def test_q31_getGCD(self):
         self.assertEqual(q31_getGCD(12,4),4)
         self.assertEqual(q31_getGCD(86,32),2)
         self.assertEqual(q31_getGCD(44,72),4)
+
+    def test_q32_getLCM(self):
+        self.assertEqual(q31_getGCD(4, 6),12)
+        self.assertEqual(q31_getGCD(15, 17),255)
 
 if __name__ == '__main__':
     unittest.main()

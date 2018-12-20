@@ -313,9 +313,14 @@ def q32_getLCM(x,y):
     return lcm
 
 def q33_sumThreeInteger(a,b,c):
-'''33. Write a Python program to sum of three given integers. However, if two
-values are equal sum will be zero.'''
-
+    '''33. Write a Python program to sum of three given integers. However, if two
+    values are equal sum will be zero.'''
+    re = 0
+    nums = [a,b,c]
+    fnums = [i for i in nums if nums.count(i) == 1]
+    if len(fnums) == 3:
+        re = sum(fnums)
+    return re
 
 '''34. Write a Python program to sum of two given integers. However, if the sum
 is between 15 to 20 it will return 20.'''

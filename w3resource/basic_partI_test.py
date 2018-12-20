@@ -173,7 +173,7 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q33_sumThreeInteger(1,2,3),6)
         self.assertEqual(q33_sumThreeInteger(1,2,2),0)
         self.assertEqual(q33_sumThreeInteger(1,2,4),7)
-        self.assertNotEqual(q33_sumThreeInteger(1,2,4),7)
+        self.assertNotEqual(q33_sumThreeInteger(-1,2,4),7)
 
 if __name__ == '__main__':
     unittest.main()

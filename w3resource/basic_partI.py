@@ -6,7 +6,6 @@
 
 from math import *
 
-
 def q1_twinkle():
     '''1. Write a Python program to print the following string in a specific
     format (see the output). Go to the editor Sample String : "Twinkle, twinkle,
@@ -297,6 +296,21 @@ def q31_getGCD(x, y):
             break
     return gcd
 
+def q32_getLCM(x,y):
+    '''32. Write a Python program to get the least common multiple
+    (LCM) of two positive integers'''
+     if x > y:
+         z = x
+     else:
+         z = y
+
+    while(True):
+        if((z % x == 0) and (z % y == 0)):
+            lcm = z
+            break
+        z += 1
+
+    return lcm
 
 if __name__ == '__main__':
     print("some test")

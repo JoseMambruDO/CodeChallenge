@@ -166,8 +166,8 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q31_getGCD(44,72),4)
 
     def test_q32_getLCM(self):
-        self.assertEqual(q31_getGCD(4, 6),12)
-        self.assertEqual(q31_getGCD(15, 17),255)
+        self.assertEqual(q31_getLCM(4, 6),12)
+        self.assertEqual(q31_getLCM(15, 17),255)
 
 if __name__ == '__main__':
     unittest.main()

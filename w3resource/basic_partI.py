@@ -299,10 +299,10 @@ def q31_getGCD(x, y):
 def q32_getLCM(x,y):
     '''32. Write a Python program to get the least common multiple
     (LCM) of two positive integers'''
-     if x > y:
-         z = x
-     else:
-         z = y
+    if x > y:
+        z = x
+    else:
+        z = y
 
     while(True):
         if((z % x == 0) and (z % y == 0)):

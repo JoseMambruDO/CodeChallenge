@@ -169,5 +169,11 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q32_getLCM(4, 6),12)
         self.assertEqual(q32_getLCM(15, 17),255)
 
+    def test_q33_sumThreeInteger(self):
+        self.assertEqual(q33_sumThreeInteger(1,2,3),6)
+        self.assertEqual(q33_sumThreeInteger(1,2,2),0)
+        self.assertEqual(q33_sumThreeInteger(1,2,4),7)
+        self.assertNotEqual(q33_sumThreeInteger(1,2,4),7)
+
 if __name__ == '__main__':
     unittest.main()

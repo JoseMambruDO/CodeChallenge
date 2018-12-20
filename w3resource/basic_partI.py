@@ -322,9 +322,13 @@ def q33_sumThreeInteger(a,b,c):
         re = sum(fnums)
     return re
 
-'''34. Write a Python program to sum of two given integers. However, if the sum
-is between 15 to 20 it will return 20.'''
-
+def q34_sumTwoIntegers20(a,b):
+    '''34. Write a Python program to sum of two given integers. However, if the sum
+    is between 15 to 20 it will return 20.'''
+    re = a+b
+    if re>=15 and re<=20:
+        re = 20
+    return re
 
 '''35. Write a Python program that will return true if the two given integer
 values are equal or their sum or difference is 5.'''

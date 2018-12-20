@@ -175,5 +175,13 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q33_sumThreeInteger(1,2,4),7)
         self.assertNotEqual(q33_sumThreeInteger(-1,2,4),7)
 
+    def test_q34_sumTwoIntegers20(self):
+        self.assertEqual(q34_sumTwoIntegers20(10,10),20)
+        self.assertEqual(q34_sumTwoIntegers20(1,19),20)
+        self.assertEqual(q34_sumTwoIntegers20(2,14),20)
+        self.assertEqual(q34_sumTwoIntegers20(1,10),11)
+        self.assertEqual(q34_sumTwoIntegers20(2,18),20)
+        self.assertEqual(q34_sumTwoIntegers20(3,2),5)
+
 if __name__ == '__main__':
     unittest.main()

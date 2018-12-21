@@ -330,9 +330,14 @@ def q34_sumTwoIntegers20(a,b):
         re = 20
     return re
 
-'''35. Write a Python program that will return true if the two given integer
-values are equal or their sum or difference is 5.'''
 
+def q35_twoSumDiff5(a,b):
+    '''35. Write a Python program that will return true if the two given integer
+    values are equal or their sum or difference is 5.'''
+    re = False
+    if ((a==b) or (a+b == 5) or (abs(a-b)==5)):
+        re = True
+    return re
 
 '''36. Write a Python program to add two objects if both objects are an integer
 type.'''

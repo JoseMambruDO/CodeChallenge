@@ -352,9 +352,11 @@ def q37_infoContact(name,age, address):
     three different lines.'''
     return 'Name: {}\nAge: {}\n address{}\n'.format(name,age,address)
 
-'''38. Write a Python program to solve (x + y) * (x + y).
-Test Data : x = 4, y = 3
-Expected Output : (4 + 3) ^ 2) = 49'''
+def q38_solveEq(x,y):
+    '''38. Write a Python program to solve (x + y) * (x + y).
+    Test Data : x = 4, y = 3
+    Expected Output : (4 + 3) ^ 2) = 49'''
+    return (x + y) * (x + y)
 
 
 '''39. Write a Python program to compute the future value of a specified principal

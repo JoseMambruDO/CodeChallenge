@@ -195,5 +195,8 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q36_sumIntegers(1,'asd'),0)
         self.assertEqual(q36_sumIntegers(1,2),3)
 
+    def test_q38_solveEq(self):
+        self.assertEqual(q38_solveEq(4,3),49)
+        
 if __name__ == '__main__':
     unittest.main()

@@ -192,8 +192,8 @@ class BasicPartITest(unittest.TestCase):
         self.assertTrue(q35_twoSumDiff5(-4,1))
 
     def test_q36_sumIntegers(self):
-        self.assertRaises(q36_sumIntegers(1,'asd'))
-        self.assertEqual(q36q36_sumIntegers(1,2))
+        self.assertEqual(q36_sumIntegers(1,'asd'),0)
+        self.assertEqual(q36_sumIntegers(1,2),3)
 
 if __name__ == '__main__':
     unittest.main()

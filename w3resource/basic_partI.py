@@ -346,9 +346,11 @@ def q36_sumIntegers(a,b):
     if (type(a) is int) and (type(b) is int):
         re = a + b
     return re
-'''37. Write a Python program to display your details like name, age, address in
-three different lines.'''
 
+def q37_infoContact(name,age, address):
+    '''37. Write a Python program to display your details like name, age, address in
+    three different lines.'''
+    return 'Name: {}\nAge: {}\n address{}\n'.format(name,age,address)
 
 '''38. Write a Python program to solve (x + y) * (x + y).
 Test Data : x = 4, y = 3

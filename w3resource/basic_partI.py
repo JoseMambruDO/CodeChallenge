@@ -339,10 +339,13 @@ def q35_twoSumDiff5(a,b):
         re = True
     return re
 
-'''36. Write a Python program to add two objects if both objects are an integer
-type.'''
-
-
+def q36_sumIntegers(a,b):
+    '''36. Write a Python program to add two objects if both objects are an integer
+    type.'''
+    re  = 0
+    if (type(a) is int) and (type(b) is int):
+        re = a + b
+    return re
 '''37. Write a Python program to display your details like name, age, address in
 three different lines.'''
 

@@ -394,10 +394,11 @@ def q42_archOS():
         re = '32'+re
     return re
 
-
-'''43. Write a Python program to get OS name, platform
-and release information.'''
-
+import platform as p
+def q43_OSInfo():
+    '''43. Write a Python program to get OS name, platform
+    and release information.'''
+    return 'OS name: {}\nplaform: {}\n release information{}\n'.format(p.system(),p.version(),p.release())
 
 '''44. Write a Python program to locate Python site-packages.'''
 

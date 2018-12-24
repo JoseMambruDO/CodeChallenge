@@ -370,6 +370,18 @@ def q40_distBetweenPoints(x1,y1,x2,y2):
     the points (x1, y1) and (x2, y2).'''
     return math.sqrt((x2-x1)**2 + (y2-y1)**2)
 
+from os import stat
+def q41_checkExistsFile(pFile):
+    '''41. Write a Python program to check whether a file exists.'''
+    re = False
+    try:
+        st = stat(pFile)
+        re = True
+    raise FileNotFoundError fnfe:
+        print('this file not exists.')
+
+    return re
+
 
 '''42. Write a Python program to determine if a Python shell is executing in
 32bit or 64bit mode on OS.'''

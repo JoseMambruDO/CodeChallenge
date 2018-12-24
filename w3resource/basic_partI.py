@@ -382,9 +382,17 @@ def q41_checkExistsFile(pFile):
 
     return re
 
-
-'''42. Write a Python program to determine if a Python shell is executing in
-32bit or 64bit mode on OS.'''
+from platform.sys import maxsize
+def q42_archOS():
+    '''42. Write a Python program to determine if a Python shell is executing in
+    32bit or 64bit mode on OS.'''
+    is_64bits = sys.maxsize > 2**32
+    re = 'bit'
+    if is_64bits:
+        re = '64'+re
+    else:
+        re = '32'+re
+    return re
 
 
 '''43. Write a Python program to get OS name, platform

@@ -197,6 +197,10 @@ class BasicPartITest(unittest.TestCase):
 
     def test_q38_solveEq(self):
         self.assertEqual(q38_solveEq(4,3),49)
-        
+
+    def test_q40_distBetweenPoints(self):
+        self.assertEqual(q40_distBetweenPoints(1,1,1,1,1),0)
+    
+
 if __name__ == '__main__':
     unittest.main()

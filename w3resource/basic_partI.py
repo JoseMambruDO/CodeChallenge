@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+ta#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """ Some wonderful lines in python """
@@ -358,18 +358,17 @@ def q38_solveEq(x,y):
     Expected Output : (4 + 3) ^ 2) = 49'''
     return (x + y) * (x + y)
 
+def q39_mortage(amt,int, years):
+    '''39. Write a Python program to compute the future value of a specified principal
+    amount, rate of interest, and a number of years.
+    Test Data : amt = 10000, int = 3.5, years = 7
+    Expected Output : 12722.79'''
+    return amt * (3.5 ** 7)
 
-'''39. Write a Python program to compute the future value of a specified principal
-amount, rate of interest, and a number of years.
-Test Data : amt = 10000, int = 3.5, years = 7
-Expected Output : 12722.79'''
-
-
-'''40. Write a Python program to compute the distance between
-the points (x1, y1) and (x2, y2).'''
-
-
-'''41. Write a Python program to check whether a file exists.'''
+def q40_distBetweenPoints(x1,y1,x2,y2):
+    '''40. Write a Python program to compute the distance between
+    the points (x1, y1) and (x2, y2).'''
+    return math.sqrt((x2-x1)**2 + (y2-y1)**2)
 
 
 '''42. Write a Python program to determine if a Python shell is executing in

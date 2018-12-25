@@ -400,9 +400,11 @@ def q43_OSInfo():
     and release information.'''
     return 'OS name: {}\nplaform: {}\n release information{}\n'.format(p.system(),p.version(),p.release())
 
-'''44. Write a Python program to locate Python site-packages.'''
-
-
+import site as s
+def q44_PythonSitePackages():
+    '''44. Write a Python program to locate Python site-packages.'''
+    sitepackages = s.getsitepackages()
+    return sitepackages
 '''45. Write a python program to call an external command in Python.'''
 
 

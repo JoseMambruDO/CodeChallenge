@@ -405,9 +405,11 @@ def q44_PythonSitePackages():
     '''44. Write a Python program to locate Python site-packages.'''
     sitepackages = s.getsitepackages()
     return sitepackages
-    
-'''45. Write a python program to call an external command in Python.'''
 
+import system from os
+def executeCommand(command):
+    '''45. Write a python program to call an external command in Python.'''
+    system(command)
 
 '''46. Write a python program to get the path and name of the file that
 is currently executing.'''

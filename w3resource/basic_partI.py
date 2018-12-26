@@ -407,12 +407,16 @@ def q44_PythonSitePackages():
     return sitepackages
 
 import system from os
-def executeCommand(command):
+def q45_executeCommand(command):
     '''45. Write a python program to call an external command in Python.'''
     system(command)
 
-'''46. Write a python program to get the path and name of the file that
-is currently executing.'''
+import os
+def q46_pathNName():
+    '''46. Write a python program to get the path and name of the file that
+    is currently executing.'''
+    dirname, filename = os.path.split(os.path.abspath(__file__))
+    return 'dirname:{}\n file:{}\n'.format(dirname,filename)
 
 
 '''47. Write a Python program to find out the number of CPUs using.'''

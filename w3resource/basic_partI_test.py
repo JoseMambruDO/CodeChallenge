@@ -200,7 +200,9 @@ class BasicPartITest(unittest.TestCase):
 
     def test_q40_distBetweenPoints(self):
         self.assertEqual(q40_distBetweenPoints(1,1,1,1,1),0)
-    
+
+    def test_q47_getNumberCPUs(self):
+        self.assertLess(0, q47_getNumberCPUs())
 
 if __name__ == '__main__':
     unittest.main()

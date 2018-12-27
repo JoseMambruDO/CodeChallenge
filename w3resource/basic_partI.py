@@ -1,7 +1,7 @@
-ta#!/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-""" Some wonderful lines in python """
+"""Some wonderful lines in python """
 """Source: https://www.w3resource.com/python-exercises/python-basic-exercises.php"""
 
 from math import *
@@ -377,12 +377,12 @@ def q41_checkExistsFile(pFile):
     try:
         st = stat(pFile)
         re = True
-    raise FileNotFoundError fnfe:
+    except FileNotFoundError:
         print('this file not exists.')
 
     return re
 
-from platform.sys import maxsize
+import platform
 def q42_archOS():
     '''42. Write a Python program to determine if a Python shell is executing in
     32bit or 64bit mode on OS.'''
@@ -406,7 +406,7 @@ def q44_PythonSitePackages():
     sitepackages = s.getsitepackages()
     return sitepackages
 
-import system from os
+from os import system
 def q45_executeCommand(command):
     '''45. Write a python program to call an external command in Python.'''
     system(command)
@@ -418,9 +418,10 @@ def q46_pathNName():
     dirname, filename = os.path.split(os.path.abspath(__file__))
     return 'dirname:{}\n file:{}\n'.format(dirname,filename)
 
-
-'''47. Write a Python program to find out the number of CPUs using.'''
-
+from os import cpu_count
+def q47_getNumberCPUs():
+    '''47. Write a Python program to find out the number of CPUs using.'''
+    return cpu_count()
 
 '''48. Write a Python program to parse a string to Float or Integer.'''
 

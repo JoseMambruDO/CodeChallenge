@@ -423,8 +423,15 @@ def q47_getNumberCPUs():
     '''47. Write a Python program to find out the number of CPUs using.'''
     return cpu_count()
 
-'''48. Write a Python program to parse a string to Float or Integer.'''
-
+def q48_str2Number(value):
+    '''48. Write a Python program to parse a string to Float or Integer.'''
+    re = None
+    if value.isnumeric():
+        if value.isdecimal():
+            re = float(value)
+        else:
+            re = int(value)
+    return re
 
 '''49. Write a Python program to list all files in a directory in Python.'''
 

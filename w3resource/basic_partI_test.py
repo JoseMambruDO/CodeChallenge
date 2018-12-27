@@ -204,5 +204,9 @@ class BasicPartITest(unittest.TestCase):
     def test_q47_getNumberCPUs(self):
         self.assertLess(0, q47_getNumberCPUs())
 
+    def test_q48_str2Number(self):
+        self.assertEqual(q48_str2Number('1'),1)
+        self.assertEqual(q48_str2Number('ASDF'),None)
+
 if __name__ == '__main__':
     unittest.main()

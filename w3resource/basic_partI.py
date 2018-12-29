@@ -433,8 +433,10 @@ def q48_str2Number(value):
             re = int(value)
     return re
 
-'''49. Write a Python program to list all files in a directory in Python.'''
-
+from os import listdir
+def q49_dirAllFiles(dir):
+    '''49. Write a Python program to list all files in a directory in Python.'''
+    return (listdir(dir))
 
 '''50. Write a Python program to print without newline or space.'''
 

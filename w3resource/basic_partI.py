@@ -438,8 +438,11 @@ def q49_dirAllFiles(dir):
     '''49. Write a Python program to list all files in a directory in Python.'''
     return (listdir(dir))
 
-'''50. Write a Python program to print without newline or space.'''
-
+def q50_dropNewLineorSpace(value):
+    '''50. Write a Python program to print without newline or space.'''
+    empty = ''
+    re = value.replace(' ','').replace('\n','')
+    return re
 
 '''51. Write a Python program to determine profiling of Python programs.
 Note: A profile is a set of statistics that describes how often and for

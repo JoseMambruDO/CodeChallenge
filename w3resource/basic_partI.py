@@ -451,9 +451,12 @@ def q51_profilePyProgram(expresion):
     how long various parts of the program executed. These statistics can be
     formatted into reports via the pstats module.
     '''
+    cProfile.run(expresions)
 
+from sys.stderr import write
 '''52. Write a Python program to print to stderr.'''
-
+    def_q52_writeStderr(err):
+        sys.stderr.write(err)
 
 '''53. Write a python program to access environment variables.'''
 

@@ -454,8 +454,8 @@ def q51_profilePyProgram(expresion):
     cProfile.run(expresions)
 
 from sys.stderr import write
-'''52. Write a Python program to print to stderr.'''
-    def_q52_writeStderr(err):
+def q52_writeStderr(err):
+    '''52. Write a Python program to print to stderr.'''
         sys.stderr.write(err)
 
 '''53. Write a python program to access environment variables.'''

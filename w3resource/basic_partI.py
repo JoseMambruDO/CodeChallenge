@@ -463,8 +463,10 @@ def q53_accessEnvVar(var):
     '''53. Write a python program to access environment variables.'''
     return environ[var]
 
+from os import getlogin
 '''54. Write a Python program to get the current username'''
-
+def q54_getCurrentUsername():
+    return getlogin()
 
 '''55. Write a Python to find local IP addresses using Python's stdlib'''
 

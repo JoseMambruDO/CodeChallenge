@@ -210,6 +210,9 @@ class BasicPartITest(unittest.TestCase):
 
     def test_q53_accessEnvVar(self):
         self.assertNotEqual('',q53_accessEnvVar('HOME'))
-        
+
+    def test_q54_getCurrentUsername(self):
+        self.assertNotEqual('',q54_getCurrentUsername())
+
 if __name__ == '__main__':
     unittest.main()

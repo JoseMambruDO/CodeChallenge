@@ -208,5 +208,8 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q48_str2Number('1'),1)
         self.assertEqual(q48_str2Number('ASDF'),None)
 
+    def test_q53_accessEnvVar(self):
+        self.assertNotEqual('',q53_accessEnvVar('HOME'))
+        
 if __name__ == '__main__':
     unittest.main()

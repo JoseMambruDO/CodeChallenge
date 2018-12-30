@@ -453,13 +453,15 @@ def q51_profilePyProgram(expresion):
     '''
     cProfile.run(expresions)
 
-from sys.stderr import write
+import sys
 def q52_writeStderr(err):
     '''52. Write a Python program to print to stderr.'''
-        sys.stderr.write(err)
+    sys.stderr.write(err)
 
-'''53. Write a python program to access environment variables.'''
-
+from os import environ
+def q53_accessEnvVar(var):
+    '''53. Write a python program to access environment variables.'''
+    return environ[var]
 
 '''54. Write a Python program to get the current username'''
 

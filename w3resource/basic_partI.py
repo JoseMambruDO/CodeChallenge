@@ -461,11 +461,17 @@ def q52_writeStderr(err):
 from os import environ
 def q53_accessEnvVar(var):
     '''53. Write a python program to access environment variables.'''
-    return environ[var]
+    re = ''
+    try:
+        re = os.environ[var]
+    except KeyError:
+        print "KeyError, use other variable"
+
+   return re
 
 from os import getlogin
-'''54. Write a Python program to get the current username'''
 def q54_getCurrentUsername():
+    '''54. Write a Python program to get the current username'''
     return getlogin()
 
 '''55. Write a Python to find local IP addresses using Python's stdlib'''

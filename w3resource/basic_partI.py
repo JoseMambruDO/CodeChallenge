@@ -474,7 +474,10 @@ def q54_getCurrentUsername():
     '''54. Write a Python program to get the current username'''
     return getlogin()
 
-'''55. Write a Python to find local IP addresses using Python's stdlib'''
+from socket import gethostbyname, gethostname
+def q55_getLocalIPAddresses():
+    '''55. Write a Python to find local IP addresses using Python's stdlib'''
+    return socket.gethostbyname(socket.gethostname())
 
 
 '''56. Write a Python program to get height and width of the console window.'''

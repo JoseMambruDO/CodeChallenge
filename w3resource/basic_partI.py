@@ -479,8 +479,13 @@ def q55_getLocalIPAddresses():
     '''55. Write a Python to find local IP addresses using Python's stdlib'''
     return socket.gethostbyname(socket.gethostname())
 
-
-'''56. Write a Python program to get height and width of the console window.'''
+import fcntl, termios, struct
+def q56_getHeightAndWidthConsole():
+    '''56. Write a Python program to get height and width of the console window.'''
+    th, tw, hp, wp = struct.unpack('HHHH',
+        fcntl.ioctl(0, termios.TIOCGWINSZ,
+        struct.pack('HHHH', 0, 0, 0, 0)))
+    return tw, th
 
 
 '''57. Write a program to get execution time for a Python method.'''

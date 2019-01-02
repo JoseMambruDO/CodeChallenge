@@ -490,9 +490,9 @@ def q56_getHeightAndWidthConsole():
 
 '''57. Write a program to get execution time for a Python method.'''
 
-
-'''58. Write a python program to sum of the first n positive integers.'''
-
+def q58_sumFirstNPositiveInts(nums):
+    '''58. Write a python program to sum of the first n positive integers.'''
+    positive = [i for i in nums if i>0]
 
 '''59. Write a Python program to convert height (in feet and inches)
 to centimeters.'''

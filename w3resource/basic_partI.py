@@ -505,8 +505,13 @@ def q60_calculateHyp(a,b):
     a right angled triangle.'''
     c = math.sqrt(a**2 + b**2)
 
-'''61. Write a Python program to convert the distance (in feet) to inches,
-yards, and miles.'''
+def q61_convertDistancef2iym(f):
+    '''61. Write a Python program to convert the distance (in feet) to inches,
+    yards, and miles.'''
+    i=f*12
+    y=f/3
+    m=f*39.37
+    return i,y,m
 
 
 '''62. Write a Python program to convert all units of time into seconds.'''

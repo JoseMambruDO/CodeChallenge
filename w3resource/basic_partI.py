@@ -500,10 +500,10 @@ def q59_convertHeightfi2c(f,i):
     to centimeters.'''
     return (f*30.48)+(i*2.54)
 
-
-'''60. Write a Python program to calculate the hypotenuse of
-a right angled triangle.'''
-
+def q60_calculateHyp(a,b):
+    '''60. Write a Python program to calculate the hypotenuse of
+    a right angled triangle.'''
+    c = math.sqrt(a**2 + b**2)
 
 '''61. Write a Python program to convert the distance (in feet) to inches,
 yards, and miles.'''

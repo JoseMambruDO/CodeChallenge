@@ -513,7 +513,6 @@ def q61_convertDistancef2iym(f):
     m=f*39.37
     return i,y,m
 
-
 '''62. Write a Python program to convert all units of time into seconds.'''
 
 

@@ -493,9 +493,12 @@ def q56_getHeightAndWidthConsole():
 def q58_sumFirstNPositiveInts(nums):
     '''58. Write a python program to sum of the first n positive integers.'''
     positive = [i for i in nums if i>0]
+    return sum(positive)
 
-'''59. Write a Python program to convert height (in feet and inches)
-to centimeters.'''
+def q59_convertHeightfi2c(f,i):
+    '''59. Write a Python program to convert height (in feet and inches)
+    to centimeters.'''
+    return (f*30.48)+(i*2.54)
 
 
 '''60. Write a Python program to calculate the hypotenuse of

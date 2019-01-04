@@ -529,11 +529,18 @@ def q64_getFileCreationModification(file):
     (mode, ino, dev, nlink, uid, gid, size, atime, mtime, ctime) = os.stat(file)
     return time.ctime(mtime), time.ctime(mtime)
 
-
-'''65. Write a Python program to convert seconds to day, hour,
-minutes and seconds.'''
-
-
+def q65_converSecondsToDHM(time):
+    '''65. Write a Python program to convert seconds to day, hour,
+    minutes and seconds.'''
+    d = time // (24 * 3600)
+    time = time % (24 * 3600)
+    h = time // 3600
+    time %= 3600
+    m = time // 60
+    time %= 60
+    s = time
+    return d,h,m,s
+    
 '''66. Write a Python program to calculate body mass index.'''
 
 

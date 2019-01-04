@@ -518,8 +518,9 @@ def q62_convertTimetoSeconds(days,hours, minutes, seconds):
     time = (days * 3600 * 24) + (hours *3600) + (minutes*60)+seconds
     return time
 
-'''63. Write a Python program to get an absolute file path.'''
-
+def q63_getAbsPathFile(file):
+    '''63. Write a Python program to get an absolute file path.'''
+    return os.path.abspath(file)
 
 '''64. Write a Python program to get file creation and modification
 date/times.'''

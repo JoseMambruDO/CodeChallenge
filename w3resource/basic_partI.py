@@ -513,8 +513,10 @@ def q61_convertDistancef2iym(f):
     m=f*39.37
     return i,y,m
 
-'''62. Write a Python program to convert all units of time into seconds.'''
-
+def q62_convertTimetoSeconds(days,hours, minutes, seconds):
+    '''62. Write a Python program to convert all units of time into seconds.'''
+    time = (days * 3600 * 24) + (hours *3600) + (minutes*60)+seconds
+    return time
 
 '''63. Write a Python program to get an absolute file path.'''
 

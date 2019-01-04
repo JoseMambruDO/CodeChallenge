@@ -522,8 +522,12 @@ def q63_getAbsPathFile(file):
     '''63. Write a Python program to get an absolute file path.'''
     return os.path.abspath(file)
 
-'''64. Write a Python program to get file creation and modification
-date/times.'''
+import time
+def q64_getFileCreationModification(file):
+    '''64. Write a Python program to get file creation and modification
+    date/times.'''
+    (mode, ino, dev, nlink, uid, gid, size, atime, mtime, ctime) = os.stat(file)
+    return time.ctime(mtime), time.ctime(mtime)
 
 
 '''65. Write a Python program to convert seconds to day, hour,

@@ -540,9 +540,10 @@ def q65_converSecondsToDHM(time):
     time %= 60
     s = time
     return d,h,m,s
-    
-'''66. Write a Python program to calculate body mass index.'''
 
+def q66_calculateBMI(w,h):
+    '''66. Write a Python program to calculate body mass index.'''
+    return w /(h*h)
 
 '''67. Write a Python program to convert pressure in kilopascals to pounds
 per square inch, a millimeter of mercury (mmHg) and atmosphere pressure.'''

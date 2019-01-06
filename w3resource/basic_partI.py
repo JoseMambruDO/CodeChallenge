@@ -553,7 +553,6 @@ def q67_convertPressure(kpa):
     atm = kpa / 101.325
     return (psi, mmhg, atm)
 
-
 '''68. Write a Python program to calculate the sum of the digits
 in an integer.'''
 

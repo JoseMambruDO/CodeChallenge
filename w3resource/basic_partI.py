@@ -6,6 +6,7 @@
 
 from math import *
 
+
 def q1_twinkle():
     '''1. Write a Python program to print the following string in a specific
     format (see the output). Sample String : "Twinkle, twinkle,
@@ -271,16 +272,18 @@ def q28_numsBeforE(nums, E):
     return nums[0: i]
 
 
-def q29_getUniqMemberSet(s1,s2):
+def q29_getUniqMemberSet(s1, s2):
     '''Write a Python program to print out a set containing all the colors from
     a list which are not present in another list '''
     un = [i for i in s1 if i not in s2]
     return un
 
-def q30_getTriangleArea(b,h):
+
+def q30_getTriangleArea(b, h):
     '''Write a Python program that will accept the base and
     height of a triangle and compute the area'''
     return 0.5 * b * h
+
 
 def q31_getGCD(x, y):
     '''Write a Python program to compute the greatest common
@@ -296,7 +299,8 @@ def q31_getGCD(x, y):
             break
     return gcd
 
-def q32_getLCM(x,y):
+
+def q32_getLCM(x, y):
     '''32. Write a Python program to get the least common multiple
     (LCM) of two positive integers'''
     if x > y:
@@ -312,65 +316,75 @@ def q32_getLCM(x,y):
 
     return lcm
 
-def q33_sumThreeInteger(a,b,c):
+
+def q33_sumThreeInteger(a, b, c):
     '''33. Write a Python program to sum of three given integers. However, if two
     values are equal sum will be zero.'''
     re = 0
-    nums = [a,b,c]
+    nums = [a, b, c]
     fnums = [i for i in nums if nums.count(i) == 1]
     if len(fnums) == 3:
         re = sum(fnums)
     return re
 
-def q34_sumTwoIntegers20(a,b):
+
+def q34_sumTwoIntegers20(a, b):
     '''34. Write a Python program to sum of two given integers. However, if the sum
     is between 15 to 20 it will return 20.'''
-    re = a+b
-    if re>=15 and re<=20:
+    re = a + b
+    if re >= 15 and re <= 20:
         re = 20
     return re
 
 
-def q35_twoSumDiff5(a,b):
+def q35_twoSumDiff5(a, b):
     '''35. Write a Python program that will return true if the two given integer
     values are equal or their sum or difference is 5.'''
     re = False
-    if ((a==b) or (a+b == 5) or (abs(a-b)==5)):
+    if ((a == b) or (a + b == 5) or (abs(a - b) == 5)):
         re = True
     return re
 
-def q36_sumIntegers(a,b):
+
+def q36_sumIntegers(a, b):
     '''36. Write a Python program to add two objects if both objects are an integer
     type.'''
-    re  = 0
+    re = 0
     if (type(a) is int) and (type(b) is int):
         re = a + b
     return re
 
-def q37_infoContact(name,age, address):
+
+def q37_infoContact(name, age, address):
     '''37. Write a Python program to display your details like name, age, address in
     three different lines.'''
-    return 'Name: {}\nAge: {}\n address{}\n'.format(name,age,address)
+    return 'Name: {}\nAge: {}\n address{}\n'.format(name, age, address)
 
-def q38_solveEq(x,y):
+
+def q38_solveEq(x, y):
     '''38. Write a Python program to solve (x + y) * (x + y).
     Test Data : x = 4, y = 3
     Expected Output : (4 + 3) ^ 2) = 49'''
     return (x + y) * (x + y)
 
-def q39_mortage(amt,int, years):
+
+def q39_mortage(amt, int, years):
     '''39. Write a Python program to compute the future value of a specified principal
     amount, rate of interest, and a number of years.
     Test Data : amt = 10000, int = 3.5, years = 7
     Expected Output : 12722.79'''
     return amt * (3.5 ** 7)
 
-def q40_distBetweenPoints(x1,y1,x2,y2):
+
+def q40_distBetweenPoints(x1, y1, x2, y2):
     '''40. Write a Python program to compute the distance between
     the points (x1, y1) and (x2, y2).'''
-    return math.sqrt((x2-x1)**2 + (y2-y1)**2)
+    return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+
 
 from os import stat
+
+
 def q41_checkExistsFile(pFile):
     '''41. Write a Python program to check whether a file exists.'''
     re = False
@@ -382,46 +396,65 @@ def q41_checkExistsFile(pFile):
 
     return re
 
+
 import platform
+
+
 def q42_archOS():
     '''42. Write a Python program to determine if a Python shell is executing in
     32bit or 64bit mode on OS.'''
     is_64bits = sys.maxsize > 2**32
     re = 'bit'
     if is_64bits:
-        re = '64'+re
+        re = '64' + re
     else:
-        re = '32'+re
+        re = '32' + re
     return re
 
+
 import platform as p
+
+
 def q43_OSInfo():
     '''43. Write a Python program to get OS name, platform
     and release information.'''
-    return 'OS name: {}\nplaform: {}\n release information{}\n'.format(p.system(),p.version(),p.release())
+    return 'OS name: {}\nplaform: {}\n release information{}\n'.format(p.system(), p.version(), p.release())
+
 
 import site as s
+
+
 def q44_PythonSitePackages():
     '''44. Write a Python program to locate Python site-packages.'''
     sitepackages = s.getsitepackages()
     return sitepackages
 
+
 from os import system
+
+
 def q45_executeCommand(command):
     '''45. Write a python program to call an external command in Python.'''
     system(command)
 
+
 import os
+
+
 def q46_pathNName():
     '''46. Write a python program to get the path and name of the file that
     is currently executing.'''
     dirname, filename = os.path.split(os.path.abspath(__file__))
-    return 'dirname:{}\n file:{}\n'.format(dirname,filename)
+    return 'dirname:{}\n file:{}\n'.format(dirname, filename)
+
 
 from os import cpu_count
+
+
 def q47_getNumberCPUs():
     '''47. Write a Python program to find out the number of CPUs using.'''
     return cpu_count()
+
 
 def q48_str2Number(value):
     '''48. Write a Python program to parse a string to Float or Integer.'''
@@ -433,18 +466,25 @@ def q48_str2Number(value):
             re = int(value)
     return re
 
+
 from os import listdir
+
+
 def q49_dirAllFiles(dir):
     '''49. Write a Python program to list all files in a directory in Python.'''
     return (listdir(dir))
 
+
 def q50_dropNewLineorSpace(value):
     '''50. Write a Python program to print without newline or space.'''
     empty = ''
-    re = value.replace(' ','').replace('\n','')
+    re = value.replace(' ', '').replace('\n', '')
     return re
 
+
 import cProfile
+
+
 def q51_profilePyProgram(expresion):
     '''51. Write a Python program to determine profiling of Python programs.
     Note: A profile is a set of statistics that describes how often and for
@@ -453,12 +493,18 @@ def q51_profilePyProgram(expresion):
     '''
     cProfile.run(expresions)
 
+
 import sys
+
+
 def q52_writeStderr(err):
     '''52. Write a Python program to print to stderr.'''
     sys.stderr.write(err)
 
+
 from os import environ
+
+
 def q53_accessEnvVar(var):
     '''53. Write a python program to access environment variables.'''
     re = ''

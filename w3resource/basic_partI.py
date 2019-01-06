@@ -545,8 +545,13 @@ def q66_calculateBMI(w,h):
     '''66. Write a Python program to calculate body mass index.'''
     return w /(h*h)
 
-'''67. Write a Python program to convert pressure in kilopascals to pounds
-per square inch, a millimeter of mercury (mmHg) and atmosphere pressure.'''
+def q67_convertPressure(kpa):
+    '''67. Write a Python program to convert pressure in kilopascals to pounds
+    per square inch, a millimeter of mercury (mmHg) and atmosphere pressure.'''
+    psi = kpa / 6.89475729
+    mmhg = kpa * 760 / 101.325
+    atm = kpa / 101.325
+    return (psi, mmhg, atm)
 
 
 '''68. Write a Python program to calculate the sum of the digits

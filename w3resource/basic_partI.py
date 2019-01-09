@@ -606,10 +606,11 @@ def q68_sumDigitsString(value):
     for i in value:
         res += int(i)
     return res
-
-'''69. Write a Python program to sort three integers without using conditional
-statements and loops.'''
-
+def q69_sortThreeIntegers(a,b,c):
+    '''69. Write a Python program to sort three integers without using conditional
+    statements and loops.'''
+    l = [a,b,c]
+    return sort(l)
 
 '''70. Write a Python program to sort files by date.'''
 

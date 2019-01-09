@@ -599,9 +599,13 @@ def q67_convertPressure(kpa):
     atm = kpa / 101.325
     return (psi, mmhg, atm)
 
-'''68. Write a Python program to calculate the sum of the digits
-in an integer.'''
-
+def q68_sumDigitsString(value):
+    '''68. Write a Python program to calculate the sum of the digits
+    in an integer.'''
+    res = 0
+    for i in value:
+        res += int(i)
+    return res
 
 '''69. Write a Python program to sort three integers without using conditional
 statements and loops.'''

@@ -612,8 +612,13 @@ def q69_sortThreeIntegers(a,b,c):
     l = [a,b,c]
     return sort(l)
 
-'''70. Write a Python program to sort files by date.'''
-
+import glob
+import os
+def q70_sortFilesByDate(ext):
+    '''70. Write a Python program to sort files by date.'''
+    files = glob.glob(ext)
+    files.sort(key=os.path.getmtime)
+    return ("\n".join(files))
 
 '''71. Write a Python program to get a directory listing, sorted by creation date.'''
 

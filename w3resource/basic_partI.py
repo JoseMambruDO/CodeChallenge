@@ -620,8 +620,13 @@ def q70_sortFilesByDate(ext):
     files.sort(key=os.path.getmtime)
     return ("\n".join(files))
 
-'''71. Write a Python program to get a directory listing, sorted by creation date.'''
-
+import glob
+import os
+def q71_sortFilesByCreationDate(ext):
+    '''71. Write a Python program to get a directory listing, sorted by creation date.'''
+    files = glob.glob(ext)
+    files.sort(key=os.path.getctime)
+    return ("\n".join(files))
 
 '''72. Write a Python program to get the details of math module.'''
 

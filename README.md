@@ -1,3 +1,3 @@
-# MisCoding
+# CodeChallege
 
-This is my #100DaysOfCode challenge using Python 3
+Repository of practices of codes and practices of books, languages and frameworks.

@@ -1,0 +1,14 @@
+
+spring:
+  application:
+    name: 'worldgbp'
+  datasource:
+    driverClassName: org.postgresql.Driver
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/worldgbp
+    username: postgres
+    
+  flyway:
+    password: 123456
+    url: jdbc:postgresql://localhost:5432/worldgbp
+    user: postgres

@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class CountryController {
 
-	@GetMapping("/k")
+	@GetMapping("/")
 	public String main() {
-		return "main";
+		return "index";
 	}
 }

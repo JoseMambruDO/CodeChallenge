@@ -1,5 +1,6 @@
 
 spring:
+   
   application:
     name: 'worldgbp'
   datasource:
@@ -7,8 +8,17 @@ spring:
     password: postgres
     url: jdbc:postgresql://localhost:5432/worldgbp
     username: postgres
-    
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+                
   flyway:
     password: postgres
     url: jdbc:postgresql://localhost:5432/worldgbp
     user: postgres
+
+

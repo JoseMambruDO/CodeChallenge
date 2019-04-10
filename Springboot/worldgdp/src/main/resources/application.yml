@@ -2,7 +2,7 @@
 spring:
    
   application:
-    name: 'worldgbp'
+    name: worldgbp
   datasource:
     driverClassName: org.postgresql.Driver
     password: postgres

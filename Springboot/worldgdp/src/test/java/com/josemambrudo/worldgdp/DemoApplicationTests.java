@@ -1,4 +1,4 @@
-package com.josemambrudo.world;
+package com.josemambrudo.worldgdp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.josemambrudo.worldbgp.entity;
+package com.josemambrudo.worldgdp.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

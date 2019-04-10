@@ -1,4 +1,4 @@
-package com.josemambrudo.worldbgp.controller;
+package com.josemambrudo.worldgdp.controller;
 
 
 import org.springframework.stereotype.Controller;

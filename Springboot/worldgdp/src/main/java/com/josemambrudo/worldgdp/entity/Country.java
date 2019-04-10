@@ -1,4 +1,4 @@
-package com.josemambrudo.worldbgp.entity;
+package com.josemambrudo.worldgdp.entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +19,7 @@ public class Country {
 	@NotNull
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@NotNull
 	@Size(max = 3, min = 3)
 	private String code;

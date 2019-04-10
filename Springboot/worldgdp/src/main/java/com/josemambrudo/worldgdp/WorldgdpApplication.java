@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WorldgbpApplication {
+public class WorldgdpApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WorldgbpApplication.class, args);
+		SpringApplication.run(WorldgdpApplication.class, args);
 	}
 
 }

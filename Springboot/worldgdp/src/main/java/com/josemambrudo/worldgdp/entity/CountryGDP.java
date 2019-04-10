@@ -13,7 +13,7 @@ import lombok.Setter;
 @Data
 @Setter
 @Getter
-public class CountryGBP {
+public class CountryGDP {
 	@Id
 	@NotNull
 	@GeneratedValue(strategy = GenerationType.AUTO)

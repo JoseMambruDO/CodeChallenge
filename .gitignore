@@ -1,5 +1,5 @@
 ###########################
-#                    Python  
+#                    Python
 ###########################
 
 # Byte-compiled / optimized / DLL files
@@ -109,8 +109,11 @@ venv.bak/
 
 
 ##################################
-#             Java Spring Jhipster 
+#             Java Spring Jhipster
 #################################
+
+
+.attach_pid*
 
 #build
 target/
@@ -167,4 +170,3 @@ HELP.md
 
 ### VS Code ###
 .vscode/
-

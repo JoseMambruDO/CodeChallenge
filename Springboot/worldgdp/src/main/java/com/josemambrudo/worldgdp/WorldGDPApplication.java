@@ -1,13 +1,13 @@
-package com.josemambrudo.worldgbp;
+package com.josemambrudo.worldgdp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WorldgdpApplication {
+public class WorldGDPApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WorldgdpApplication.class, args);
+		SpringApplication.run(WorldGDPApplication.class, args);
 	}
 
 }

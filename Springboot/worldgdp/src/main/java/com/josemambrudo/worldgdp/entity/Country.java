@@ -1,5 +1,6 @@
 package com.josemambrudo.worldgdp.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -37,21 +38,38 @@ public class Country {
 	@NotNull
 	@Size(max = 26)
 	private String region;
+	
 	@NotNull
+	@Column(name="surfacearea")
 	private Double surfaceArea;
+
+	@Column(name="indepyear")
 	private Short indepYear;
+
 	@NotNull
 	private Long population;
+	
+
+	@Column(name="lifeexpectancy")
 	private Double lifeExpectancy;
+	
 	private Double gnp;
+	
 	@NotNull
+	@Column(name="localname")
 	private String localName;
+	
 	@NotNull
+	@Column(name="governmentform")
 	private String governmentForm;
+	
+	@Column(name="headofstate")
 	private String headOfState;
+	
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "country_id", nullable = false)
+	@JoinColumn(name = "id", nullable = false)
 	private City capital;
+	
 	@NotNull
 	private String code2;
 	

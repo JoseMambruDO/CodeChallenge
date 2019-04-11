@@ -1,3 +1,17 @@
+-- Database: worldgbp
+
+-- DROP DATABASE worldgbp;
+
+--CREATE DATABASE worldgbp
+--    WITH 
+--    OWNER = postgres
+--    ENCODING = 'UTF8'
+--    LC_COLLATE = 'en_US.UTF-8'
+--    LC_CTYPE = 'en_US.UTF-8'
+--    TABLESPACE = pg_default
+--    CONNECTION LIMIT = -1;
+
+
 create type public.continent_enum as enum(
 'North America','South America','Antarctica','Europe','Asia','Africa','Australia'
 );
@@ -16,6 +30,7 @@ create table public.country(
 	localName varchar,
 	governmentForm varchar,
 	headOfState varchar,
+	capital int not null,
 	code2 varchar(3) 
 );
 
@@ -23,10 +38,13 @@ create table public.city(
 	id serial primary key,
 	name varchar(35),
 	countrycode varchar(3),
-	country_id int references public.country(id),
+	country_id int references public.country(id) not null,
 	district varchar(20),
 	population int
 );
+
+alter table public.country 
+	add constraint fk_country_city FOREIGN KEY (capital) REFERENCES city (id);
 
 create table public.countrylanguage(
 	id serial primary key,

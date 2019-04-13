@@ -32,7 +32,8 @@ public class Country {
 	private String code;
 	@NotNull
 	@Size(max = 52)
-	private String name;
+	@Column(name="countryname")
+	private String countryName;
 	@NotNull
 	private String continent;
 	@NotNull
@@ -67,20 +68,20 @@ public class Country {
 	private String headOfState;
 	
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "id", nullable = false)
+	@JoinColumn(name = "id", nullable = true)
 	private City capital;
 	
 	@NotNull
 	private String code2;
 	
-	public Country(@NotNull Long id, @NotNull @Size(max = 3, min = 3) String code, @NotNull @Size(max = 52) String name,
+	public Country(@NotNull Long id, @NotNull @Size(max = 3, min = 3) String code, @NotNull @Size(max = 52) String countryName,
 			@NotNull String continent, @NotNull @Size(max = 26) String region, @NotNull Double surfaceArea,
 			Short indepYear, @NotNull Long population, Double lifeExpectancy, Double gnp, @NotNull String localName,
 			@NotNull String governmentForm, String headOfState, City capital, @NotNull String code2) {
 		super();
 		this.id = id;
 		this.code = code;
-		this.name = name;
+		this.countryName = countryName;
 		this.continent = continent;
 		this.region = region;
 		this.surfaceArea = surfaceArea;

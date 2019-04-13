@@ -6,7 +6,7 @@ spring:
   datasource:
     driverClassName: org.postgresql.Driver
     password: postgres
-    url: jdbc:postgresql://localhost:5432/worldgbp
+    url: jdbc:postgresql://localhost:5432/worldgdp
     username: postgres
   jpa:
     properties:
@@ -20,7 +20,7 @@ spring:
                 
   flyway:
     password: postgres
-    url: jdbc:postgresql://localhost:5432/worldgbp
+    url: jdbc:postgresql://localhost:5432/worldgdp
     user: postgres
 
 

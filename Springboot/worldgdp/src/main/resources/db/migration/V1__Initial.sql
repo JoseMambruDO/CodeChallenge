@@ -1,8 +1,8 @@
 -- Database: worldgbp
 
--- DROP DATABASE worldgbp;
+-- DROP DATABASE worldgdp;
 
---CREATE DATABASE worldgbp
+--CREATE DATABASE worldgdp
 --    WITH 
 --    OWNER = postgres
 --    ENCODING = 'UTF8'
@@ -19,7 +19,7 @@ create type public.continent_enum as enum(
 create table public.country(
 	id serial primary key,
 	code varchar(3) not null,
-	name varchar(52) not null,
+	countryname varchar(52) not null,
 	continent continent_enum not null,
 	region varchar(26) not null,
 	surfaceArea real,
@@ -30,7 +30,7 @@ create table public.country(
 	localName varchar,
 	governmentForm varchar,
 	headOfState varchar,
-	capital int not null,
+	capital int,
 	code2 varchar(3) 
 );
 

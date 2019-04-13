@@ -53,7 +53,7 @@ public class CountryRest {
 		}).orElseThrow(() -> new ResourceNotFoundException("CountryId " + countryId + " not found"));
 	}
 
-	@DeleteMapping("/countrys/{countryId}")
+	@DeleteMapping("/api/v1/countries/{countryId}")
 	public ResponseEntity<?> deleteCountry(@PathVariable Long countryId) {
 		return countryRepository.findById(countryId).map(country -> {
 			countryRepository.delete(country);

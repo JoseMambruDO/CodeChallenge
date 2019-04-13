@@ -30,7 +30,7 @@ public class CountryGDPRest {
 		return countryGDPRepository.save(countryGDP);
 	}
 
-	@PutMapping("/api/v1/countries/{countryGDPId}")
+	@PutMapping("/api/v1/countriesGDP/{countryGDPId}")
 	public CountryGDP updateCountryGDP(@PathVariable Long countryGDPId, @Valid @RequestBody CountryGDP countryGDPRequest) {
 		return countryGDPRepository.findById(countryGDPId).map(countryGDP -> {
 
@@ -43,7 +43,7 @@ public class CountryGDPRest {
 		}).orElseThrow(() -> new ResourceNotFoundException("CountryGDPId " + countryGDPId + " not found"));
 	}
 
-	@DeleteMapping("/countryGDPs/{countryGDPId}")
+	@DeleteMapping("/api/v1/countryGDP/{countryGDPId}")
 	public ResponseEntity<?> deleteCountryGDP(@PathVariable Long countryGDPId) {
 		return countryGDPRepository.findById(countryGDPId).map(countryGDP -> {
 			countryGDPRepository.delete(countryGDP);

@@ -19,18 +19,18 @@ public class CityRest {
 	@Autowired
 	private CityRepository cityRepository;
 
-	@GetMapping("/api/v1/countries")
+	@GetMapping("/api/v1/cities")
 	public Page<City> getAllCitys(Pageable pageable) {
 		cityRepository.findAll();
 		return cityRepository.findAll(pageable);
 	}
 
-	@PostMapping("/api/v1/countries")
+	@PostMapping("/api/v1/cities")
 	public City createCity(@Valid @RequestBody City city) {
 		return cityRepository.save(city);
 	}
 
-	@PutMapping("/api/v1/countries/{cityId}")
+	@PutMapping("/api/v1/cities/{cityId}")
 	public City updateCity(@PathVariable Long cityId, @Valid @RequestBody City cityRequest) {
 		return cityRepository.findById(cityId).map(city -> {
 
@@ -44,7 +44,7 @@ public class CityRest {
 		}).orElseThrow(() -> new ResourceNotFoundException("CityId " + cityId + " not found"));
 	}
 
-	@DeleteMapping("/citys/{cityId}")
+	@DeleteMapping("/api/v1/cities/{cityId}")
 	public ResponseEntity<?> deleteCity(@PathVariable Long cityId) {
 		return cityRepository.findById(cityId).map(city -> {
 			cityRepository.delete(city);

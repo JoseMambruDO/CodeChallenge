@@ -19,13 +19,13 @@ public class CountryLanguageRest {
 	@Autowired
 	private CountryLanguageRepository countryLanguageRepository;
 
-	@GetMapping("/api/v1/countries")
+	@GetMapping("/api/v1/countriesLanguages")
 	public Page<CountryLanguage> getAllCountryLanguages(Pageable pageable) {
 		countryLanguageRepository.findAll();
 		return countryLanguageRepository.findAll(pageable);
 	}
 
-	@PostMapping("/api/v1/countries")
+	@PostMapping("/api/v1/countriesLanguages")
 	public CountryLanguage createCountryLanguage(@Valid @RequestBody CountryLanguage countryLanguage) {
 		return countryLanguageRepository.save(countryLanguage);
 	}
@@ -44,7 +44,7 @@ public class CountryLanguageRest {
 		}).orElseThrow(() -> new ResourceNotFoundException("CountryLanguageId " + countryLanguageId + " not found"));
 	}
 
-	@DeleteMapping("/countryLanguages/{countryLanguageId}")
+	@DeleteMapping("/api/v1/countriesLanguages/{countryLanguageId}")
 	public ResponseEntity<?> deleteCountryLanguage(@PathVariable Long countryLanguageId) {
 		return countryLanguageRepository.findById(countryLanguageId).map(countryLanguage -> {
 			countryLanguageRepository.delete(countryLanguage);

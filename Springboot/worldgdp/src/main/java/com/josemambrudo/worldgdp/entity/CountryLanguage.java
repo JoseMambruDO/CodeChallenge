@@ -12,15 +12,15 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Data
-@Setter
-@Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class CountryLanguage {
 	@Id
@@ -35,17 +35,5 @@ public class CountryLanguage {
     private String language;
     private String isOfficial;
     private Double percentage;
-    
-    
-	public CountryLanguage(@NotNull Long id, Country country, String language, String isOfficial, Double percentage) {
-		super();
-		this.id = id;
-		this.country = country;
-		this.language = language;
-		this.isOfficial = isOfficial;
-		this.percentage = percentage;
-	}
-    
-    
     
 }

@@ -23,8 +23,8 @@ import lombok.Setter;
 @Entity
 public class Country {
 	@Id
-	@NotNull
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@NotNull

@@ -6,9 +6,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.Profile;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.josemambrudo.worldgdp.crudRepository.CountryRepository;
@@ -16,14 +18,13 @@ import com.josemambrudo.worldgdp.entity.Country;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-@Profile("Test")
 public class CountryRepositoryIntegrationTest {
 
 	@Autowired
-	private TestEntityManager entityManager;
+	private CountryRepository countryRepository;
 
 	@Autowired
-	private CountryRepository countryRepository;
+	private TestEntityManager entityManager;
 
 	@Test
 	public void whenFindByName_thenReturnCountry() {
@@ -31,7 +32,7 @@ public class CountryRepositoryIntegrationTest {
 		// given
 		Country DRCountry = new Country();
 
-		DRCountry.setCode("RD");
+		DRCountry.setCode("RDO");
 		DRCountry.setCode2("SDO");
 		DRCountry.setContinent("South America");
 		DRCountry.setCountryName("Dominican Republic");

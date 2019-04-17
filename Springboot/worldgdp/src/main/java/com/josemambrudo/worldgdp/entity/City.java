@@ -24,9 +24,8 @@ import lombok.NoArgsConstructor;
 @Entity
 public class City {
 	@Id
-	@NotNull
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
 	@NotNull
 	@Size(max = 35)
 	private String name;

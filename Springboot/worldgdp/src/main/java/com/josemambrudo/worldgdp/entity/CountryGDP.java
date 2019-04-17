@@ -24,9 +24,8 @@ import lombok.Setter;
 @Entity
 public class CountryGDP {
 	@Id
-	@NotNull
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "country_id", nullable = false)

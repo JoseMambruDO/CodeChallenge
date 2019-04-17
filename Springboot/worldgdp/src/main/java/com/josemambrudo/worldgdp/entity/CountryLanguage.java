@@ -24,8 +24,7 @@ import lombok.Setter;
 @Entity
 public class CountryLanguage {
 	@Id
-	@NotNull
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)

@@ -18,6 +18,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<bootstrap.version>4.3.1</bootstrap.version>
+		<pg-embedded.version>0.7.1</pg-embedded.version>
 	</properties>
 
 	<dependencies>
@@ -62,13 +63,6 @@
 
 
 		<!-- Spring Test -->
-
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>test</scope>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -79,7 +73,12 @@
 			<artifactId>json-path</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>com.opentable.components</groupId>
+			<artifactId>otj-pg-embedded</artifactId>
+			<version>${pg-embedded.version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -29,9 +29,11 @@ public class CountryController {
 	public String countries(Model model, 
 		@RequestParam Map<String, Object> params
 	) {
+		model.addAttribute("continents", countryRepository.getContinents());
+		model.addAttribute("regions", countryRepository.getRegions());
 		model.addAttribute("countries", countryRepository.findAll());
 		model.addAttribute("count", countryRepository.count());
-	
+	System.out.println(countryRepository.count());
 		return "countries";
 	}
 	

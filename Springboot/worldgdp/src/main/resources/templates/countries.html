@@ -83,7 +83,7 @@
 				<tbody>
 					<tr th:each="c : ${countries}">
 						<td><a th:href="@{|/countries/${c.code}|}">[[${c.code}]]</a></td>
-						<td>[[${c.name}]]</td>
+						<td>[[${c.countryName}]]</td>
 						<td>[[${c.continent}]]</td>
 						<td>[[${c.region}]]</td>
 						<td>[[${c.surfaceArea}]]</td>

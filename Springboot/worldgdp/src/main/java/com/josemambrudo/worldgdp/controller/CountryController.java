@@ -33,7 +33,6 @@ public class CountryController {
 		model.addAttribute("regions", countryRepository.getRegions());
 		model.addAttribute("countries", countryRepository.findAll());
 		model.addAttribute("count", countryRepository.count());
-	System.out.println(countryRepository.count());
 		return "countries";
 	}
 	

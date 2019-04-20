@@ -22,5 +22,3 @@ spring:
     password: postgres
     url: jdbc:postgresql://localhost:5432/worldgdptest
     user: postgres
-
-

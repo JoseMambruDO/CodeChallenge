@@ -55,5 +55,6 @@ public class CountryRepositoryIntegrationTest {
 
 		// then
 		assertThat(found.getCountryName()).isEqualTo(DRCountry.getCountryName());
+		
 	}
 }

@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 public class City {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
+	private Long id;
 	@NotNull
 	@Size(max = 35)
 	private String name;

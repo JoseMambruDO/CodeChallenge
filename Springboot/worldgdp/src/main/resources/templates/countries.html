@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>WorldGDP::Countries</title>
+
+<link rel="stylesheet"
+	th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+
+</head>
+
+
+<body>
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="#">WorldGDP</a>
+		<div class="collapse navbar-collapse" id="navbarColor01">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link"
+					th:href="@{/countries}">Countries</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<main role="main" class="container">
+
+	<h1 class="page-header">Countries</h1>
+	<div class="row justify-content-md-center">
+		<div class="col-md-6 input-group">
+			<input type="text" class="filter form-control" id="search_f"
+				th:value="${param.search}" name="search"
+				placeholder="Search by name" />
+			<button id="searchBtn" class="btn btn-primary btn-sm">
+				<i class="fa fa-search"></i> Search
+			</button>
+		</div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Continent</th>
+						<th>Region</th>
+					</tr>
+					<tr>
+						<th>
+							<select class="form-control filter" id="continents_f" name="continent">
+							
+								<option value="">All</option>
+								<option th:each="c : ${continents}" th:value="${c}"
+									th:selected="${#strings.equals(c, param.continent)}">[[${c}]]</option>
+							</select>
+						</th>
+						<th>
+
+							<select class="form-control filter" id="regions_f" name="region">
+								<option value="">All</option>
+								<option th:each="r : ${regions}" th:value="${r}"
+									th:selected="${#strings.equals(r, param.region)}">[[${r}]]</option>
+							</select>
+						</th>
+					</tr>
+				</thead>
+			</table>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Code</th>
+						<th>Name</th>
+						<th>Continent</th>
+						<th>Region</th>
+						<th>Area</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="c : ${countries}">
+						<td><a th:href="@{|/countries/${c.code}|}">[[${c.code}]]</a></td>
+						<td>[[${c.name}]]</td>
+						<td>[[${c.continent}]]</td>
+						<td>[[${c.region}]]</td>
+						<td>[[${c.surfaceArea}]]</td>
+					</tr>
+				</tbody>
+			</table>
+			<div>
+				<span id="pagination" th:attr="count=${count}"></span>
+			</div>
+		
+		</div>
+	</div>
+
+	</main>
+	<!-- /.container -->
+
+	<script type="text/javascript"
+		th:src="@{webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+
+
+</body>
+
+
+</html>

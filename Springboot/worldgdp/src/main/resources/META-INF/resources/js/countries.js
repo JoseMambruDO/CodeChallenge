@@ -1,6 +1,8 @@
 var pageSize = 20;
 $(function(){
+	
 	var count = $("#pagination").attr("count");
+
 	$('#pagination').bootpag({				
 	    total: Math.ceil(count/pageSize),
 	    page: queryString['pageNo']?queryString['pageNo'] : 1 ,

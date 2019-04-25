@@ -16,7 +16,7 @@ public class StringArray{
 
     String[] arrayString =   Arrays.copyOf(arrayListString.toArray(),arrayListString.size(),String[].class);
 
-    System.out.println(arrayString);
+    System.out.println(Arrays.toString( arrayString));
   }
 
 }

@@ -5,12 +5,12 @@ create table public.product(
 	quantity int,
 	price float,
 	cost float,
-	category_id int
+	category_id int not null
 );
 
 create table public.category(
 	id serial primary key,
-	name varchar(40) not null
+	name varchar(40) not null unique
 );
 
 alter table public.product 

@@ -38,7 +38,7 @@ public class ProductRest {
 	public Product updateProduct(@PathVariable Long productId, @Valid @RequestBody Product product) {
 		Product productUpdated = productService.updateProduct(productId, product);
 		if (productUpdated == null)
-			throw new ResourceNotFoundException("ProductId " + productId + " not found");
+			throw new ResourceNotFoundException("Product Id " + productId + " not found");
 		return productUpdated;
 	}
 
@@ -46,7 +46,7 @@ public class ProductRest {
 	public ResponseEntity<?> deleteProduct(@PathVariable Long productId) {
 
 		if (!productService.deleteProduct(productId))
-			throw new ResourceNotFoundException("ProductId " + productId + " not found");
+			throw new ResourceNotFoundException("Product Id " + productId + " not found");
 
 		return ResponseEntity.ok().build();
 

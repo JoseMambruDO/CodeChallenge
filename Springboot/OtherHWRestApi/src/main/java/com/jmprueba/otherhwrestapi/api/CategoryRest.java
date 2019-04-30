@@ -31,6 +31,7 @@ public class CategoryRest {
 
 	@PostMapping("/api/v1/categories")
 	public Category createCategory(@Valid @RequestBody Category category) {
+		System.out.println(category);
 		return categoryService.save(category);
 	}
 

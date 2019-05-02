@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,9 +19,11 @@ import lombok.NoArgsConstructor;
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ApiModelProperty(notes = "ID generate by database sequence")
 	private Long id;
 
 	@NotNull
+	@ApiModelProperty(notes = "Name for category")
 	private String name;
 
 }

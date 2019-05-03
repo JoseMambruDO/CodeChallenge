@@ -20,6 +20,11 @@ public class CategoryService {
 		return categoryRepository.findAll(pageable);
 	}
 
+	public Category findBydName(String name) {
+		return categoryRepository.findByName(name);
+	}
+
+	
 	public Category save(@Valid Category category) {
 		return categoryRepository.save(category);
 	}
@@ -49,4 +54,5 @@ public class CategoryService {
 		return categoryRepository.count();
 	}
 
+	
 }

@@ -31,23 +31,22 @@ public class CategoryRest {
 
 	@PostMapping("/api/v1/categories")
 	public Category createCategory(@Valid @RequestBody Category category) {
-		System.out.println(category);
 		return categoryService.save(category);
 	}
 
-	@PutMapping("/api/v1/categories/{CategoryId}")
+	@PutMapping("/api/v1/categories/{categoryId}")
 	public Category updateCategory(@PathVariable Long categoryId, @Valid @RequestBody Category category) {
 		Category categoryUpdated = categoryService.updateCategory(categoryId, category);
 		if (categoryUpdated == null)
-			throw new ResourceNotFoundException("CategoryId " + categoryId + " not found");
+			throw new ResourceNotFoundException("categoryId " + categoryId + " not found");
 		return categoryUpdated;
 	}
 
-	@DeleteMapping("/api/v1/categories/{CategoryId}")
+	@DeleteMapping("/api/v1/categories/{categoryId}")
 	public ResponseEntity<?> deleteCategory(@PathVariable Long categoryId) {
 
 		if (!categoryService.deleteCategory(categoryId))
-			throw new ResourceNotFoundException("CategoryId " + categoryId + " not found");
+			throw new ResourceNotFoundException("categoryId " + categoryId + " not found");
 
 		return ResponseEntity.ok().build();
 

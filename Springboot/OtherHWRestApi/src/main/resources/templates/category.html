@@ -15,27 +15,39 @@
 <title>OtherHWRestApi</title>
 </head>
 <body>
-	<h1>OtherHWRestApi</h1>
+
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<ul class="navbar-nav">
+			<li class="nav-item active"><a class="nav-link" href="#">OtherHWRestApi</a>
+			</li>
+			<li class="nav-item"><a class="nav-link" href="/product">Product</a></li>
+			<li class="nav-item"><a class="nav-link" href="/category">Category</a></li>
+
+		</ul>
+	</nav>
+
+	<div class="container-fluid">
+		<h3>categories</h3>
+		<input id="inputprod" type="text" placeholder="Looking category"
+			onkeyup="app.findcategories()">
+
+		<table id="table" class="table" width="border:1px;">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody id='tb_categories'>
+
+			</tbody>
+		</table>
+
+	</div>
 
 
 
-	<h3>category</h3>
-	<input id="inputcat" type="text" placeholder="Looking category"
-		onkeyup="app.findcategories()">
-	
-
-
-	<table id="table" class="table" width="border:1px;">
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Name</th>
-			</tr>
-		</thead>
-		<tbody id='tb_category'>
-
-		</tbody>
-	</table>
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

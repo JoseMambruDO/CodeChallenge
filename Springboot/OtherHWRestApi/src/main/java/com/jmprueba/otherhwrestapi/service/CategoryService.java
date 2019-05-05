@@ -22,7 +22,7 @@ public class CategoryService {
 		return categoryRepository.findAll(pageable);
 	}
 
-	public List<Category> findBydName(String name) {
+	public List<Category> findByName(String name) {
 		return categoryRepository.findByName(name);
 	}
 
@@ -54,6 +54,10 @@ public class CategoryService {
 
 	public Long countCategory() {
 		return categoryRepository.count();
+	}
+
+	public Category findById(Long categoryId) {
+		return categoryRepository.getOne(categoryId);
 	}
 
 	

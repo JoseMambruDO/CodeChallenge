@@ -33,9 +33,13 @@ public class CategoryRest {
 
 	@GetMapping("/api/v1/categories/findByName/{name}")
 	public List<Category> getAllCategories(@PathVariable String name) {
-		return categoryService.findBydName(name);
+		return categoryService.findByName(name);
 	}
 
+	@GetMapping("/api/v1/categories/{categoryId}")
+	public Category getCategoryByID(@PathVariable Long categoryId ){
+		return categoryService.findById(categoryId);
+	}
 	
 	@PostMapping("/api/v1/categories")
 	public Category createCategory(@Valid @RequestBody Category category) {

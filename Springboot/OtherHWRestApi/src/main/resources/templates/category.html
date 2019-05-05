@@ -123,6 +123,15 @@
 				this.clearDetail();
 			}
 
+			this.preEditing = function(id) {
+				state = "EDITING";
+
+			}
+			
+			this.preDeleting = function(id) {
+				state = "DELETING";
+			}
+
 			this.addCategory = function() {
 
 				dataCategory = {};
@@ -165,14 +174,22 @@
 					if (xhr.status >= 200 && xhr.status < 300) {
 
 						var data = JSON.parse(this.responseText);
-						
-						data = (data.content || data );
-						
+
+						data = (data.content || data);
+
 						var out = '';
 						for (i = 0; i < data.length; i++) {
 							out += '<tr>';
 							out += '<td>' + data[i].id + '</td>';
 							out += '<td>' + data[i].name + '</td>';
+
+							out += '<td><a id="rw' + data[i].id + '" href="#" '
+									+ data[i].id + '" onclick="preEditing('
+									+ data[i].id + ')">Edit</a>';
+							out += '<a id="rw' + data[i].id + '" href="#" '
+									+ data[i].id + '" onclick="preDeleting('
+									+ data[i].id + ')">Delete</a>';
+							out += '</td>';
 
 							out += '<tr>';
 						}

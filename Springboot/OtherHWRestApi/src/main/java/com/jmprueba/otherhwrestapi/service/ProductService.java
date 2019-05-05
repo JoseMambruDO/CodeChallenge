@@ -1,5 +1,7 @@
 package com.jmprueba.otherhwrestapi.service;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +57,7 @@ public class ProductService {
 		return productRepository.count();
 	}
 
-	public Product findBydName(String name) {
+	public List<Product> findBydName(String name) {
 		return productRepository.findByName(name);
 	}
 }

@@ -1,5 +1,7 @@
 package com.jmprueba.otherhwrestapi.api;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,12 @@ public class CategoryRest {
 		return categoryService.findAll(pageable);
 	}
 
+	@GetMapping("/api/v1/categories/findByName/{name}")
+	public List<Category> getAllCategories(@PathVariable String name) {
+		return categoryService.findBydName(name);
+	}
+
+	
 	@PostMapping("/api/v1/categories")
 	public Category createCategory(@Valid @RequestBody Category category) {
 		return categoryService.save(category);

@@ -1,5 +1,7 @@
 package com.jmprueba.otherhwrestapi.service;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +22,7 @@ public class CategoryService {
 		return categoryRepository.findAll(pageable);
 	}
 
-	public Category findBydName(String name) {
+	public List<Category> findBydName(String name) {
 		return categoryRepository.findByName(name);
 	}
 

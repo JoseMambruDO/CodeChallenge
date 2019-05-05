@@ -11,6 +11,11 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
 
 <title>OtherHWRestApi</title>
 </head>
@@ -27,10 +32,10 @@
 	</nav>
 
 	<div class="container-fluid">
-		<h3>categories</h3>
-		<input id="inputprod" type="text" placeholder="Looking category"
-			onkeyup="app.findcategories()">
-
+		<h3>Categories</h3>
+		<input id="inputCategories" type="text" placeholder="Looking category"
+			onkeyup="app.findCategories()"> <input id="newCategory"
+			type="button" value="new">
 		<table id="table" class="table" width="border:1px;">
 			<thead>
 				<tr>
@@ -43,10 +48,70 @@
 
 			</tbody>
 		</table>
+		
+		
+		<!-- Category Detail -->
+
+        <div id="form_detail" style="display:none" >
+            <div id="popupDetail">
+                <h2>Detail</h2>
+                <hr>
+                <input id="fc_id" name="fc_name" placeholder="id" required type="text"> <br>
+                <input id="fc_name" name="fc_email" placeholder="name" required type="text"> <br>
+                
+            </div>
+        </div>
+		
 
 	</div>
 
+	<script>
+		var srcCategories = '/api/v1/categories';
+		var currRow = {};
 
+		var app = new function() {
+
+			this.findCategories = function() {
+
+				//getting value for filtering
+				var el = document.getElementById('inputCategories');
+
+				var value = (el.innerText || el.textContent || el.value);
+
+				var url = srcCategories;
+
+				if (value !== '') {
+					url = srcCategories + '/findByName/' + value;
+				}
+
+				var xhr = new XMLHttpRequest();
+				xhr.onload = function() {
+					if (xhr.status >= 200 && xhr.status < 300) {
+						data = JSON.parse(this.responseText).content;
+
+						var out = '';
+						for (i = 0; i < data.length; i++) {
+							out += '<tr>';
+							out += '<td>' + data[i].id + '</td>';
+							out += '<td>' + data[i].name + '</td>';
+
+							out += '<tr>';
+						}
+						document.getElementById('tb_categories').innerHTML = out;
+					} else {
+						result = 'The request failed!';
+					}
+
+				};
+				xhr.open('GET', url);
+				xhr.send();
+
+			};
+
+		}
+
+		app.findCategories();
+	</script>
 
 
 	<!-- Optional JavaScript -->

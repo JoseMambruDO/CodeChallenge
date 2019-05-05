@@ -12,6 +12,12 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+
 <title>OtherHWRestApi</title>
 </head>
 <body>
@@ -51,6 +57,206 @@
 	</div>
 
 
+
+	<script>
+		var srcProducto = '/api/v1/products';
+		var currRow = {};
+
+		var app = new function() {
+
+			this.findproducts = function() {
+
+				//getting value for filtering
+				var el = document.getElementById('inputprod');
+
+				var value = (el.innerText || el.textContent || el.value);
+				console.log(el.textContent);
+				console.log(value);
+				var url = srcProducto + '/filterByName/' + value;
+
+				if (value === '') {
+					url = srcProducto;
+				}
+
+				var xhr = new XMLHttpRequest();
+				xhr.onload = function() {
+					if (xhr.status >= 200 && xhr.status < 300) {
+						data = JSON.parse(this.responseText);
+						var out = '';
+						for (i = 0; i < data.length; i++) {
+							out += '<tr>';
+							out += '<td>' + data[i].id + '</td>';
+							out += '<td>' + data[i].productno + '</td>';
+							out += '<td>' + data[i].productname + '</td>';
+							var qtyStatus = '';
+							if (data[i].quantity < 10) {
+								qtyStatus = 'style="color:red;"';
+							}
+							out += '<td><a href="#" id="qty' + data[i].id
+									+ '" ' + qtyStatus
+									+ 'onclick="chang4input(\'qty' + data[i].id
+									+ '\')">' + data[i].quantity + '</a></td>';
+							out += '<td><a href="#" id="price' + data[i].id
+									+ '" onclick="chang4input(\'price'
+									+ data[i].id + '\')">' + data[i].price
+									+ '</a></td>';
+							out += '<tr>';
+						}
+						document.getElementById('tb_productos').innerHTML = out;
+					} else {
+						result = 'The request failed!';
+					}
+				};
+				xhr.open('GET', url);
+				xhr.send();
+
+			};
+
+			performanceUpdate = function(data) {
+
+				var json = JSON.stringify(data);
+
+				var xhr = new XMLHttpRequest();
+				xhr.open("PUT", srcProducto + '/' + data.id, true);
+				xhr.setRequestHeader('Content-type',
+						'application/json; charset=utf-8');
+				xhr.onload = function() {
+					var respuesta = JSON.parse(xhr.responseText);
+					if (xhr.readyState == 4 && xhr.status == "200") {
+						console.log(respuesta);
+					} else {
+						console.error("Algo no salio bien");
+					}
+				}
+				xhr.send(json);
+
+			};
+
+			validateNumber = function(curInput) {
+				r = true;
+				el = curInput;
+				val = (el.innerText || el.textContent || el.value);
+
+				var np = Number(val);
+				if (isNaN(np)) {
+					document.getElementById("msgerr").innerHTML = 'Numero incorrecto';
+					document.getElementById("msgerr").style = 'color: red;';
+
+					elcurr.focus();
+					r = false;
+				} else {
+					document.getElementById("msgerr").innerHTML = '';
+					document.getElementById("msgerr").style = '';
+				}
+				return r;
+			};
+
+			chang4input = function(selector) {
+
+				elcur = document.getElementsByClassName('inputactive');
+
+				if (elcur.length === 1) {
+					curInput = elcur[0];
+					if (validateNumber(curInput) == true) {
+
+						valor = (curInput.innerText || curInput.textContent || curInput.value);
+
+						if (Number(valor) !== Number(currRow["value"])) {
+
+							var answer = confirm("Se esta moviendo para otro campo, Desea guardar los cambios?");
+							if (answer) {
+
+								currRow.value = valor;
+								dataUpdate = {};
+
+								dataUpdate.id = currRow.id;
+								dataUpdate.productno = currRow.productno;
+								dataUpdate.productname = currRow.productname;
+								dataUpdate.quantity = currRow.quantity;
+								dataUpdate.price = currRow.price;
+
+								if (currRow.selector.substring(0, 3) === "qty")
+									dataUpdate.quantity = Number(valor);
+								else if (currRow.selector.substring(0, 5) === "price") {
+									dataUpdate.price = Number(valor);
+								}
+								performanceUpdate(dataUpdate);
+							}
+
+						}
+
+						curSel = currRow.selector;
+						var qtyStatus = '';
+						if (curSel.substring(0, 3) === "qty") {
+							qtyStatus = 'style="color:red;"';
+						}
+
+						curInput.parentNode.innerHTML = '<a href="#" id='
+								+ curSel + '  onclick="chang4input(\'' + curSel
+								+ '\')"  ' + qtyStatus + ' >' + currRow.value
+								+ '</a>';
+					}
+
+				}
+
+				el = document.getElementById(selector);
+
+				currRow.id = el.parentNode.parentNode.cells[0].innerHTML;
+				currRow.productno = el.parentNode.parentNode.cells[1].innerHTML;
+				currRow.productname = el.parentNode.parentNode.cells[2].innerHTML;
+				currRow.quantity = el.parentNode.parentNode.cells[3]
+						.getElementsByTagName('a')[0].innerHTML;
+				currRow.price = el.parentNode.parentNode.cells[4]
+						.getElementsByTagName('a')[0].innerHTML;
+
+				val = (el.innerText || el.textContent);
+				el.parentNode.innerHTML = '<input  id=' + selector + ' type="text" class="inputactive"  value=' + val + '> <div id="msgerr" class="invalid"><div>';
+
+				currRow.selector = selector;
+				currRow.value = val;
+
+			};
+
+			this.fillTableProducto = function() {
+
+				var xhr = new XMLHttpRequest();
+				var result = null;
+				xhr.onload = function() {
+					if (xhr.status >= 200 && xhr.status < 300) {
+						data = JSON.parse(this.responseText);
+						var out = '';
+						for (i = 0; i < data.length; i++) {
+							out += '<tr>';
+							out += '<td>' + data[i].id + '</td>';
+							out += '<td>' + data[i].productno + '</td>';
+							out += '<td>' + data[i].productname + '</td>';
+							var qtyStatus = '';
+							if (data[i].quantity < 10) {
+								qtyStatus = 'style="color:red;"';
+							}
+							out += '<td><a href="#" id="qty' + data[i].id
+									+ '" ' + qtyStatus
+									+ 'onclick="chang4input(\'qty' + data[i].id
+									+ '\')">' + data[i].quantity + '</a></td>';
+							out += '<td><a href="#" id="price' + data[i].id
+									+ '" onclick="chang4input(\'price'
+									+ data[i].id + '\')">' + data[i].price
+									+ '</a></td>';
+							out += '<tr>';
+						}
+						document.getElementById('tb_productos').innerHTML = out;
+					} else {
+						result = 'The request failed!';
+					}
+					return result;
+				};
+				xhr.open('GET', srcProducto);
+				xhr.send();
+			}
+
+		}
+		app.fillTableProducto();
+	</script>
 
 
 	<!-- Optional JavaScript -->

@@ -1,5 +1,7 @@
 package com.jmprueba.otherhwrestapi.api;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +44,13 @@ public class ProductRest {
 	@GetMapping("/api/v1/products")
 	public Page<Product> getAllProducts(Pageable pageable) {
 		return productService.findAll(pageable);
+	}
+
+	@ApiOperation(value = "Get a list of products", response = List.class)
+
+	@GetMapping("/api/v1/products/findByName/{name}")
+	public List<Product> findBydName(@PathVariable String name) {
+		return productService.findBydName(name);
 	}
 
 	@ApiOperation(value = "Create a new product", response = Product.class)

@@ -15,38 +15,40 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jmprueba.otherhwrestapi.entity.Category;
 import com.jmprueba.otherhwrestapi.service.CategoryService;
 
 @RestController
+@RequestMapping("/api/v1/categories")
 public class CategoryRest {
 
 	@Autowired
 	CategoryService categoryService;
 
-	@GetMapping("/api/v1/categories")
+	@GetMapping
 	public Page<Category> getAllCategories(Pageable pageable) {
 		return categoryService.findAll(pageable);
 	}
 
-	@GetMapping("/api/v1/categories/findByName/{name}")
+	@GetMapping("findByName/{name}")
 	public List<Category> getAllCategories(@PathVariable String name) {
 		return categoryService.findByName(name);
 	}
 
-	@GetMapping("/api/v1/categories/{categoryId}")
+	@GetMapping("findByID/{categoryId}")
 	public Category getCategoryByID(@PathVariable Long categoryId ){
 		return categoryService.findById(categoryId);
 	}
 	
-	@PostMapping("/api/v1/categories")
+	@PostMapping
 	public Category createCategory(@Valid @RequestBody Category category) {
 		return categoryService.save(category);
 	}
 
-	@PutMapping("/api/v1/categories/{categoryId}")
+	@PutMapping("{categoryId}")
 	public Category updateCategory(@PathVariable Long categoryId, @Valid @RequestBody Category category) {
 		Category categoryUpdated = categoryService.updateCategory(categoryId, category);
 		if (categoryUpdated == null)
@@ -54,7 +56,7 @@ public class CategoryRest {
 		return categoryUpdated;
 	}
 
-	@DeleteMapping("/api/v1/categories/{categoryId}")
+	@DeleteMapping("{categoryId}")
 	public ResponseEntity<?> deleteCategory(@PathVariable Long categoryId) {
 
 		if (!categoryService.deleteCategory(categoryId))
@@ -64,7 +66,7 @@ public class CategoryRest {
 
 	}
 
-	@GetMapping("/api/v1/categories/count")
+	@GetMapping("count")
 	public Long countCategory() {
 		return categoryService.countCategory();
 	}

@@ -95,7 +95,7 @@
 	<script>
 		var srcCategories = '/api/v1/categories';
 		var currRow = {};
-
+	
 		var app = new function() {
 
 			this.save = function() {
@@ -125,11 +125,36 @@
 
 			this.preEditing = function(id) {
 				state = "EDITING";
-
+				curRow = this.getCategory(id);		
+				
 			}
 
 			this.preDeleting = function(id) {
 				state = "DELETING";
+			}
+			
+			this.getCategory = function(id){
+				
+				var url = srcCategories +"/findByID/"+id;
+				curRow={};
+				var xhr = new XMLHttpRequest();
+				xhr.onload = function() {
+					if (xhr.status >= 200 && xhr.status < 300) {
+
+						var data = JSON.parse(this.responseText);
+
+						data = (data.content || data);
+						currRow = data;
+					} else {
+						result = 'The request failed!';
+					}
+
+				};
+				xhr.open('GET', url);
+				xhr.send();
+
+				
+				
 			}
 
 			this.addCategory = function() {
@@ -184,10 +209,10 @@
 							out += '<td>' + data[i].name + '</td>';
 
 							out += '<td><a id="rw' + data[i].id + '" href="#" '
-									+ data[i].id + '" onclick="preEditing('
+									+ data[i].id + '" onclick="app.preEditing('
 									+ data[i].id + ')">Edit</a>';
 							out += '<a id="rw' + data[i].id + '" href="#" '
-									+ data[i].id + '" onclick="preDeleting('
+									+ data[i].id + '" onclick="app.preDeleting('
 									+ data[i].id + ')">Delete</a>';
 							out += '</td>';
 

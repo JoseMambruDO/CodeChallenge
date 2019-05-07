@@ -99,19 +99,34 @@
 		var app = new function() {
 
 			this.save = function() {
-				switch (state) {
-				case "ADDING":
-					categorName = document.getElementById("fc_name").value;
+				var categorName = document.getElementById("fc_name").value;
 
-					if (categorName !== "") {
+				if (!validatField()) {
+					alert("Category entity is not valid");
+
+				} else {
+
+					switch (state) {
+					case "ADDING":
 						this.addCategory();
-					} else {
-						alert("Category name is empty");
+						break;
+					case "EDITING":
+						this.editCategory();
+						break;
+					case "DELETING":
+						this.deleteCategory();
+						break;
+						
 					}
-					break;
+					$("#detailCategory").modal('hide');
 				}
 			}
 
+			function validatField() {
+				categorName = document.getElementById("fc_name").value;
+				return (categorName !== "");
+
+			}
 			this.clearDetail = function() {
 
 				document.getElementById("fc_id").value = "";
@@ -134,16 +149,17 @@
 			this.preEditing = function(id) {
 				state = "EDITING";
 				this.getCategory(id, cbf, renderHTML);
-								
+
 			}
 
-			function cbf(dataCR,act) {
+			function cbf(dataCR, act) {
 				currRow = dataCR;
 				act();
 			}
 
 			this.preDeleting = function(id) {
 				state = "DELETING";
+				this.getCategory(id, cbf, renderHTML);
 			}
 
 			this.getCategory = function(id, cb, act) {
@@ -158,7 +174,7 @@
 
 						data = (data.content || data);
 
-						cb(data,act);
+						cb(data, act);
 
 					} else {
 						result = 'The request failed!';
@@ -193,7 +209,51 @@
 
 				this.findCategories();
 			}
+			
+			this.editCategory = function() {
 
+				dataCategory = {};
+				dataCategory.id = document.getElementById('fc_id').value;
+				dataCategory.name = document.getElementById('fc_name').value;
+
+				var url = srcCategories +"/"+dataCategory.id
+				console.log(url);
+				var json = JSON.stringify(dataCategory);
+				var xhr = new XMLHttpRequest();
+				xhr.open("PUT", url, true);
+				xhr.setRequestHeader('Content-type',
+						'application/json; charset=utf-8');
+				xhr.onload = function() {
+
+					if (xhr.status == "200") {
+						console.log("Category was Edited.");
+
+					} else {
+						console.log("Something worng, Editting a new category.");
+					}
+				}
+				xhr.send(json);
+
+				this.findCategories();
+			}
+
+			
+			this.deleteCategory = function() {
+
+				dataCategory = {};
+				dataCategory.id = document.getElementById('fc_id').value;
+				
+				var url = srcCategories +"/"+dataCategory.id
+				var xhr = new XMLHttpRequest();
+				xhr.open("DELETE", url, true);
+				xhr.onload = function() {
+				
+				}
+				xhr.send();
+
+				this.findCategories();
+			}
+			
 			this.findCategories = function() {
 
 				//getting value for filtering

@@ -25,8 +25,7 @@ public class SwaggerConfig {
           .build();                                           
     }
     
-    @SuppressWarnings("unused")
-	private ApiInfo apiInfo() {
+    private ApiInfo apiInfo() {
         return new ApiInfo(
           "REST API Products", 
           "Basic api doc for Rest API", 

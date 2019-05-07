@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jmprueba.otherhwrestapi.entity.Category;
 import com.jmprueba.otherhwrestapi.service.CategoryService;
 
+import springfox.documentation.spring.web.json.Json;
+
 @RestController
 @RequestMapping("/api/v1/categories")
 public class CategoryRest {

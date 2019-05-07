@@ -246,6 +246,8 @@
 				var url = srcCategories +"/"+dataCategory.id
 				var xhr = new XMLHttpRequest();
 				xhr.open("DELETE", url, true);
+				xhr.setRequestHeader('Content-type',
+				'text/plain; charset=utf-8');
 				xhr.onload = function() {
 				
 				}

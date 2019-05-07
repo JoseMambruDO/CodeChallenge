@@ -59,13 +59,12 @@ public class CategoryRest {
 	}
 
 	@DeleteMapping("{categoryId}")
-	public ResponseEntity<?> deleteCategory(@PathVariable Long categoryId) {
+	public ResponseEntity<String> deleteCategory(@PathVariable Long categoryId) {
 
 		if (!categoryService.deleteCategory(categoryId))
 			throw new ResourceNotFoundException("categoryId " + categoryId + " not found");
 
-		return ResponseEntity.ok().build();
-
+		return ResponseEntity.ok().header("Content-type", "text/plain").build();
 	}
 
 	@GetMapping("count")

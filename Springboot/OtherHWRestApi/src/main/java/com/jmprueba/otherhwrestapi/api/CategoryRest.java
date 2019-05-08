@@ -68,6 +68,7 @@ public class CategoryRest {
 		if (!categoryService.deleteCategory(id))
 			throw new ResourceNotFoundException("Category id " + id + " not found");
 		return String.format("Category id:%d was deleted.", id);
+
 	}
 
 	@ApiOperation(value = "Count avaiable category")

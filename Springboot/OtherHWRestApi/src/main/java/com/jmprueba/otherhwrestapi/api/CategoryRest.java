@@ -21,43 +21,53 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jmprueba.otherhwrestapi.entity.Category;
 import com.jmprueba.otherhwrestapi.service.CategoryService;
 
+<<<<<<< HEAD
 import springfox.documentation.spring.web.json.Json;
+=======
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+>>>>>>> 72f2443... D10
 
 @RestController
+@Api("Category RestAPI")
 @RequestMapping("/api/v1/categories")
 public class CategoryRest {
 
 	@Autowired
 	CategoryService categoryService;
-
+	@ApiOperation(value = "Get all category avaiable.")
 	@GetMapping
 	public Page<Category> getAllCategories(Pageable pageable) {
 		return categoryService.findAll(pageable);
 	}
-
+	@ApiOperation(value = "Get a list of category by part of name.")
 	@GetMapping("findByName/{name}")
 	public List<Category> getAllCategories(@PathVariable String name) {
 		return categoryService.findByName(name);
 	}
-
-	@GetMapping("findByID/{categoryId}")
-	public Category getCategoryByID(@PathVariable Long categoryId ){
-		return categoryService.findById(categoryId);
+	@ApiOperation(value = "Get a category by Id.")
+	@GetMapping("findByID/{id}")
+	public Category getCategoryByID(@PathVariable Long id) {
+		return categoryService.findById(id);
 	}
-	
+	@ApiOperation(value = "Add a category.")
 	@PostMapping
 	public Category createCategory(@Valid @RequestBody Category category) {
 		return categoryService.save(category);
 	}
 
-	@PutMapping("{categoryId}")
-	public Category updateCategory(@PathVariable Long categoryId, @Valid @RequestBody Category category) {
-		Category categoryUpdated = categoryService.updateCategory(categoryId, category);
+	@ApiOperation(value = "Edit a category.")
+	@PutMapping("{id}")
+	public Category updateCategory(@PathVariable Long id, @Valid @RequestBody Category category) {
+		Category categoryUpdated = categoryService.updateCategory(id, category);
 		if (categoryUpdated == null)
-			throw new ResourceNotFoundException("categoryId " + categoryId + " not found");
+			throw new ResourceNotFoundException("Category id " + id + " not found");
 		return categoryUpdated;
 	}
+	
+	@ApiOperation(value = "Delete a category")
 
+<<<<<<< HEAD
 	@DeleteMapping("{categoryId}")
 	public ResponseEntity<String> deleteCategory(@PathVariable Long categoryId) {
 
@@ -65,8 +75,17 @@ public class CategoryRest {
 			throw new ResourceNotFoundException("categoryId " + categoryId + " not found");
 
 		return ResponseEntity.ok().header("Content-type", "text/plain").build();
+=======
+	@DeleteMapping("{id}")
+	public String deleteCategory(@PathVariable Long id) {
+
+		if (!categoryService.deleteCategory(id))
+			throw new ResourceNotFoundException("Category id " + id + " not found");
+		return String.format("Category id:%d was deleted.", id);
+>>>>>>> 72f2443... D10
 	}
 
+	@ApiOperation(value = "Count avaiable category")
 	@GetMapping("count")
 	public Long countCategory() {
 		return categoryService.countCategory();

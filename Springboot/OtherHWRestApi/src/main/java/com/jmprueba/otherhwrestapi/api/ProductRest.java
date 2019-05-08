@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jmprueba.otherhwrestapi.entity.Category;
 import com.jmprueba.otherhwrestapi.entity.Product;
 import com.jmprueba.otherhwrestapi.service.ProductService;
 
@@ -27,7 +29,7 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 @Api("Product RestAPI")
-
+@RequestMapping("/api/v1/products")
 public class ProductRest {
 
 	@Autowired
@@ -41,28 +43,33 @@ public class ProductRest {
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") }
 
 	)
-	@GetMapping("/api/v1/products")
+	@GetMapping
 	public Page<Product> getAllProducts(Pageable pageable) {
 		return productService.findAll(pageable);
 	}
 
 	@ApiOperation(value = "Get a list of products", response = List.class)
 
-	@GetMapping("/api/v1/products/findByName/{name}")
+	@GetMapping("findByName/{name}")
 	public List<Product> findBydName(@PathVariable String name) {
 		return productService.findBydName(name);
+	}
+	
+	@GetMapping("findByID/{id}")
+	public Product getProductByID(@PathVariable Long id ){
+		return productService.findById(id);
 	}
 
 	@ApiOperation(value = "Create a new product", response = Product.class)
 
-	@PostMapping("/api/v1/products")
+	@PostMapping
 	public Product createProduct(@Valid @RequestBody Product product) {
 		return productService.save(product);
 	}
 
 	@ApiOperation(value = "Edit a product", response = Product.class)
 
-	@PutMapping("/api/v1/products/{ProductId}")
+	@PutMapping("{id}")
 	public Product updateProduct(@PathVariable Long productId, @Valid @RequestBody Product product) {
 		Product productUpdated = productService.updateProduct(productId, product);
 		if (productUpdated == null)
@@ -72,13 +79,14 @@ public class ProductRest {
 
 	@ApiOperation(value = "Delete a product")
 
-	@DeleteMapping("/api/v1/products/{ProductId}")
-	public ResponseEntity<?> deleteProduct(@PathVariable Long productId) {
+	@DeleteMapping("{id}")
+	public String deleteProduct(@PathVariable Long id) {
 
-		if (!productService.deleteProduct(productId))
-			throw new ResourceNotFoundException("Product Id " + productId + " not found");
+		if (!productService.deleteProduct(id))
+			throw new ResourceNotFoundException("Product Id " + id + " not found");
 
-		return ResponseEntity.ok().build();
+		return String.format("Product id:%d was deleted.", id);
+		
 
 	}
 

@@ -118,7 +118,8 @@
 						break;
 
 					}
-
+					
+					 
 					$("#detailCategory").modal('hide');
 				}
 			}
@@ -132,6 +133,7 @@
 
 				document.getElementById("fc_id").value = "";
 				document.getElementById("fc_name").value = "";
+				$("#detailCategoryLabel").text('Category '+ state);
 			}
 
 			this.clearForAdding = function() {
@@ -143,14 +145,16 @@
 				if (currRow !== {}) {
 					document.getElementById("fc_id").value = currRow['id'];
 					document.getElementById("fc_name").value = currRow['name'];
+					$("#detailCategoryLabel").text('Category '+ state);
 					$("#detailCategory").modal('show');
+					
 				}
 			}
 
 			this.preEditing = function(id) {
 				state = "EDITING";
 				this.getCategory(id, cbf, renderHTML);
-
+				
 			}
 
 			function cbf(dataCR, act) {
@@ -231,8 +235,7 @@
 						console.log("Category was Edited.");
 
 					} else {
-						console
-								.log("Something worng, editing a new category.");
+						console.log("Something worng, editing a new category.");
 					}
 				}
 				xhr.send(json);

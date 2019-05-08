@@ -116,8 +116,9 @@
 					case "DELETING":
 						this.deleteCategory();
 						break;
-						
+
 					}
+
 					$("#detailCategory").modal('hide');
 				}
 			}
@@ -199,8 +200,8 @@
 				xhr.onload = function() {
 
 					if (xhr.status == "200") {
+						app.findCategories();
 						console.log("Category was added.");
-
 					} else {
 						console.log("Something worng, adding a new category.");
 					}
@@ -209,14 +210,14 @@
 
 				this.findCategories();
 			}
-			
+
 			this.editCategory = function() {
 
 				dataCategory = {};
 				dataCategory.id = document.getElementById('fc_id').value;
 				dataCategory.name = document.getElementById('fc_name').value;
 
-				var url = srcCategories +"/"+dataCategory.id
+				var url = srcCategories + "/" + dataCategory.id
 				console.log(url);
 				var json = JSON.stringify(dataCategory);
 				var xhr = new XMLHttpRequest();
@@ -226,36 +227,44 @@
 				xhr.onload = function() {
 
 					if (xhr.status == "200") {
+						app.findCategories();
 						console.log("Category was Edited.");
 
 					} else {
-						console.log("Something worng, Editting a new category.");
+						console
+								.log("Something worng, editing a new category.");
 					}
 				}
 				xhr.send(json);
-
-				this.findCategories();
 			}
 
-			
 			this.deleteCategory = function() {
 
 				dataCategory = {};
 				dataCategory.id = document.getElementById('fc_id').value;
-				
-				var url = srcCategories +"/"+dataCategory.id
+
+				var url = srcCategories + "/" + dataCategory.id
 				var xhr = new XMLHttpRequest();
 				xhr.open("DELETE", url, true);
 				xhr.setRequestHeader('Content-type',
-				'text/plain; charset=utf-8');
+						'text/plain; charset=utf-8');
+
 				xhr.onload = function() {
-				
+
+					if (xhr.status == "200") {
+						app.findCategories();
+						console.log("Category was Edited.");
+
+					} else {
+						console
+								.log("Something worng, deleting a new category.");
+					}
 				}
+
 				xhr.send();
 
-				this.findCategories();
 			}
-			
+
 			this.findCategories = function() {
 
 				//getting value for filtering

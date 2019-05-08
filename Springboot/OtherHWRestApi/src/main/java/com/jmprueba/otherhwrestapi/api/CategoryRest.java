@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,8 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jmprueba.otherhwrestapi.entity.Category;
 import com.jmprueba.otherhwrestapi.service.CategoryService;
-
-import springfox.documentation.spring.web.json.Json;
 
 @RestController
 @RequestMapping("/api/v1/categories")
@@ -59,13 +56,11 @@ public class CategoryRest {
 	}
 
 	@DeleteMapping("{categoryId}")
-	public ResponseEntity<?> deleteCategory(@PathVariable Long categoryId) {
+	public String deleteCategory(@PathVariable Long categoryId) {
 
 		if (!categoryService.deleteCategory(categoryId))
 			throw new ResourceNotFoundException("categoryId " + categoryId + " not found");
-
-		return ResponseEntity.ok().build();
-
+		return String.format("Category id:%d was deleted.", categoryId);
 	}
 
 	@GetMapping("count")

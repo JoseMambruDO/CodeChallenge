@@ -78,14 +78,12 @@
 					<input id="fc_id" name="fc_id" placeholder="id" readonly="readonly"
 						type="text"> <br> <input id="fc_name" name="fc_name"
 						required="required" placeholder="name" type="text"> <br>
-					<input id="fc_category" name="fc_category" required="required"
-						placeholder="description" type="text"> <br> <input
-						id="fc_cost" name="fc_cost" required="required" placeholder="cost"
-						type="text"> <br> <input id="fc_price"
-						name="fc_price" required="required" placeholder="price"
-						type="text"> <br> <input id="fc_quantity"
-						name="fc_quantity" required="required" placeholder="Quantity"
-						type="text"> <br>
+					<select id="fc_category"></select> <br> <input id="fc_cost"
+						name="fc_cost" required="required" placeholder="cost" type="text">
+					<br> <input id="fc_price" name="fc_price" required="required"
+						placeholder="price" type="text"> <br> <input
+						id="fc_quantity" name="fc_quantity" required="required"
+						placeholder="Quantity" type="text"> <br>
 
 					<textarea rows="4" cols="20" id="fc_description">
 						 
@@ -154,6 +152,7 @@
 
 			this.clearForAdding = function() {
 				state = "ADDING";
+				rederListCategory();
 				this.clearDetail();
 			}
 
@@ -272,8 +271,34 @@
 				}
 				xhr.send(json);
 			}
-			
-			this.rederListCategory = function()
+
+			this.rederListCategory = function() {
+
+				var url = "/api/v1/categories";
+
+				var xhr = new XMLHttpRequest();
+				xhr.onload = function() {
+					if (xhr.status >= 200 && xhr.status < 300) {
+
+						var data = JSON.parse(this.responseText);
+
+						data = (data.content || data);
+
+						var out = '';
+						for (i = 0; i < data.length; i++) {
+							out += '<option value='+data[i].id+'>'
+									+ data[i].name + '</option>';
+						}
+						document.getElementById('fc_category').innerHTML = out;
+					} else {
+						result = 'The request failed!';
+					}
+
+				};
+				xhr.open('GET', url);
+				xhr.send();
+
+			}
 
 			this.deleteProduct = function() {
 

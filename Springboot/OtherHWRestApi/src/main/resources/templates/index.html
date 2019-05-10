@@ -34,7 +34,7 @@
 
 	<div class="container-fluid">
 		<h3>Products</h3>
-		<input id="inputprod" type="text" placeholder="Looking product"
+		<input id="inputproducts" type="text" placeholder="Looking product"
 			onkeyup="app.findproducts()">
 
 		<button type="button" class="btn btn-primary" data-toggle="modal"
@@ -46,7 +46,7 @@
 				<tr>
 					<th>ID</th>
 					<th>Name</th>
-					<th>Product</th>
+					<th>Category</th>
 					<th>Cost</th>
 					<th>Price</th>
 					<th>Quantity</th>
@@ -215,7 +215,8 @@
 
 				dataProduct = {};
 				dataProduct.name = document.getElementById('fc_name').value;
-				dataProduct.category = document.getElementById("fc_category").value;
+				dataProduct.category = {};
+				dataProduct.category.id = document.getElementById("fc_category").value;
 				dataProduct.description = document
 						.getElementById("fc_description").value;
 				dataProduct.cost = document.getElementById("fc_cost").value;

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,12 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jmprueba.otherhwrestapi.entity.Category;
 import com.jmprueba.otherhwrestapi.service.CategoryService;
 
-<<<<<<< HEAD
-import springfox.documentation.spring.web.json.Json;
-=======
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
->>>>>>> 72f2443... D10
+
+import springfox.documentation.spring.web.json.Json;
+
 
 @RestController
 @Api("Category RestAPI")
@@ -67,22 +65,12 @@ public class CategoryRest {
 	
 	@ApiOperation(value = "Delete a category")
 
-<<<<<<< HEAD
-	@DeleteMapping("{categoryId}")
-	public ResponseEntity<String> deleteCategory(@PathVariable Long categoryId) {
-
-		if (!categoryService.deleteCategory(categoryId))
-			throw new ResourceNotFoundException("categoryId " + categoryId + " not found");
-
-		return ResponseEntity.ok().header("Content-type", "text/plain").build();
-=======
 	@DeleteMapping("{id}")
 	public String deleteCategory(@PathVariable Long id) {
 
 		if (!categoryService.deleteCategory(id))
 			throw new ResourceNotFoundException("Category id " + id + " not found");
 		return String.format("Category id:%d was deleted.", id);
->>>>>>> 72f2443... D10
 	}
 
 	@ApiOperation(value = "Count avaiable category")

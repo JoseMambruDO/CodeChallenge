@@ -27,7 +27,7 @@
 			<li class="nav-item active"><a class="nav-link" href="#">OtherHWRestApi</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="/product">Product</a></li>
-			<li class="nav-item"><a class="nav-link" href="/category">Category</a></li>
+			<li class="nav-item"><a class="nav-link" href="/Product">Product</a></li>
 
 		</ul>
 	</nav>
@@ -37,12 +37,16 @@
 		<input id="inputprod" type="text" placeholder="Looking product"
 			onkeyup="app.findproducts()">
 
+		<button type="button" class="btn btn-primary" data-toggle="modal"
+			data-target="#detailProduct" onclick="app.clearForAdding();">Create
+			new Product</button>
+
 		<table id="table" class="table" width="border:1px;">
 			<thead>
 				<tr>
 					<th>ID</th>
 					<th>Name</th>
-					<th>Category</th>
+					<th>Product</th>
 					<th>Cost</th>
 					<th>Price</th>
 					<th>Quantity</th>
@@ -56,206 +60,301 @@
 
 	</div>
 
+	<!-- Product Detail -->
+
+	<!-- Modal Detail-->
+	<div class="modal fade" id="detailProduct" tabindex="-1" role="dialog"
+		aria-labelledby="detailProductLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="detailProductLabel">Product</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input id="fc_id" name="fc_id" placeholder="id" readonly="readonly"
+						type="text"> <br> <input id="fc_name" name="fc_name"
+						required="required" placeholder="name" type="text"> <br>
+					<input id="fc_category" name="fc_category" required="required"
+						placeholder="description" type="text"> <br> <input
+						id="fc_cost" name="fc_cost" required="required" placeholder="cost"
+						type="text"> <br> <input id="fc_price"
+						name="fc_price" required="required" placeholder="price"
+						type="text"> <br> <input id="fc_quantity"
+						name="fc_quantity" required="required" placeholder="Quantity"
+						type="text"> <br>
+
+					<textarea rows="4" cols="20" id="fc_description">
+						 
+						</textarea>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" onclick="app.save()">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 	<script>
-		var srcProducto = '/api/v1/products';
+		var srcproducts = '/api/v1/products';
 		var currRow = {};
 
 		var app = new function() {
 
+			this.save = function() {
+				var productName = document.getElementById("fc_name").value;
+				var productCategory = document.getElementById("fc_category").value;
+				var productCost = document.getElementById("fc_cost").value;
+				var productPrice = document.getElementById("fc_price").value;
+				var productQuantity = document.getElementById("fc_quantity").value;
+
+				if (!validatField()) {
+					alert("Product entity is not valid");
+
+				} else {
+
+					switch (state) {
+					case "ADDING":
+						this.addProduct();
+						break;
+					case "EDITING":
+						this.editProduct();
+						break;
+					case "DELETING":
+						this.deleteProduct();
+						break;
+
+					}
+
+					$("#detailProduct").modal('hide');
+				}
+			}
+
+			function validatField() {
+				productName = document.getElementById("fc_name").value;
+				return (productName !== "");
+
+			}
+			this.clearDetail = function() {
+
+				document.getElementById("fc_name").value = "";
+				document.getElementById("fc_category").value = "";
+				document.getElementById("fc_cost").value = "";
+				document.getElementById("fc_price").value = "";
+				document.getElementById("fc_quantity").value = "";
+
+				$("#detailProductLabel").text('Product ' + state);
+			}
+
+			this.clearForAdding = function() {
+				state = "ADDING";
+				this.clearDetail();
+			}
+
+			function renderHTML() {
+				if (currRow !== {}) {
+					document.getElementById("fc_id").value = currRow['id'];
+					document.getElementById("fc_name").value = currRow['name'];
+					document.getElementById("fc_category").value = currRow['categoryId'];
+					document.getElementById("fc_cost").value = currRow['cost'];
+					document.getElementById("fc_price").value = currRow['price'];
+					document.getElementById("fc_quantity").value = currRow['quantity'];
+
+					$("#detailProductLabel").text('Product ' + state);
+					$("#detailProduct").modal('show');
+
+				}
+			}
+
+			this.preEditing = function(id) {
+				state = "EDITING";
+				this.getProduct(id, cbf, renderHTML);
+
+			}
+
+			function cbf(dataCR, act) {
+				currRow = dataCR;
+				act();
+			}
+
+			this.preDeleting = function(id) {
+				state = "DELETING";
+				this.getProduct(id, cbf, renderHTML);
+			}
+
+			this.getProduct = function(id, cb, act) {
+
+				var url = srcproducts + "/findByID/" + id;
+				curRow = {};
+				var xhr = new XMLHttpRequest();
+				xhr.onload = function() {
+					if (xhr.status >= 200 && xhr.status < 300) {
+
+						var data = JSON.parse(this.responseText);
+
+						data = (data.content || data);
+
+						cb(data, act);
+
+					} else {
+						result = 'The request failed!';
+					}
+
+				};
+				xhr.open('GET', url);
+				xhr.send();
+
+			}
+
+			this.addProduct = function() {
+
+				dataProduct = {};
+				dataProduct.name = document.getElementById('fc_name').value;
+				dataProduct.category = document.getElementById("fc_category").value;
+				dataProduct.description = document
+						.getElementById("fc_description").value;
+				dataProduct.cost = document.getElementById("fc_cost").value;
+				dataProduct.price = document.getElementById("fc_price").value;
+				dataProduct.quantity = document.getElementById("fc_quantity").value;
+
+				console.log(dataProduct);
+
+				var json = JSON.stringify(dataProduct);
+				var xhr = new XMLHttpRequest();
+				xhr.open("POST", srcproducts, true);
+				xhr.setRequestHeader('Content-type',
+						'application/json; charset=utf-8');
+				xhr.onload = function() {
+
+					if (xhr.status == "200") {
+						app.findproducts();
+						console.log("Product was added.");
+					} else {
+						console.log("Something worng, adding a new Product.");
+					}
+				}
+				xhr.send(json);
+
+				this.findproducts();
+			}
+
+			this.editProduct = function() {
+
+				dataProduct = {};
+				dataProduct.name = document.getElementById('fc_name').value;
+				dataProduct.category = document.getElementById("fc_category").value;
+				dataProduct.cost = document.getElementById("fc_cost").value;
+				dataProduct.price = document.getElementById("fc_price").value;
+				dataProduct.quantity = document.getElementById("fc_quantity").value;
+
+				var url = srcproducts + "/" + dataProduct.id
+				console.log(url);
+				var json = JSON.stringify(dataProduct);
+				var xhr = new XMLHttpRequest();
+				xhr.open("PUT", url, true);
+				xhr.setRequestHeader('Content-type',
+						'application/json; charset=utf-8');
+				xhr.onload = function() {
+
+					if (xhr.status == "200") {
+						app.findproducts();
+						console.log("Product was Edited.");
+
+					} else {
+						console.log("Something worng, editing a new Product.");
+					}
+				}
+				xhr.send(json);
+			}
+
+			this.deleteProduct = function() {
+
+				dataProduct = {};
+				dataProduct.id = document.getElementById('fc_id').value;
+
+				var url = srcproducts + "/" + dataProduct.id
+				var xhr = new XMLHttpRequest();
+				xhr.open("DELETE", url, true);
+				xhr.setRequestHeader('Content-type',
+						'text/plain; charset=utf-8');
+
+				xhr.onload = function() {
+
+					if (xhr.status == "200") {
+						app.findproducts();
+						console.log("Product was Edited.");
+
+					} else {
+						console.log("Something worng, deleting a new Product.");
+					}
+				}
+
+				xhr.send();
+
+			}
+
 			this.findproducts = function() {
 
 				//getting value for filtering
-				var el = document.getElementById('inputprod');
+				var el = document.getElementById('inputproducts');
 
 				var value = (el.innerText || el.textContent || el.value);
-				console.log(el.textContent);
-				console.log(value);
-				var url = srcProducto + '/filterByName/' + value;
 
-				if (value === '') {
-					url = srcProducto;
+				var url = srcproducts;
+
+				if (value !== '') {
+					url = srcproducts + '/findByName/' + value;
 				}
 
 				var xhr = new XMLHttpRequest();
 				xhr.onload = function() {
 					if (xhr.status >= 200 && xhr.status < 300) {
-						data = JSON.parse(this.responseText);
+
+						var data = JSON.parse(this.responseText);
+
+						data = (data.content || data);
+
 						var out = '';
 						for (i = 0; i < data.length; i++) {
 							out += '<tr>';
 							out += '<td>' + data[i].id + '</td>';
-							out += '<td>' + data[i].productno + '</td>';
-							out += '<td>' + data[i].productname + '</td>';
-							var qtyStatus = '';
-							if (data[i].quantity < 10) {
-								qtyStatus = 'style="color:red;"';
-							}
-							out += '<td><a href="#" id="qty' + data[i].id
-									+ '" ' + qtyStatus
-									+ 'onclick="chang4input(\'qty' + data[i].id
-									+ '\')">' + data[i].quantity + '</a></td>';
-							out += '<td><a href="#" id="price' + data[i].id
-									+ '" onclick="chang4input(\'price'
-									+ data[i].id + '\')">' + data[i].price
-									+ '</a></td>';
+							out += '<td>' + data[i].name + '</td>';
+							out += '<td>' + data[i].categoryId + '</td>';
+							out += '<td>' + data[i].cost + '</td>';
+							out += '<td>' + data[i].price + '</td>';
+							out += '<td>' + data[i].quantity + '</td>';
+
+							out += '<td><a id="rw' + data[i].id + '" href="#" '
+									+ data[i].id + '" onclick="app.preEditing('
+									+ data[i].id + ')">Edit</a>';
+							out += '<a id="rw' + data[i].id + '" href="#" '
+									+ data[i].id
+									+ '" onclick="app.preDeleting('
+									+ data[i].id + ')">Delete</a>';
+							out += '</td>';
+
 							out += '<tr>';
 						}
-						document.getElementById('tb_productos').innerHTML = out;
+						document.getElementById('tb_products').innerHTML = out;
 					} else {
 						result = 'The request failed!';
 					}
+
 				};
 				xhr.open('GET', url);
 				xhr.send();
 
 			};
 
-			performanceUpdate = function(data) {
-
-				var json = JSON.stringify(data);
-
-				var xhr = new XMLHttpRequest();
-				xhr.open("PUT", srcProducto + '/' + data.id, true);
-				xhr.setRequestHeader('Content-type',
-						'application/json; charset=utf-8');
-				xhr.onload = function() {
-					var respuesta = JSON.parse(xhr.responseText);
-					if (xhr.readyState == 4 && xhr.status == "200") {
-						console.log(respuesta);
-					} else {
-						console.error("Algo no salio bien");
-					}
-				}
-				xhr.send(json);
-
-			};
-
-			validateNumber = function(curInput) {
-				r = true;
-				el = curInput;
-				val = (el.innerText || el.textContent || el.value);
-
-				var np = Number(val);
-				if (isNaN(np)) {
-					document.getElementById("msgerr").innerHTML = 'Numero incorrecto';
-					document.getElementById("msgerr").style = 'color: red;';
-
-					elcurr.focus();
-					r = false;
-				} else {
-					document.getElementById("msgerr").innerHTML = '';
-					document.getElementById("msgerr").style = '';
-				}
-				return r;
-			};
-
-			chang4input = function(selector) {
-
-				elcur = document.getElementsByClassName('inputactive');
-
-				if (elcur.length === 1) {
-					curInput = elcur[0];
-					if (validateNumber(curInput) == true) {
-
-						valor = (curInput.innerText || curInput.textContent || curInput.value);
-
-						if (Number(valor) !== Number(currRow["value"])) {
-
-							var answer = confirm("Se esta moviendo para otro campo, Desea guardar los cambios?");
-							if (answer) {
-
-								currRow.value = valor;
-								dataUpdate = {};
-
-								dataUpdate.id = currRow.id;
-								dataUpdate.productno = currRow.productno;
-								dataUpdate.productname = currRow.productname;
-								dataUpdate.quantity = currRow.quantity;
-								dataUpdate.price = currRow.price;
-
-								if (currRow.selector.substring(0, 3) === "qty")
-									dataUpdate.quantity = Number(valor);
-								else if (currRow.selector.substring(0, 5) === "price") {
-									dataUpdate.price = Number(valor);
-								}
-								performanceUpdate(dataUpdate);
-							}
-
-						}
-
-						curSel = currRow.selector;
-						var qtyStatus = '';
-						if (curSel.substring(0, 3) === "qty") {
-							qtyStatus = 'style="color:red;"';
-						}
-
-						curInput.parentNode.innerHTML = '<a href="#" id='
-								+ curSel + '  onclick="chang4input(\'' + curSel
-								+ '\')"  ' + qtyStatus + ' >' + currRow.value
-								+ '</a>';
-					}
-
-				}
-
-				el = document.getElementById(selector);
-
-				currRow.id = el.parentNode.parentNode.cells[0].innerHTML;
-				currRow.productno = el.parentNode.parentNode.cells[1].innerHTML;
-				currRow.productname = el.parentNode.parentNode.cells[2].innerHTML;
-				currRow.quantity = el.parentNode.parentNode.cells[3]
-						.getElementsByTagName('a')[0].innerHTML;
-				currRow.price = el.parentNode.parentNode.cells[4]
-						.getElementsByTagName('a')[0].innerHTML;
-
-				val = (el.innerText || el.textContent);
-				el.parentNode.innerHTML = '<input  id=' + selector + ' type="text" class="inputactive"  value=' + val + '> <div id="msgerr" class="invalid"><div>';
-
-				currRow.selector = selector;
-				currRow.value = val;
-
-			};
-
-			this.fillTableProducto = function() {
-
-				var xhr = new XMLHttpRequest();
-				var result = null;
-				xhr.onload = function() {
-					if (xhr.status >= 200 && xhr.status < 300) {
-						data = JSON.parse(this.responseText);
-						var out = '';
-						for (i = 0; i < data.length; i++) {
-							out += '<tr>';
-							out += '<td>' + data[i].id + '</td>';
-							out += '<td>' + data[i].productno + '</td>';
-							out += '<td>' + data[i].productname + '</td>';
-							var qtyStatus = '';
-							if (data[i].quantity < 10) {
-								qtyStatus = 'style="color:red;"';
-							}
-							out += '<td><a href="#" id="qty' + data[i].id
-									+ '" ' + qtyStatus
-									+ 'onclick="chang4input(\'qty' + data[i].id
-									+ '\')">' + data[i].quantity + '</a></td>';
-							out += '<td><a href="#" id="price' + data[i].id
-									+ '" onclick="chang4input(\'price'
-									+ data[i].id + '\')">' + data[i].price
-									+ '</a></td>';
-							out += '<tr>';
-						}
-						document.getElementById('tb_productos').innerHTML = out;
-					} else {
-						result = 'The request failed!';
-					}
-					return result;
-				};
-				xhr.open('GET', srcProducto);
-				xhr.send();
-			}
-
 		}
-		app.fillTableProducto();
+
+		app.findproducts();
 	</script>
 
 

@@ -23,6 +23,9 @@ import com.jmprueba.otherhwrestapi.service.CategoryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+import springfox.documentation.spring.web.json.Json;
+
+
 @RestController
 @Api("Category RestAPI")
 @RequestMapping("/api/v1/categories")
@@ -68,7 +71,6 @@ public class CategoryRest {
 		if (!categoryService.deleteCategory(id))
 			throw new ResourceNotFoundException("Category id " + id + " not found");
 		return String.format("Category id:%d was deleted.", id);
-
 	}
 
 	@ApiOperation(value = "Count avaiable category")

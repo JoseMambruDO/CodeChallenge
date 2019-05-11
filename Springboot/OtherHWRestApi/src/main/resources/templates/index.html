@@ -158,9 +158,10 @@
 
 			function renderHTML() {
 				if (currRow !== {}) {
+					
 					document.getElementById("fc_id").value = currRow['id'];
 					document.getElementById("fc_name").value = currRow['name'];
-					document.getElementById("fc_category").value = currRow['categoryId'];
+					document.getElementById("fc_category").value = currRow['category']['id'];
 					document.getElementById("fc_cost").value = currRow['cost'];
 					document.getElementById("fc_price").value = currRow['price'];
 					document.getElementById("fc_quantity").value = currRow['quantity'];

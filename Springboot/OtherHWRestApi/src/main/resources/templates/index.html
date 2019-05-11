@@ -79,11 +79,11 @@
 						type="text"> <br> <input id="fc_name" name="fc_name"
 						required="required" placeholder="name" type="text"> <br>
 					<select id="fc_category"></select> <br> <input id="fc_cost"
-						name="fc_cost" required="required" placeholder="cost" type="text">
-					<br> <input id="fc_price" name="fc_price" required="required"
-						placeholder="price" type="text"> <br> <input
-						id="fc_quantity" name="fc_quantity" required="required"
-						placeholder="Quantity" type="text"> <br>
+						name="fc_cost" placeholder="cost" type="number" step="any">
+					<br> <input id="fc_price" type="number" step="any"
+						placeholder="price" > <br> <input
+						id="fc_quantity" type="number" step="any" min="0"
+						placeholder="Quantity"> <br>
 
 					<textarea rows="4" cols="20" id="fc_description">
 						 
@@ -216,7 +216,8 @@
 				dataProduct = {};
 				dataProduct.name = document.getElementById('fc_name').value;
 				dataProduct.category = {};
-				dataProduct.category.id = document.getElementById("fc_category").value;
+				dataProduct.category.id = document
+						.getElementById("fc_category").value;
 				dataProduct.description = document
 						.getElementById("fc_description").value;
 				dataProduct.cost = document.getElementById("fc_cost").value;
@@ -354,7 +355,7 @@
 							out += '<tr>';
 							out += '<td>' + data[i].id + '</td>';
 							out += '<td>' + data[i].name + '</td>';
-							out += '<td>' + data[i].categoryId + '</td>';
+							out += '<td>' + data[i].category.name + '</td>';
 							out += '<td>' + data[i].cost + '</td>';
 							out += '<td>' + data[i].price + '</td>';
 							out += '<td>' + data[i].quantity + '</td>';

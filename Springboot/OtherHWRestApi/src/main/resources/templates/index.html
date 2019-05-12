@@ -81,9 +81,8 @@
 					<select id="fc_category"></select> <br> <input id="fc_cost"
 						name="fc_cost" placeholder="cost" type="number" step="any">
 					<br> <input id="fc_price" type="number" step="any"
-						placeholder="price" > <br> <input
-						id="fc_quantity" type="number" step="any" min="0"
-						placeholder="Quantity"> <br>
+						placeholder="price"> <br> <input id="fc_quantity"
+						type="number" step="any" min="0" placeholder="Quantity"> <br>
 
 					<textarea rows="4" cols="20" id="fc_description">
 						 
@@ -111,6 +110,8 @@
 				var productCost = document.getElementById("fc_cost").value;
 				var productPrice = document.getElementById("fc_price").value;
 				var productQuantity = document.getElementById("fc_quantity").value;
+				var productDescription = document
+						.getElementById("fc_description").value;
 
 				if (!validatField()) {
 					alert("Product entity is not valid");
@@ -141,30 +142,34 @@
 			}
 			this.clearDetail = function() {
 
+				document.getElementById("fc_id").value = "";
 				document.getElementById("fc_name").value = "";
 				document.getElementById("fc_category").value = "";
 				document.getElementById("fc_cost").value = "";
 				document.getElementById("fc_price").value = "";
 				document.getElementById("fc_quantity").value = "";
+				document.getElementById("fc_description").value = "";
 
 				$("#detailProductLabel").text('Product ' + state);
 			}
 
 			this.clearForAdding = function() {
 				state = "ADDING";
-				this.rederListCategory();
+				rederListCategory();
 				this.clearDetail();
 			}
 
 			function renderHTML() {
 				if (currRow !== {}) {
-					
+
 					document.getElementById("fc_id").value = currRow['id'];
 					document.getElementById("fc_name").value = currRow['name'];
+					rederListCategory();
 					document.getElementById("fc_category").value = currRow['category']['id'];
 					document.getElementById("fc_cost").value = currRow['cost'];
 					document.getElementById("fc_price").value = currRow['price'];
 					document.getElementById("fc_quantity").value = currRow['quantity'];
+					document.getElementById("fc_description").value = currRow['description'];
 
 					$("#detailProductLabel").text('Product ' + state);
 					$("#detailProduct").modal('show');
@@ -225,8 +230,8 @@
 				dataProduct.price = document.getElementById("fc_price").value;
 				dataProduct.quantity = document.getElementById("fc_quantity").value;
 
-				console.log(dataProduct);
-
+				dataProduct.description = document
+						.getElementById("fc_description").value;
 				var json = JSON.stringify(dataProduct);
 				var xhr = new XMLHttpRequest();
 				xhr.open("POST", srcproducts, true);
@@ -238,7 +243,7 @@
 						app.findproducts();
 						console.log("Product was added.");
 					} else {
-						console.log("Something worng, adding a new Product.");
+						console.log("Something wrong, adding a new Product.");
 					}
 				}
 				xhr.send(json);
@@ -249,14 +254,26 @@
 			this.editProduct = function() {
 
 				dataProduct = {};
+
+				dataProduct.id = document.getElementById('fc_id').value;
+
 				dataProduct.name = document.getElementById('fc_name').value;
-				dataProduct.category = document.getElementById("fc_category").value;
+
+				dataProduct.category = {};
+				dataProduct.category.id = document
+						.getElementById("fc_category").value;
+
 				dataProduct.cost = document.getElementById("fc_cost").value;
 				dataProduct.price = document.getElementById("fc_price").value;
 				dataProduct.quantity = document.getElementById("fc_quantity").value;
 
+				dataProduct.description = document
+						.getElementById("fc_description").value;
+
 				var url = srcproducts + "/" + dataProduct.id
 				console.log(url);
+				console.log(dataProduct);
+
 				var json = JSON.stringify(dataProduct);
 				var xhr = new XMLHttpRequest();
 				xhr.open("PUT", url, true);
@@ -269,13 +286,13 @@
 						console.log("Product was Edited.");
 
 					} else {
-						console.log("Something worng, editing a new Product.");
+						console.log("Something wrong, editing a Product.");
 					}
 				}
 				xhr.send(json);
 			}
 
-			this.rederListCategory = function() {
+			function rederListCategory() {
 
 				var url = "/api/v1/categories";
 
@@ -292,7 +309,6 @@
 							out += '<option value='+data[i].id+'>'
 									+ data[i].name + '</option>';
 						}
-						console.log(out);
 						document.getElementById('fc_category').innerHTML = out;
 					} else {
 						result = 'The request failed!';
@@ -322,7 +338,7 @@
 						console.log("Product was Edited.");
 
 					} else {
-						console.log("Something worng, deleting a new Product.");
+						console.log("Something wrong, deleting a new Product.");
 					}
 				}
 

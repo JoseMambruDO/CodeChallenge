@@ -70,10 +70,10 @@ public class ProductRest {
 	@ApiOperation(value = "Edit a product", response = Product.class)
 
 	@PutMapping("{id}")
-	public Product updateProduct(@PathVariable Long productId, @Valid @RequestBody Product product) {
-		Product productUpdated = productService.updateProduct(productId, product);
+	public Product updateProduct(@PathVariable Long id, @Valid @RequestBody Product product) {
+		Product productUpdated = productService.updateProduct(id, product);
 		if (productUpdated == null)
-			throw new ResourceNotFoundException("Product Id " + productId + " not found");
+			throw new ResourceNotFoundException("Product Id " + id + " not found");
 		return productUpdated;
 	}
 
@@ -92,7 +92,7 @@ public class ProductRest {
 
 	@ApiOperation(value = "Count avaiable products")
 
-	@GetMapping("/api/v1/products/count")
+	@GetMapping("count")
 	public Long countProduct() {
 		return productService.countProduct();
 	}

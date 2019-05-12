@@ -26,9 +26,9 @@ public class ProductService {
 		return productRepository.save(product);
 	}
 
-	public Product updateProduct(Long productId, @Valid Product product) {
+	public Product updateProduct(Long id, @Valid Product product) {
 
-		return productRepository.findById(productId).map(productDty -> {
+		return productRepository.findById(id).map(productDty -> {
 
 			productDty.setCategory(product.getCategory());
 			productDty.setName(product.getName());
@@ -41,9 +41,9 @@ public class ProductService {
 		}).orElse(null);
 	}
 
-	public boolean deleteProduct(Long productId) {
+	public boolean deleteProduct(Long id) {
 
-		return productRepository.findById(productId).map(productDty -> {
+		return productRepository.findById(id).map(productDty -> {
 
 			productRepository.delete(productDty);
 

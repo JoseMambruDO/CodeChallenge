@@ -271,9 +271,7 @@
 						.getElementById("fc_description").value;
 
 				var url = srcproducts + "/" + dataProduct.id
-				console.log(url);
-				console.log(dataProduct);
-
+			
 				var json = JSON.stringify(dataProduct);
 				var xhr = new XMLHttpRequest();
 				xhr.open("PUT", url, true);

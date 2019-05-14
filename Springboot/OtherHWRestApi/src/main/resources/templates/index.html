@@ -368,72 +368,7 @@
 
 				}
 				
-		           chang4input = function (selector) {
-
-	                    elcur = document.getElementsByClassName('inputactive');
-
-	                    if (elcur.length === 1) {
-	                        curInput = elcur[0];
-	                        if (validateNumber(curInput) == true) {
-
-	                            valor = (curInput.innerText || curInput.textContent || curInput.value);
-
-	                            if (Number(valor) !== Number(currRow["value"])) {
-
-	                                var answer = confirm("Se esta moviendo para otro campo, Desea guardar los cambios?");
-	                                if (answer) {
-
-
-	                                    currRow.value = valor;
-	                                    dataUpdate = {};
-
-	                                    dataUpdate.id = currRow.id;
-	                                    dataUpdate.productno = currRow.productno;
-	                                    dataUpdate.productname = currRow.productname;
-	                                    dataUpdate.quantity = currRow.quantity;
-	                                    dataUpdate.price = currRow.price;
-
-	                                    if (currRow.selector.substring(0, 3) === "qty")
-	                                        dataUpdate.quantity = Number(valor);
-	                                    else if (currRow.selector.substring(0, 5) === "price") {
-	                                        dataUpdate.price = Number(valor);
-	                                    }
-	                                    performanceUpdate(dataUpdate);
-	                                }
-
-
-	                            }
-
-	                            curSel = currRow.selector;
-	                            var qtyStatus = '';
-	                            if (curSel.substring(0, 3) === "qty") {
-	                                qtyStatus = 'style="color:red;"';
-	                            }
-
-
-	                            curInput.parentNode.innerHTML = '<a href="#" id=' + curSel + '  onclick="chang4input(\'' + curSel + '\')"  ' + qtyStatus + ' >' + currRow.value + '</a>';
-	                        }
-
-	                    }
-
-	                    el = document.getElementById(selector);
-
-	                    currRow.id = el.parentNode.parentNode.cells[0].innerHTML;
-	                    currRow.productno = el.parentNode.parentNode.cells[1].innerHTML;
-	                    currRow.productname = el.parentNode.parentNode.cells[2].innerHTML;
-	                    currRow.quantity = el.parentNode.parentNode.cells[3].getElementsByTagName('a')[0].innerHTML;
-	                    currRow.price = el.parentNode.parentNode.cells[4].getElementsByTagName('a')[0].innerHTML;
-
-	                    val = (el.innerText || el.textContent);
-	                    el.parentNode.innerHTML = '<input  id=' + selector + ' type="text" class="inputactive"  value=' + val + '> <div id="msgerr" class="invalid"><div>';
-
-	                    currRow.selector = selector;
-	                    currRow.value = val;
-
-
-	                };
-
-
+		         
 				this.findproducts = function() {
 
 					//getting value for filtering

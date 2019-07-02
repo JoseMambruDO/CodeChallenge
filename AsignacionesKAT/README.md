@@ -1,8 +1,8 @@
 Fundamentos Git
 ==
-https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf
-Tarea 0
-Crear un repositorio en GitHub con el nombre AsignacionesKAT, crear una carpeta Tarea0, y agregar un archivo Readme.md
+https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf  
+Tarea 0  
+Crear un repositorio en GitHub con el nombre AsignacionesKAT, crear una carpeta Tarea0, y agregar un archivo Readme.md  
 
 Fundamentos Grovy
 ==
@@ -11,17 +11,17 @@ Consola Groovy
  https://groovyconsole.appspot.com/
 Tarea 1
 Realizar los siguientes ejecicios en Groovy
- https://codingbat.com/prob/p187868
- https://codingbat.com/prob/p181646
- https://codingbat.com/prob/p154485
- https://codingbat.com/prob/p101475
- https://codingbat.com/prob/p171260
- https://codingbat.com/prob/p161056
- https://codingbat.com/prob/p147483
- https://codingbat.com/prob/p159531
- https://codingbat.com/prob/p157733
- https://codingbat.com/prob/p133158
- https://codingbat.com/prob/p118290
+ https://codingbat.com/prob/p187868  
+ https://codingbat.com/prob/p181646  
+ https://codingbat.com/prob/p154485  
+ https://codingbat.com/prob/p101475  
+ https://codingbat.com/prob/p171260  
+ https://codingbat.com/prob/p161056  
+ https://codingbat.com/prob/p147483  
+ https://codingbat.com/prob/p159531  
+ https://codingbat.com/prob/p157733  
+ https://codingbat.com/prob/p133158  
+ https://codingbat.com/prob/p118290  
 
 Curso Katalon
 ==

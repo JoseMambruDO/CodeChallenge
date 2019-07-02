@@ -6,11 +6,11 @@ Crear un repositorio en GitHub con el nombre AsignacionesKAT, crear una carpeta 
 
 Fundamentos Grovy
 ==
- https://learnxinyminutes.com/docs/groovy/
-Consola Groovy
- https://groovyconsole.appspot.com/
+https://learnxinyminutes.com/docs/groovy/  
+Consola Groovy  
+ https://groovyconsole.appspot.com/  
 Tarea 1
-Realizar los siguientes ejecicios en Groovy
+Realizar los siguientes ejecicios en Groovy  
  https://codingbat.com/prob/p187868  
  https://codingbat.com/prob/p181646  
  https://codingbat.com/prob/p154485  
@@ -26,5 +26,5 @@ Realizar los siguientes ejecicios en Groovy
 Curso Katalon
 ==
 https://www.udemy.com/katalon-studio-step-by-step-for-beginners/
-Hasta Results and Reports
+
 Tarea 2: Crear una carpeta Tarea2, y hacer cada asignacion del curso.

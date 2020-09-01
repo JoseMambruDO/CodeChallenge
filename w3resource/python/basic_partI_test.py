@@ -16,6 +16,7 @@ class BasicPartITest(unittest.TestCase):
         self.assertNotEqual(q1_twinkle(), '')
         self.assertEqual(q1_twinkle().count('\n'),5)
         self.assertEqual(q1_twinkle().lower().count('twinkle'),4)
+        self.assertEqual(q1_twinkle().lower().count('twinkle'),5)
 
     def test_q2_python_version(self):
         self.assertNotEqual(q2_python_version(), '')

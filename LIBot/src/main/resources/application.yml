@@ -1,7 +1,0 @@
-spring:
-  application:
-    name: LIBot
-  thymeleaf:
-    cache: false
-    suffix: .html
-  

@@ -23,7 +23,6 @@ def q1_twinkle():
     '''
     string = 'Twinkle, twinkle, little star,\n\tHow I wonder what you are!\n\t\tUp above the world so high,\n\t\tLike a diamond in the sky.\nTwinkle, twinkle, little star,\n\tHow I wonder what you are'
 
-    # print(string)
 
     return string
 
@@ -55,10 +54,17 @@ def q4_circleArea(r):
     return (r * r) * pi
 
 
-def q5_circleArea(first, last):
+def q5_reverseFirstLast(first, last):
     '''Write a Python program which accepts the user's first and last name
     and print them in reverse order with a space between them. '''
     return '{ } { }'.format(last, first)
+
+def q6_separe2LT(sep):
+    ''' Write a Python program which accepts a sequence of comma-separated
+    numbers from user and generate a list and a tuple with those numbers.'''
+    l = sep.split(',')
+    t = tuple(l)
+    return l, t
 
 
 def q7_displayExtension(filename):
@@ -70,15 +76,6 @@ def q7_displayExtension(filename):
     if (len(sp) > 1):
         return sp[-1]
     return ''
-
-
-def q6_separe2LT(sep):
-    ''' Write a Python program which accepts a sequence of comma-separated
-    numbers from user and generate a list and a tuple with those numbers.'''
-    l = sep.split(',')
-    t = tuple(l)
-    return l, t
-
 
 def q8_firstLastColor():
     '''Write a Python program to display the first and last colors from the
@@ -113,7 +110,7 @@ def q11_documentsBuiltinF(func):
         f = eval(func)
         desc = f.__doc__
     except NameError as e:
-        print('asf')
+        pass
 
     return desc
 
@@ -191,7 +188,7 @@ def q19_startWithOrAdd(start, word):
     "Is" has been added to the front. If the given string already begins with
     "Is" then return the string unchanged. '''
 
-    return word.startswith(star)
+    return word.startswith(start)
 
 
 def q20_nCopyString(str, n):
@@ -376,14 +373,15 @@ def q39_mortage(amt, int, years):
     return amt * (3.5 ** 7)
 
 
+from math import sqrt
+
 def q40_distBetweenPoints(x1, y1, x2, y2):
     '''40. Write a Python program to compute the distance between
     the points (x1, y1) and (x2, y2).'''
-    return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+    return sqrt((x2 - x1)**2 + (y2 - y1)**2)
 
 
 from os import stat
-
 
 def q41_checkExistsFile(pFile):
     '''41. Write a Python program to check whether a file exists.'''
@@ -477,7 +475,6 @@ def q49_dirAllFiles(dir):
 
 def q50_dropNewLineorSpace(value):
     '''50. Write a Python program to print without newline or space.'''
-    empty = ''
     re = value.replace(' ', '').replace('\n', '')
     return re
 
@@ -491,7 +488,7 @@ def q51_profilePyProgram(expresion):
     how long various parts of the program executed. These statistics can be
     formatted into reports via the pstats module.
     '''
-    cProfile.run(expresions)
+    cProfile.run(expresion)
 
 
 import sys
@@ -507,13 +504,12 @@ from os import environ
 
 def q53_accessEnvVar(var):
     '''53. Write a python program to access environment variables.'''
-    re = ''
+    res = ''
     try:
-        re = os.environ[var]
+        res = os.environ[var]
     except KeyError:
-        print "KeyError, use other variable"
-
-   return re
+        print ("KeyError, use other variable")
+    return res
 
 from os import getlogin
 def q54_getCurrentUsername():
@@ -521,9 +517,10 @@ def q54_getCurrentUsername():
     return getlogin()
 
 from socket import gethostbyname, gethostname
+
 def q55_getLocalIPAddresses():
     '''55. Write a Python to find local IP addresses using Python's stdlib'''
-    return socket.gethostbyname(socket.gethostname())
+    return gethostbyname(gethostname())
 
 import fcntl, termios, struct
 def q56_getHeightAndWidthConsole():
@@ -549,7 +546,7 @@ def q59_convertHeightfi2c(f,i):
 def q60_calculateHyp(a,b):
     '''60. Write a Python program to calculate the hypotenuse of
     a right angled triangle.'''
-    c = math.sqrt(a**2 + b**2)
+    return sqrt(a**2 + b**2)
 
 def q61_convertDistancef2iym(f):
     '''61. Write a Python program to convert the distance (in feet) to inches,
@@ -610,7 +607,7 @@ def q69_sortThreeIntegers(a,b,c):
     '''69. Write a Python program to sort three integers without using conditional
     statements and loops.'''
     l = [a,b,c]
-    return sort(l)
+    return sorted(l)
 
 import glob
 import os
@@ -627,6 +624,13 @@ def q71_sortFilesByCreationDate(ext):
     files = glob.glob(ext)
     files.sort(key=os.path.getctime)
     return ("\n".join(files))
+
+
+
+#
+#
+# TODO LIST
+#
 
 '''72. Write a Python program to get the details of math module.'''
 
@@ -933,7 +937,3 @@ sum of the cube of all the positive integers smaller than the specified number.'
 
 '''150. Write a Python function to find a distinct pair of numbers whose product
 is odd from a sequence of integer values.'''
-
-
-if __name__ == '__main__':
-    print("some test")

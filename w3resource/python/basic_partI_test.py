@@ -26,9 +26,9 @@ class BasicPartITest(unittest.TestCase):
         re.match("\d{4}-\d\d-\d\d \d\d:\d\d:\d\d", q3_diplayCurrentDate())
 
     def test_q4_circleArea(self):
-        self.assertNotEqual(q3_circleArea(21), 0)
-        self.assertLess( 2.5,q3_circleArea(2))
-        self.assertEqual(q3_circleArea(1.1), 3.8013271108436504)
+        self.assertNotEqual(q4_circleArea(21), 0)
+        self.assertLess( 2.5,q4_circleArea(2))
+        self.assertEqual(q4_circleArea(1.1), 3.8013271108436504)
 
     def test_q5_reverseFirstLast(self):
         self.assertEqual(q5_reverseFirstLast('John','Doe'), 'Doe John')
@@ -77,28 +77,28 @@ class BasicPartITest(unittest.TestCase):
     def test_q15_getVolumeSphere(self):
         self.assertEqual(q15_getVolumeSphere(2),33.51)
 
-    def test_q16_near_oneOrTwoThounsand(self):
-        self.assertEqual(q16_near_oneOrTwoThounsand(2000),True)
-        self.assertTrue(q16_near_oneOrTwoThounsand(2000))
-        self.assertFalse(q16_near_oneOrTwoThounsand(1200))
-        self.assertTrue(q16_near_oneOrTwoThounsand(1000))
-        self.assertFalse(q16_near_oneOrTwoThounsand(200))
-        self.assertTrue(q16_near_oneOrTwoThounsand(1001))
-        self.assertTrue(q16_near_oneOrTwoThounsand(2012))
+    def test_q17_near_oneOrTwoThounsand(self):
+        self.assertEqual(q17_near_oneOrTwoThounsand(2000),True)
+        self.assertTrue(q17_near_oneOrTwoThounsand(2000))
+        self.assertFalse(q17_near_oneOrTwoThounsand(1200))
+        self.assertTrue(q17_near_oneOrTwoThounsand(1000))
+        self.assertFalse(q17_near_oneOrTwoThounsand(200))
+        self.assertTrue(q17_near_oneOrTwoThounsand(1001))
+        self.assertTrue(q17_near_oneOrTwoThounsand(2012))
 
-    def test_q17_sumOfValues(self):
-        self.assertEqual(q17_sumOfValues(1,1,1),9)
-        self.assertEqual(q17_sumOfValues(1,2,3),6)
-        self.assertEqual(q17_sumOfValues(2,2,2),18)
-        self.assertEqual(q17_sumOfValues(3,5,7),15)
-        self.assertEqual(q17_sumOfValues(1,1,33),35)
-        self.assertEqual(q17_sumOfValues(1,12,1),14)
+    def test_q18_sumOfValues(self):
+        self.assertEqual(q18_sumOfValues(1,1,1),9)
+        self.assertEqual(q18_sumOfValues(1,2,3),6)
+        self.assertEqual(q18_sumOfValues(2,2,2),18)
+        self.assertEqual(q18_sumOfValues(3,5,7),15)
+        self.assertEqual(q18_sumOfValues(1,1,33),35)
+        self.assertEqual(q18_sumOfValues(1,12,1),14)
 
-    def test_q18_startWithOrAdd(self):
-        self.assertTrue(q18_startWithOrAdd('Is','IsTV'))
-        self.assertTrue(q18_startWithOrAdd('Is','TV'))
-        self.assertTrue(q18_startWithOrAdd('Is','IsEmpty'))
-        self.assertTrue(q18_startWithOrAdd('Is','Empty'))
+    def test_q19_startWithOrAdd(self):
+        self.assertTrue(q19_startWithOrAdd('Is','IsTV'))
+        self.assertTrue(q19_startWithOrAdd('Is','TV'))
+        self.assertTrue(q19_startWithOrAdd('Is','IsEmpty'))
+        self.assertTrue(q19_startWithOrAdd('Is','Empty'))
 
     def test_q20_nCopyString(self):
         self.assertEqual(q20_nCopyString('asdf',3),"asdfasdfasdf")
@@ -200,7 +200,10 @@ class BasicPartITest(unittest.TestCase):
         self.assertEqual(q38_solveEq(4,3),49)
 
     def test_q40_distBetweenPoints(self):
-        self.assertEqual(q40_distBetweenPoints(1,1,1,1,1),0)
+        self.assertEqual(q40_distBetweenPoints(1,1,1,1),0)
+        self.assertEqual(q40_distBetweenPoints(13,15,12,14),1)
+        self.assertEqual(q40_distBetweenPoints(12,12,12,12),0)
+        self.assertEqual(q40_distBetweenPoints(1,1,2,2),1)
 
     def test_q47_getNumberCPUs(self):
         self.assertLess(0, q47_getNumberCPUs())

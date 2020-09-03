@@ -25,9 +25,12 @@ class Misc_Part_Test(unittest.TestCase):
     def test_hasConsecutive(self):
         
         self.assertEqual(hasConsecutive([1,2,3,4]),True)
-        self.assertEqual(hasConsecutive([11,21,31,41]),False)
-        self.assertEqual(hasConsecutive([0,1,6,8]),True)
+        self.assertEqual(hasConsecutive([42,21,31,41]),True)
+        self.assertEqual(hasConsecutive([30,1,6,8,31]),True)
 
+        self.assertEqual(hasConsecutive([0,0,0,2,4]),False)
+        self.assertEqual(hasConsecutive([33,3,3,3,3]),False)
+        self.assertEqual(hasConsecutive([5,5,5,5,8]),False)
 
 if __name__ == '__main__':
     unittest.main()

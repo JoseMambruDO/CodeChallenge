@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
+import datetime
 
-def hasConsecutive(mlist):
-            
+def hasConsecutive(mlist):    
     "Determine if the current list has at least one consecutive number"
     arm = np.array(mlist)
     arm.sort()
@@ -18,3 +18,7 @@ def hasConsecutive(mlist):
     return result
 
 
+def currWeek():
+    "Determine current week"
+    now = datetime.datetime.now()
+    return now.strftime("%W")

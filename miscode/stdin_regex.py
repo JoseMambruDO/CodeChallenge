@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
 import re
 import sys
 
-
 def testlines(regex, lines):
+    '''Read the lines of the standard input and print the lines that 
+    correspond to a regular expression. '''
     cpre = re.compile(regex)
 
     for l in lines:

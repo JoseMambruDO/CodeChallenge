@@ -6,20 +6,6 @@ from misc_partI import *
 
 import re
 
-
-
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-""" Some wonderful lines in python """
-"""Source: https://www.w3resource.com/python-exercises/python-basic-exercises.php"""
-
-
-import unittest
-from misc_partI import *
-
-import re
-
 class Misc_Part_Test(unittest.TestCase):
 
     def test_hasConsecutive(self):

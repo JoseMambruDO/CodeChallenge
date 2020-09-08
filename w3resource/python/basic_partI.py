@@ -625,15 +625,17 @@ def q71_sortFilesByCreationDate(ext):
     files.sort(key=os.path.getctime)
     return ("\n".join(files))
 
+import math
+def q72_getDetailsMathModule():
+    '''72. Write a Python program to get the details of math module.'''
+
+    return dir(math)
 
 
 #
 #
 # TODO LIST
 #
-
-'''72. Write a Python program to get the details of math module.'''
-
 
 '''73. Write a Python program to calculate midpoints of a line.'''
 

@@ -218,6 +218,12 @@ class BasicPartITest(unittest.TestCase):
     def test_q54_getCurrentUsername(self):
         self.assertNotEqual('',q54_getCurrentUsername())
 
+    def test_q72_getDetailsMathModule(self):
+        content = q72_getDetailsMathModule()
+        self.assertEqual("<class 'list'>",type(content))
+        self.assertEqual("<class 'list'>",type(content))
+        self.assertIn('pow',content)
+
 
 
 if __name__ == '__main__':

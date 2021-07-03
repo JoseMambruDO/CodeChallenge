@@ -13,7 +13,6 @@
 ##
 ##The first line contains an integer,
 ##, the size of the array.
-##The second line contains space-separated integers that describe 
 
 
 def plusMinus(arr):

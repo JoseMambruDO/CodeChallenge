@@ -1,5 +1,4 @@
-import re
-import string
+
 ##A valid UID must follow the rules below:
 ##
 ##    It must contain at least 
@@ -14,6 +13,9 @@ import string
 ##No character should repeat.
 ##There must be exactly
 ##characters in a valid UID
+
+import re
+import string
 
 def valid(l):
     r = True
@@ -37,7 +39,7 @@ def valid(l):
         if set(l)!=10:
             r=False
     
-            
+        
             
 N = int(input())
 

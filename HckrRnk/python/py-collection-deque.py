@@ -33,4 +33,16 @@ for _ in range(int(input())):
 
 list_deque = list(map(str, list(d)))
 print(" ".join(list_deque))
+
+
+#Best Solution using getattr
+
+##d = deque()
+##for _ in range(int(input())):
+##        func, *num = input().split()
+##        getattr(d, func)(*num)
+##print(' '.join(d))
+
+
+
     

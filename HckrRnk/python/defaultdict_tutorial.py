@@ -14,7 +14,19 @@ for i in l:
         
         d['b'].append(f'{i}')
     
+    if (e == 'c') and f'{i-1' not in d['c'] :
+        
+        d['c'].append(f'{-1}')
+    
 
 print(' '.join(d['a']))
 print(' '.join(d['b']))
+print(' '.join(d['c']))
 
+a 1       group A contains 'a', 'a', 'b', 'a', 'b'
+a 2
+b 
+a
+b
+a       group B contains 'a', 'b'
+b

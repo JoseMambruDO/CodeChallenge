@@ -14,8 +14,6 @@ class CompresstheString():
 
     def giveCompress(self, s):
         keyfunc = lambda x: x[0]
-        li_tu_gr = []
-        for k, gr in groupby(s,keyfunc):
-            li_tu_gr.append("({1}, {0})".format(k,len(list(gr))))
+        li_tu_gr = ["({1}, {0})".format(k,len(list(gr))) for k, gr in groupby(s,keyfunc)]
 
         return " ".join(li_tu_gr)
